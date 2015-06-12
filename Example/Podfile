@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'MessagesUIKit_Example', :exclusive => true do
+  pod "MessagesUIKit", :path => "../"
+end
+
+target 'MessagesUIKit_Tests', :exclusive => true do
+  pod "MessagesUIKit", :path => "../"
+
+  
+end
