@@ -1,0 +1,19 @@
+PODS:
+  - MessagesUIKit (0.1.0):
+    - SDWebImage (= 3.7.2)
+  - SDWebImage (3.7.2):
+    - SDWebImage/Core (= 3.7.2)
+  - SDWebImage/Core (3.7.2)
+
+DEPENDENCIES:
+  - MessagesUIKit (from `../`)
+
+EXTERNAL SOURCES:
+  MessagesUIKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MessagesUIKit: e2e857bb51d3f78a24861b3d011cec1755ad76f3
+  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+
+COCOAPODS: 0.37.2

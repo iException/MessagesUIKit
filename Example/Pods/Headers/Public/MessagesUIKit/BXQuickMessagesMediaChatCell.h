@@ -1,0 +1,1 @@
+../../../../../Pod/Classes/quickKit/collectionView/BXQuickMessagesMediaChatCell.h

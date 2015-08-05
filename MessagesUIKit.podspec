@@ -10,29 +10,23 @@
 Pod::Spec.new do |s|
   s.name             = "MessagesUIKit"
   s.version          = "0.1.0"
-  s.summary          = "A short description of MessagesUIKit."
+  s.summary          = "UIKit for Messaging. UI is similar to WeChat."
   s.description      = <<-DESC
-                       An optional longer description of MessagesUIKit
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       UIKit for Messaging. UI is similar to WeChat. You can custome most of the view.
                        DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/MessagesUIKit"
+  s.homepage         = "https://github.com/iException/MessagesUIKit"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "hyice" => "hy_ice719@163.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/MessagesUIKit.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/iException/MessagesUIKit.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
-    'MessagesUIKit' => ['Pod/Assets/*.png']
+      'MessagesUIKit' => ['Pod/Assets/*.png', 'Pod/Assets/*.xib', 'Pod/Assets/*.plist']
   }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'SDWebImage', '3.7.2'
 end

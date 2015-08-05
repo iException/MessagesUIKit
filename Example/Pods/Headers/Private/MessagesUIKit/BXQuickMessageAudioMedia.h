@@ -1,0 +1,1 @@
+../../../../../Pod/Classes/quickKit/messagesModel/BXQuickMessageAudioMedia.h
