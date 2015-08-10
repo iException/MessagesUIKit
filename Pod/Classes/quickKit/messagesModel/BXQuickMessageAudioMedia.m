@@ -9,6 +9,7 @@
 #import "BXQuickMessageAudioMedia.h"
 #import <AVFoundation/AVFoundation.h>
 #import "NSBundle+MessagesUIKit.h"
+#import "UIImage+MessagesUIKit.h"
 
 @interface BXQuickMessageAudioMedia() <AVAudioPlayerDelegate>
 
@@ -64,20 +65,20 @@
 {
     if (self.isPlaying) {
         if (self.displayOnLeft) {
-            self.audioView.animationImages = @[[UIImage imageNamed:@"ReceiverVoiceNodePlaying001" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil],
-                                               [UIImage imageNamed:@"ReceiverVoiceNodePlaying002" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil],
-                                               [UIImage imageNamed:@"ReceiverVoiceNodePlaying003" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil]];
+            self.audioView.animationImages = @[[UIImage buk_imageNamed:@"ReceiverVoiceNodePlaying001"],
+                                               [UIImage buk_imageNamed:@"ReceiverVoiceNodePlaying002"],
+                                               [UIImage buk_imageNamed:@"ReceiverVoiceNodePlaying003"]];
         }else {
-            self.audioView.animationImages = @[[UIImage imageNamed:@"SenderVoiceNodePlaying001" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil],
-                                               [UIImage imageNamed:@"SenderVoiceNodePlaying002" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil],
-                                               [UIImage imageNamed:@"SenderVoiceNodePlaying003" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil]];
+            self.audioView.animationImages = @[[UIImage buk_imageNamed:@"SenderVoiceNodePlaying001"],
+                                               [UIImage buk_imageNamed:@"SenderVoiceNodePlaying002"],
+                                               [UIImage buk_imageNamed:@"SenderVoiceNodePlaying003"]];
         }
     }else {
         if (self.displayOnLeft) {
-            [self.audioView setImage:[UIImage imageNamed:@"ReceiverVoiceNodePlaying" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil]];
+            [self.audioView setImage:[UIImage buk_imageNamed:@"ReceiverVoiceNodePlaying"]];
             self.audioView.contentMode = UIViewContentModeLeft;
         }else {
-            [_audioView setImage:[UIImage imageNamed:@"SenderVoiceNodePlaying" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil]];
+            [_audioView setImage:[UIImage buk_imageNamed:@"SenderVoiceNodePlaying"]];
             self.audioView.contentMode = UIViewContentModeRight;
         }
     }

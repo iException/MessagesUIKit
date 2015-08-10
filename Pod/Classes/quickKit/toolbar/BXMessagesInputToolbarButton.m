@@ -8,6 +8,7 @@
 
 #import "BXMessagesInputToolbarButton.h"
 #import "NSBundle+MessagesUIKit.h"
+#import "UIImage+MessagesUIKit.h"
 
 @implementation BXMessagesInputToolbarButton
 
@@ -32,8 +33,8 @@
                                                selector:(SEL)selector
 {
     BXMessagesInputToolbarButton *btn = [BXMessagesInputToolbarButton buttonWithType:UIButtonTypeCustom];
-    [btn setImage:[UIImage imageNamed:normalImage inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:highlightImage inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil] forState:UIControlStateHighlighted];
+    [btn setImage:[UIImage buk_imageNamed:normalImage] forState:UIControlStateNormal];
+    [btn setImage:[UIImage buk_imageNamed:highlightImage] forState:UIControlStateHighlighted];
     [btn addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
     
     return btn;

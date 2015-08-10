@@ -8,6 +8,7 @@
 
 #import "BXQuickMessageLocationMedia.h"
 #import "NSBundle+MessagesUIKit.h"
+#import "UIImage+MessagesUIKit.h"
 
 @interface BXQuickMessageLocationMedia()
 
@@ -82,7 +83,7 @@
     if (!_imageView) {
         _imageView = [[UIImageView alloc] init];
         _imageView.contentMode = UIViewContentModeScaleToFill;
-        _imageView.image = [UIImage imageNamed:@"map_placeholder.jpg" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil];
+        _imageView.image = [UIImage buk_imageNamed:@"map_placeholder.jpg"];
     }
     
     return _imageView;

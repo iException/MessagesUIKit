@@ -122,6 +122,8 @@
 		60761172D557129294772E0D /* BXQuickMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 35F5783A1ADDFDCC94E81B44 /* BXQuickMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		60FA2F17E6F033E820F2DA79 /* BXMessagesInputMoreChoiceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1193E75E69B63D1DABAAB1F8 /* BXMessagesInputMoreChoiceItem.m */; };
 		61BDDA6C69A4688C73C4F1F5 /* SenderVoiceNodePlaying003@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 602ACA1710EFD20272125D7B /* SenderVoiceNodePlaying003@2x.png */; };
+		65DD643B1B78350E00A243AC /* UIImage+MessagesUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 65DD64391B78350E00A243AC /* UIImage+MessagesUIKit.h */; };
+		65DD643C1B78350E00A243AC /* UIImage+MessagesUIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DD643A1B78350E00A243AC /* UIImage+MessagesUIKit.m */; };
 		6643F8A65D740D8E9EF15876 /* multiMedia_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D316A9DE4316858C69DBCC9F /* multiMedia_HL@2x.png */; };
 		674F1FA3D0D5BFD0518B4E51 /* BXQuickMessagesCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 94AF45DDDFDD90D70E7502DC /* BXQuickMessagesCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67679E99CB798DD538EBD600 /* ReceiverVoiceNodePlaying003@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E999CCAA49FDFBEA4036024B /* ReceiverVoiceNodePlaying003@2x.png */; };
@@ -437,6 +439,8 @@
 		6342FA8B814D8C6272B63280 /* Pods-MessagesUIKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MessagesUIKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		64002BA2FF80FFCF4041F0F9 /* Pods-MessagesUIKit_Tests-MessagesUIKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "Pods-MessagesUIKit_Tests-MessagesUIKit.modulemap"; path = "../Pods-MessagesUIKit_Tests-MessagesUIKit/Pods-MessagesUIKit_Tests-MessagesUIKit.modulemap"; sourceTree = "<group>"; };
 		64D716535B098F6F69A687A3 /* BXQuickMessagesStatusLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BXQuickMessagesStatusLabel.m; sourceTree = "<group>"; };
+		65DD64391B78350E00A243AC /* UIImage+MessagesUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MessagesUIKit.h"; sourceTree = "<group>"; };
+		65DD643A1B78350E00A243AC /* UIImage+MessagesUIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MessagesUIKit.m"; sourceTree = "<group>"; };
 		6791A389E855FE052544DA59 /* Pods-MessagesUIKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MessagesUIKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		6B4E373DD0EEE20E05E26A42 /* BXMessagesInputToolbarButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BXMessagesInputToolbarButton.h; sourceTree = "<group>"; };
 		6D920BFB3541EEC86CEFC4B4 /* BXQuickMessagesStatusCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BXQuickMessagesStatusCell.h; sourceTree = "<group>"; };
@@ -817,6 +821,8 @@
 				B48CFADC85C237F94FEB5D32 /* NSBundle+MessagesUIKit.m */,
 				0E135709B1544C0A6343AD41 /* core */,
 				DBB63EF4ADD3A2A5057588DB /* quickKit */,
+				65DD64391B78350E00A243AC /* UIImage+MessagesUIKit.h */,
+				65DD643A1B78350E00A243AC /* UIImage+MessagesUIKit.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1156,6 +1162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0DD8149855C117E20E3CDED /* Pods-MessagesUIKit_Example-umbrella.h in Headers */,
+				65DD643B1B78350E00A243AC /* UIImage+MessagesUIKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1608,6 +1615,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65DD643C1B78350E00A243AC /* UIImage+MessagesUIKit.m in Sources */,
 				2834FBB578193D78D16C5AA2 /* Pods-MessagesUIKit_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

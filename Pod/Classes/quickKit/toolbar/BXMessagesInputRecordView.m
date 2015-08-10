@@ -8,6 +8,7 @@
 
 #import "BXMessagesInputRecordView.h"
 #import "NSBundle+MessagesUIKit.h"
+#import "UIImage+MessagesUIKit.h"
 
 @interface BXMessagesInputRecordView()
 
@@ -136,7 +137,7 @@
         _cancelIcon = [[UIImageView alloc] init];
         _cancelIcon.contentMode = UIViewContentModeCenter;
         _cancelIcon.hidden = YES;
-        [_cancelIcon setImage:[UIImage imageNamed:@"RecordCancel" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil]];
+        [_cancelIcon setImage:[UIImage buk_imageNamed:@"RecordCancel"]];
     }
     
     return _cancelIcon;
@@ -158,7 +159,7 @@
     if (!_recordIcon) {
         _recordIcon = [[UIImageView alloc] init];
         _recordIcon.contentMode = UIViewContentModeRight;
-        [_recordIcon setImage:[UIImage imageNamed:@"RecordingBkg" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil]];
+        [_recordIcon setImage:[UIImage buk_imageNamed:@"RecordingBkg"]];
     }
     
     return _recordIcon;
@@ -210,7 +211,7 @@
     }
     NSInteger volumnLevel = round(7*volumnRate) + 1;
     
-    [self.voiceIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"RecordingSignal00%1ld", (long)volumnLevel] inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil]];
+    [self.voiceIcon setImage:[UIImage buk_imageNamed:[NSString stringWithFormat:@"RecordingSignal00%1ld", (long)volumnLevel]]];
     
 }
 

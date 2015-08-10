@@ -20,6 +20,7 @@
 #import <UIImageView+WebCache.h>
 
 #import "NSBundle+MessagesUIKit.h"
+#import "UIImage+MessagesUIKit.h"
 
 static NSString * const incomingBXQuickMessagesTextChatCell = @"incomingBXQuickMessagesTextChatCell";
 static NSString * const incomingBXQuickMessagesMediaChatCell = @"incomingBXQuickMessagesMediaChatCell";
@@ -232,7 +233,7 @@ BXQuickMessagesChatCellDelegate>
         }
         
         if (storedImage) {
-            [cell.avatar sd_setImageWithURL:[NSURL URLWithString:storedImage] placeholderImage:[UIImage imageNamed:@"avator" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil]];
+            [cell.avatar sd_setImageWithURL:[NSURL URLWithString:storedImage] placeholderImage:[UIImage buk_imageNamed:@"avator"]];
         }
     });
 }
@@ -391,7 +392,7 @@ BXQuickMessagesChatCellDelegate>
             break;
     }
     
-    [cell.ibImageView setImage:[UIImage imageNamed:imageName inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil]];
+    [cell.ibImageView setImage:[UIImage buk_imageNamed:imageName]];
     cell.ibLabel.text = titleName;
 }
 

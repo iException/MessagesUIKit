@@ -11,6 +11,7 @@
 #import "UIView+BXMessagesKit.h"
 #import "BXQuickMessage.h"
 #import "NSBundle+MessagesUIKit.h"
+#import "UIImage+MessagesUIKit.h"
 
 @interface BXQuickMessagesBaseChatCell()
 
@@ -203,7 +204,7 @@
     _defaultAvataImagerName = defaultAvataImagerName;
     [self didChangeValueForKey:NSStringFromSelector(@selector(defaultAvataImagerName))];
     
-    self.avatar.image = [UIImage imageNamed:defaultAvataImagerName inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil];
+    self.avatar.image = [UIImage buk_imageNamed:defaultAvataImagerName];
 }
 
 - (void)updateMarginConstraintsForAvatar

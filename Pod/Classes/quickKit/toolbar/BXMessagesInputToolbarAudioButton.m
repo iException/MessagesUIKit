@@ -10,6 +10,7 @@
 #import "UIView+BXMessagesKit.h"
 #import "BXMessagesInputRecordView.h"
 #import "NSBundle+MessagesUIKit.h"
+#import "UIImage+MessagesUIKit.h"
 
 typedef NS_ENUM(NSInteger, BXMessagesInputToolbarAudioButtonState) {
     BXMessagesInputToolbarAudioButtonUnknownState = 0,
@@ -120,7 +121,7 @@ typedef NS_ENUM(NSInteger, BXMessagesInputToolbarAudioButtonState) {
         case BXMessagesInputToolbarAudioButtonRecordingState:
             title = @"松开 结束";
             color = [UIColor colorWithRed:0x6f/255.0 green:0x73/255.0 blue:0x78/255.0 alpha:1.0];
-            image = [UIImage imageNamed:@"VoiceBtn_BlackHL" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil];
+            image = [UIImage buk_imageNamed:@"VoiceBtn_BlackHL"];
             if (self.superview) {
                 self.recordView.type = BXMessagesInputRecordViewRecordType;
             }
@@ -129,7 +130,7 @@ typedef NS_ENUM(NSInteger, BXMessagesInputToolbarAudioButtonState) {
         case BXMessagesInputToolbarAudioButtonWillCancelState:
             title = @"松开 结束";
             color = [UIColor colorWithRed:0x6f/255.0 green:0x73/255.0 blue:0x78/255.0 alpha:1.0];
-            image = [UIImage imageNamed:@"VoiceBtn_BlackHL" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil];
+            image = [UIImage buk_imageNamed:@"VoiceBtn_BlackHL"];
             if (self.superview) {
                 self.recordView.type = BXMessagesInputRecordViewCacelType;
             }
@@ -140,7 +141,7 @@ typedef NS_ENUM(NSInteger, BXMessagesInputToolbarAudioButtonState) {
         default:
             title = @"按住 说话";
             color = [UIColor colorWithRed:0x6f/255.0 green:0x73/255.0 blue:0x78/255.0 alpha:1.0];
-            image = [UIImage imageNamed:@"VoiceBtn_Black" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil];
+            image = [UIImage imageNamed:@"VoiceBtn_Black"];
             break;
     }
     

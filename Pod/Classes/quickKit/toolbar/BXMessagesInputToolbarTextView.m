@@ -8,6 +8,7 @@
 
 #import "BXMessagesInputToolbarTextView.h"
 #import "NSBundle+MessagesUIKit.h"
+#import "UIImage+MessagesUIKit.h"
 
 static const CGFloat kBXMessagesInputToolbarTextViewMinHeight = 44;
 
@@ -43,7 +44,7 @@ static const CGFloat kBXMessagesInputToolbarTextViewMinHeight = 44;
         [self initBackground];
         [self initTextView];
         
-        self.backgroundImage = [UIImage imageNamed:@"VoiceBtn_Black" inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil];
+        self.backgroundImage = [UIImage buk_imageNamed:@"VoiceBtn_Black"];
         self.textViewInsets = UIEdgeInsetsMake(5, 3, 5, 3);
 
     }

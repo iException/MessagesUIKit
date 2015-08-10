@@ -8,6 +8,7 @@
 
 #import "BXQuickMessagesBubleModel.h"
 #import "NSBundle+MessagesUIKit.h"
+#import "UIImage+MessagesUIKit.h"
 
 @interface BXQuickMessagesBubleModel ()
 
@@ -108,7 +109,7 @@
 
 - (UIImage *)resizableImage
 {
-    UIImage *image = [UIImage imageNamed:self.maskBubleImage inBundle:[NSBundle buk_bundle] compatibleWithTraitCollection:nil];
+    UIImage *image = [UIImage buk_imageNamed:self.maskBubleImage];
     
     image = [self bubleImageFromImage:image maskedWithColor:self.currentMaskColor borderColor:self.currentBorderColor];
     
