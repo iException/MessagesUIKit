@@ -26,6 +26,10 @@ typedef NS_ENUM(NSInteger, BXQuickMessageType) {
 
 @interface BXQuickMessage : NSObject
 
+/**
+ *  MessageId is used for height cache, please keep it unique or left it nil
+ *  to avoid cache.
+ */
 @property (copy, nonatomic) NSString *messageId;
 
 @property (copy, nonatomic) NSString *senderId;

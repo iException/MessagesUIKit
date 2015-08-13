@@ -36,6 +36,8 @@ BXQuickMessagesChatCellDelegate>
 @property (strong, nonatomic) NSMutableDictionary *displayAvatarCacheDic;
 @property (strong, nonatomic) NSMutableDictionary *calculateHeightCells;
 
+@property (strong, nonatomic) NSCache *cellHeightCache;
+
 @property (assign, nonatomic) BOOL isLoading;
 
 @property (assign, nonatomic) BOOL viewDidAppearOnce;
@@ -261,6 +263,13 @@ BXQuickMessagesChatCellDelegate>
 {
     BXQuickMessage *message = [self.dataSource objectAtIndex:indexPath.item];
     
+    if (message.messageId) {
+        NSNumber *height = [self.cellHeightCache objectForKey:message.messageId];
+        if (height && [height isKindOfClass:[NSNumber class]]) {
+            return [height floatValue];
+        }
+    }
+    
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
 
     if (!cell) {
@@ -290,7 +299,13 @@ BXQuickMessagesChatCellDelegate>
         }
     }
     
-    return [cell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    CGFloat calculatedHeight = [cell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    
+    if (message.messageId) {
+        [self.cellHeightCache setObject:@(calculatedHeight) forKey:message.messageId];
+    }
+    
+    return calculatedHeight;
 }
 
 - (void)bx_registerCellsForCollectionView:(UICollectionView *)collectionView
@@ -497,6 +512,17 @@ BXQuickMessagesChatCellDelegate>
     return nil;
 }
 
+#pragma mark - cell height cache
+- (NSCache *)cellHeightCache
+{
+    if (!_cellHeightCache) {
+        _cellHeightCache = [[NSCache alloc] init];
+        _cellHeightCache.name = @"MessagesUIKit.CellHeightCache";
+        _cellHeightCache.countLimit = 200;
+    }
+    
+    return _cellHeightCache;
+}
 #pragma mark - 
 
 - (void)dealloc
