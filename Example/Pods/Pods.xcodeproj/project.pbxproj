@@ -29,7 +29,6 @@
 		0D7582EFBB2EBC906A8034D4 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B32388D5563413D594BADD9 /* UIImage+MultiFormat.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		0DCB1A29C40A8368F8C029C8 /* UIView+BXMessagesKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B535BBDF379F67E6E487AF8 /* UIView+BXMessagesKit.m */; };
 		0E3910897BD71AAECC625A10 /* RecordingSignal003@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A0764AD00399DF246673E6 /* RecordingSignal003@2x.png */; };
-		0E3938DEC659FEDF8E2DD3E4 /* sharemore_openapi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29C8BD287ACA8494D01EBE6D /* sharemore_openapi@2x.png */; };
 		0EE5DE3D964228247E941A1A /* BXMessagesInputToolbarTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 09D40E04AFFF8345172940A5 /* BXMessagesInputToolbarTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		105E023370FDAE8647066C17 /* BXMessagesInputMoreChoiceItem.h in Headers */ = {isa = PBXBuildFile; fileRef = C703E8D84D50D1D8334D3ED2 /* BXMessagesInputMoreChoiceItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		109657837A07BE8105475F35 /* BXMessagesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 395690D6B4238445D854FEB6 /* BXMessagesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -254,7 +253,6 @@
 		D84569CD633E179492071828 /* BXQuickMessagesStatusLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = A812CAC97CF8D1750CE94C09 /* BXQuickMessagesStatusLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA21E65E9A9CB26F3FE495A9 /* weChatBubble_Receiving_Solid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EEB069AB4E104E36744F21C5 /* weChatBubble_Receiving_Solid@2x.png */; };
 		DCDDECE037467282E93F62D4 /* BXQuickMessagesStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB88E8C1691309399DFD0B9 /* BXQuickMessagesStatusCell.m */; };
-		DD046F769817E6BE122E0469 /* sharemore_openapi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29C8BD287ACA8494D01EBE6D /* sharemore_openapi@2x.png */; };
 		DD486D188A23839D86CE2ACD /* BXQuickMessagePhotoMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD3D6F9EE2B5E357AAAAB4F /* BXQuickMessagePhotoMedia.m */; };
 		DDFC75790D423564D19CF883 /* BXMessagesMultiInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = 81895056488B249EB11D099E /* BXMessagesMultiInputView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE9D5AFBAEF86C5BA6088260 /* Pods-MessagesUIKit_Tests-SDWebImage-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A5CB6CD9FDEC2BCC5CB2A773 /* Pods-MessagesUIKit_Tests-SDWebImage-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -385,7 +383,6 @@
 		265D3CCECD8643335C3F2545 /* Pods-MessagesUIKit_Tests-SDWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesUIKit_Tests-SDWebImage.xcconfig"; path = "../Pods-MessagesUIKit_Tests-SDWebImage/Pods-MessagesUIKit_Tests-SDWebImage.xcconfig"; sourceTree = "<group>"; };
 		27D786F0AD1939D45AFB607B /* BXMessagesMultiInputView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BXMessagesMultiInputView.m; sourceTree = "<group>"; };
 		28E813E3857F6484DF140405 /* Pods-MessagesUIKit_Example-SDWebImage-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MessagesUIKit_Example-SDWebImage-Private.xcconfig"; sourceTree = "<group>"; };
-		29C8BD287ACA8494D01EBE6D /* sharemore_openapi@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "sharemore_openapi@2x.png"; sourceTree = "<group>"; };
 		29D1B2A276E21F3F12E35D85 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		2B3A62183D7FD1DD8FBEDDCE /* Pods-MessagesUIKit_Tests-MessagesUIKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-MessagesUIKit_Tests-MessagesUIKit-dummy.m"; path = "../Pods-MessagesUIKit_Tests-MessagesUIKit/Pods-MessagesUIKit_Tests-MessagesUIKit-dummy.m"; sourceTree = "<group>"; };
 		2C7942382E3F46F2E5EACF95 /* Pods-MessagesUIKit_Example-SDWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MessagesUIKit_Example-SDWebImage.xcconfig"; sourceTree = "<group>"; };
@@ -734,7 +731,6 @@
 				A456BF17DB852D796FE5A89A /* multiMedia@2x.png */,
 				D316A9DE4316858C69DBCC9F /* multiMedia_HL@2x.png */,
 				412CA4268052E67F323EB2F8 /* sharemore_location@2x.png */,
-				29C8BD287ACA8494D01EBE6D /* sharemore_openapi@2x.png */,
 				99BAAA1D485C27E126D09317 /* sharemore_pic@2x.png */,
 				B39591B0124E8536BFE5FEFF /* sharemore_video@2x.png */,
 				D80D35022B6E5FDD0E5365A1 /* voice@2x.png */,
@@ -1391,7 +1387,6 @@
 				ADB031BCE29B11B3D661ACEE /* multiMedia@2x.png in Resources */,
 				6643F8A65D740D8E9EF15876 /* multiMedia_HL@2x.png in Resources */,
 				CF659957A86279712A7ED6F6 /* sharemore_location@2x.png in Resources */,
-				DD046F769817E6BE122E0469 /* sharemore_openapi@2x.png in Resources */,
 				A49E817361FA0E3EA006ED39 /* sharemore_pic@2x.png in Resources */,
 				41F09599300DD42BEC522064 /* sharemore_video@2x.png in Resources */,
 				D433E37754851A5B9FA64292 /* voice@2x.png in Resources */,
@@ -1444,7 +1439,6 @@
 				1EC5A60AF1A45858EC99E3F8 /* multiMedia@2x.png in Resources */,
 				1EFF8F0BDD64A512039A7D76 /* multiMedia_HL@2x.png in Resources */,
 				8145B785FE7B3F378261E80D /* sharemore_location@2x.png in Resources */,
-				0E3938DEC659FEDF8E2DD3E4 /* sharemore_openapi@2x.png in Resources */,
 				A4911C5A9D4FC67C23832EF4 /* sharemore_pic@2x.png in Resources */,
 				7E6E03F7F2DE03CE54202DA8 /* sharemore_video@2x.png in Resources */,
 				A003174D9DCA8DF71A7F7FCB /* voice@2x.png in Resources */,
