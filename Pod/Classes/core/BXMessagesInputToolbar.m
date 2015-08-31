@@ -261,7 +261,7 @@
 - (void)initBorderLines
 {
     UIView *topLine = [[UIView alloc] init];
-    topLine.backgroundColor = [UIColor lightGrayColor];
+    topLine.backgroundColor = [UIColor colorWithRed:0xd0/255.0 green:0xd0/255.0 blue:0xd0/255.0 alpha:1.0];
     [self addSubview:topLine];
     
     topLine.translatesAutoresizingMaskIntoConstraints = NO;
@@ -271,7 +271,7 @@
     [self addConstraint:[NSLayoutConstraint constraintWithItem:topLine attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:0.5]];
     
     UIView *bottomLine = [[UIView alloc] init];
-    bottomLine.backgroundColor = [UIColor lightGrayColor];
+    bottomLine.backgroundColor = [UIColor colorWithRed:0xd0/255.0 green:0xd0/255.0 blue:0xd0/255.0 alpha:1.0];
     [self addSubview:bottomLine];
     
     bottomLine.translatesAutoresizingMaskIntoConstraints = NO;

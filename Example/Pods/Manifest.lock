@@ -1,5 +1,5 @@
 PODS:
-  - MessagesUIKit (0.1.0):
+  - MessagesUIKit (0.1.2):
     - SDWebImage (= 3.7.2)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
@@ -13,7 +13,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MessagesUIKit: e2e857bb51d3f78a24861b3d011cec1755ad76f3
+  MessagesUIKit: ea032c326117d6cf20c61d2f797160e8b6893ca1
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
 
 COCOAPODS: 0.37.2

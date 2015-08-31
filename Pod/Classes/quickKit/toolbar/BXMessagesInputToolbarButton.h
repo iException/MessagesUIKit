@@ -20,7 +20,6 @@
 @property (assign, nonatomic) CGFloat height;
 
 + (BXMessagesInputToolbarButton *)buttonWithNormalImage:(NSString *)normalImage
-                                         highlightImage:(NSString *)highlightImage
                                                  target:(id)target
                                                selector:(SEL)selector;
 

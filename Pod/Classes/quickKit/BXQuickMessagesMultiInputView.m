@@ -79,7 +79,7 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
 - (BXMessagesInputToolbarButton *)audioButton
 {
     if (!_audioButton) {
-        _audioButton = [BXMessagesInputToolbarButton buttonWithNormalImage:@"voice" highlightImage:@"voice_HL" target:self selector:@selector(audioButtonPressed:)];
+        _audioButton = [BXMessagesInputToolbarButton buttonWithNormalImage:@"buk-toolbar-audio" target:self selector:@selector(audioButtonPressed:)];
     }
     
     return _audioButton;
@@ -99,7 +99,7 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
 - (BXMessagesInputToolbarButton *)keyboardButton
 {
     if (!_keyboardButton) {
-        _keyboardButton = [BXMessagesInputToolbarButton buttonWithNormalImage:@"keyborad" highlightImage:@"keyborad_HL" target:self selector:@selector(keyboardButtonPressed:)];
+        _keyboardButton = [BXMessagesInputToolbarButton buttonWithNormalImage:@"buk-toolbar-keyboard" target:self selector:@selector(keyboardButtonPressed:)];
     }
     
     return _keyboardButton;
@@ -136,7 +136,7 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
 - (BXMessagesInputToolbarButton *)emojiButton
 {
     if (!_emojiButton) {
-        _emojiButton = [BXMessagesInputToolbarButton buttonWithNormalImage:@"face" highlightImage:@"face_HL" target:self selector:@selector(emojiButtonPressed:)];
+        _emojiButton = [BXMessagesInputToolbarButton buttonWithNormalImage:@"buk-toolbar-emoji" target:self selector:@selector(emojiButtonPressed:)];
     }
     
     return _emojiButton;
@@ -162,7 +162,7 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
 - (BXMessagesInputToolbarButton *)accessoryButton
 {
     if (!_accessoryButton) {
-        _accessoryButton = [BXMessagesInputToolbarButton buttonWithNormalImage:@"multiMedia" highlightImage:@"multiMedia_HL" target:self selector:@selector(accessoryButtonPressed:)];
+        _accessoryButton = [BXMessagesInputToolbarButton buttonWithNormalImage:@"buk-toolbar-more" target:self selector:@selector(accessoryButtonPressed:)];
     }
     
     return _accessoryButton;

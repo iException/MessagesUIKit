@@ -1,6 +1,6 @@
 {
   "name": "MessagesUIKit",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "summary": "UIKit for Messaging. UI is similar to WeChat.",
   "description": "                       UIKit for Messaging. UI is similar to WeChat. You can custome most of the view.\n",
   "homepage": "https://github.com/iException/MessagesUIKit",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/iException/MessagesUIKit.git",
-    "tag": "0.1.0"
+    "tag": "0.1.2"
   },
   "platforms": {
     "ios": "7.0"

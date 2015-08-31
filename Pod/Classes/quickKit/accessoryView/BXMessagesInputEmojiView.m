@@ -33,7 +33,7 @@
         self.flexibleHeight = NO;
         self.height = 215;
         
-        self.backgroundColor = [UIColor colorWithRed:0xf6/255.0 green:0xf6/255.0 blue:0xf8/255.0 alpha:1.0];
+        self.backgroundColor = [UIColor whiteColor];
         
         [self loadEmojis];
         
@@ -187,7 +187,7 @@
 {
     if (!_sendButton) {
         _sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _sendButton.backgroundColor = [UIColor colorWithRed:0xf4/255.0 green:0xf4/255.0 blue:0xf6/255.0 alpha:1.0];
+        _sendButton.backgroundColor = [UIColor colorWithRed:0xf9/255.0 green:0xf9/255.0 blue:0xf9/255.0 alpha:1.0];
         [_sendButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         [_sendButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
         [_sendButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
@@ -212,7 +212,7 @@
 {
     if (!_deleteButton) {
         _deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _deleteButton.backgroundColor = [UIColor colorWithRed:0xf4/255.0 green:0xf4/255.0 blue:0xf6/255.0 alpha:1.0];
+        _deleteButton.backgroundColor = [UIColor colorWithRed:0xf9/255.0 green:0xf9/255.0 blue:0xf9/255.0 alpha:1.0];
         [_deleteButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         [_deleteButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
         [_deleteButton addTarget:self action:@selector(deleteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];

@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, BXMessagesInputToolbarAudioButtonState) {
 
 @property (assign, nonatomic) BXMessagesInputToolbarAudioButtonState recordState;
 @property (strong, nonatomic) BXMessagesInputRecordView *recordView;
+@property (strong, nonatomic) UIImageView *backgroundView;
 
 @end
 
@@ -35,6 +36,9 @@ typedef NS_ENUM(NSInteger, BXMessagesInputToolbarAudioButtonState) {
     self = [super initWithFrame:frame];
     
     if (self) {
+        
+        [self addBackgroundView];
+        
         [self setupButtonCofiguration];
         
         self.recordState = BXMessagesInputToolbarAudioButtonWaitForRecordState;
@@ -49,7 +53,8 @@ typedef NS_ENUM(NSInteger, BXMessagesInputToolbarAudioButtonState) {
     self.flexibleHeight = NO;
     self.height = 44;
     
-    self.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+    self.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    [self setTitleColor:[UIColor colorWithRed:0x67/255.0 green:0x67/255.0 blue:0x67/255.0 alpha:1.0] forState:UIControlStateNormal];
     
     self.recordState = BXMessagesInputToolbarAudioButtonWaitForRecordState;
 }
@@ -121,7 +126,7 @@ typedef NS_ENUM(NSInteger, BXMessagesInputToolbarAudioButtonState) {
         case BXMessagesInputToolbarAudioButtonRecordingState:
             title = @"松开 结束";
             color = [UIColor colorWithRed:0x6f/255.0 green:0x73/255.0 blue:0x78/255.0 alpha:1.0];
-            image = [UIImage buk_imageNamed:@"VoiceBtn_BlackHL"];
+            image = [UIImage buk_imageNamed:@"buk-toolbar-graybg"];
             if (self.superview) {
                 self.recordView.type = BXMessagesInputRecordViewRecordType;
             }
@@ -130,7 +135,7 @@ typedef NS_ENUM(NSInteger, BXMessagesInputToolbarAudioButtonState) {
         case BXMessagesInputToolbarAudioButtonWillCancelState:
             title = @"松开 结束";
             color = [UIColor colorWithRed:0x6f/255.0 green:0x73/255.0 blue:0x78/255.0 alpha:1.0];
-            image = [UIImage buk_imageNamed:@"VoiceBtn_BlackHL"];
+            image = [UIImage buk_imageNamed:@"buk-toolbar-graybg"];
             if (self.superview) {
                 self.recordView.type = BXMessagesInputRecordViewCacelType;
             }
@@ -141,15 +146,13 @@ typedef NS_ENUM(NSInteger, BXMessagesInputToolbarAudioButtonState) {
         default:
             title = @"按住 说话";
             color = [UIColor colorWithRed:0x6f/255.0 green:0x73/255.0 blue:0x78/255.0 alpha:1.0];
-            image = [UIImage imageNamed:@"VoiceBtn_Black"];
+            image = [UIImage imageNamed:@"buk-toolbar-whitebg"];
             break;
     }
     
     [self setTitle:title forState:UIControlStateNormal];
     [self setTitleColor:color forState:UIControlStateNormal];
-    [self setBackgroundImage:[image stretchableImageWithLeftCapWidth:image.size.width/2.0
-                                                                 topCapHeight:image.size.height/2.0]
-                    forState:UIControlStateNormal];
+    self.backgroundView.image = [image stretchableImageWithLeftCapWidth:image.size.width/2.0 topCapHeight:image.size.height/2.0];
     
     if (self.superview) {
         self.recordView.hidden = (recordState == BXMessagesInputToolbarAudioButtonWaitForRecordState);
@@ -193,6 +196,28 @@ typedef NS_ENUM(NSInteger, BXMessagesInputToolbarAudioButtonState) {
     
     return _recordView;
 }
+
+#pragma mark - background view
+- (UIImageView *)backgroundView
+{
+    if (!_backgroundView) {
+        _backgroundView = [[UIImageView alloc] init];
+        _backgroundView.clipsToBounds = YES;
+    }
+    
+    return _backgroundView;
+}
+
+- (void)addBackgroundView
+{
+    [self addSubview:self.backgroundView];
+
+    self.backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_backgroundView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_backgroundView)]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-7-[_backgroundView]-7-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_backgroundView)]];
+}
+
+#pragma mark -
 
 - (void)dealloc
 {

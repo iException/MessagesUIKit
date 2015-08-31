@@ -33,6 +33,7 @@
 #import "BXMessagesInputToolbarAudioButton.h"
 #import "BXMessagesInputToolbarButton.h"
 #import "BXMessagesInputToolbarTextView.h"
+#import "UIImage+MessagesUIKit.h"
 
 FOUNDATION_EXPORT double MessagesUIKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char MessagesUIKitVersionString[];

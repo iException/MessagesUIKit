@@ -387,23 +387,18 @@ BXQuickMessagesChatCellDelegate>
     
     switch (index) {
         case 0:
-            imageName = @"sharemore_pic";
+            imageName = @"buk-accessory-photo";
             titleName = @"照片";
             break;
             
         case 1:
-            imageName = @"sharemore_video";
+            imageName = @"buk-accessory-camera";
             titleName = @"拍摄";
             break;
             
         case 2:
-            imageName = @"sharemore_location";
+            imageName = @"buk-accessory-location";
             titleName = @"位置";
-            break;
-            
-        default:
-            imageName = @"sharemore_openapi";
-            titleName = @"更多";
             break;
     }
     

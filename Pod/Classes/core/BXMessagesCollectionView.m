@@ -21,7 +21,7 @@
     self = [super initWithFrame:frame collectionViewLayout:layout];
     
     if (self) {
-        self.backgroundColor = [UIColor colorWithRed:0xeb/255.0 green:0xeb/255.0 blue:0xeb/255.0 alpha:1.0];
+        self.backgroundColor = [UIColor clearColor];
         [self initLoadingIndicator];
     }
     

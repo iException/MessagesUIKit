@@ -42,7 +42,7 @@
 {
     if (!_inputToolbar) {
         _inputToolbar = [[BXMessagesInputToolbar alloc] init];
-        _inputToolbar.backgroundColor = [UIColor colorWithRed:0xf4/255.0 green:0xf4/255.0 blue:0xf6/255.0 alpha:1.0];
+        _inputToolbar.backgroundColor = [UIColor colorWithRed:0xf9/255.0 green:0xf9/255.0 blue:0xf9/255.0 alpha:1.0];
     }
     
     return _inputToolbar;
@@ -71,7 +71,7 @@
 {
     if (!_accessoryView) {
         _accessoryView = [[BXMessagesInputAccessoryView alloc] init];
-        _accessoryView.backgroundColor = [UIColor colorWithRed:0xf4/255.0 green:0xf4/255.0 blue:0xf6/255.0 alpha:1.0];
+        _accessoryView.backgroundColor = [UIColor whiteColor];
     }
     
     return _accessoryView;

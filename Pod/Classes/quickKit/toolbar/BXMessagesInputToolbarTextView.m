@@ -44,8 +44,8 @@ static const CGFloat kBXMessagesInputToolbarTextViewMinHeight = 44;
         [self initBackground];
         [self initTextView];
         
-        self.backgroundImage = [UIImage buk_imageNamed:@"VoiceBtn_Black"];
-        self.textViewInsets = UIEdgeInsetsMake(5, 3, 5, 3);
+        self.backgroundImage = [UIImage buk_imageNamed:@"buk-toolbar-whitebg"];
+        self.textViewInsets = UIEdgeInsetsMake(9, 3, 9, 3);
 
     }
     
@@ -60,7 +60,7 @@ static const CGFloat kBXMessagesInputToolbarTextViewMinHeight = 44;
     self.background.translatesAutoresizingMaskIntoConstraints = NO;
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_background]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_background)]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_background]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_background)]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-7-[_background]-7-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_background)]];
 }
 
 - (UIImageView *)background
@@ -108,7 +108,7 @@ static const CGFloat kBXMessagesInputToolbarTextViewMinHeight = 44;
     if (!_textView) {
         _textView = [[UITextView alloc] init];
         
-        _textView.font = [UIFont systemFontOfSize:16];
+        _textView.font = [UIFont systemFontOfSize:14];
         _textView.backgroundColor = [UIColor clearColor];
         _textView.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
         _textView.returnKeyType = UIReturnKeySend;

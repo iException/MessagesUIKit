@@ -32,6 +32,8 @@
         
         [self initCollectionView];
         [self initPageControl];
+        
+        self.backgroundColor = [UIColor whiteColor];
     }
     
     return self;
@@ -69,7 +71,7 @@
         _collectionView.pagingEnabled = YES;
         _collectionView.scrollsToTop = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
-        _collectionView.backgroundColor = [UIColor colorWithRed:0xf4/255.0 green:0xf4/255.0 blue:0xf6/255.0 alpha:1.0];
+        _collectionView.backgroundColor = [UIColor clearColor];
     }
     
     return _collectionView;

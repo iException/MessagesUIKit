@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
 
+    self.view.backgroundColor = [UIColor colorWithRed:0xf2/255.0 green:0xf3/255.0 blue:0xee/255.0 alpha:1.0];
     [self initViews];
     
     [self addKeyboardNotificationCenterObservers];

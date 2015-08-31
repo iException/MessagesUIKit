@@ -28,13 +28,15 @@
 }
 
 + (BXMessagesInputToolbarButton *)buttonWithNormalImage:(NSString *)normalImage
-                                         highlightImage:(NSString *)highlightImage
                                                  target:(id)target
                                                selector:(SEL)selector
 {
     BXMessagesInputToolbarButton *btn = [BXMessagesInputToolbarButton buttonWithType:UIButtonTypeCustom];
-    [btn setImage:[UIImage buk_imageNamed:normalImage] forState:UIControlStateNormal];
-    [btn setImage:[UIImage buk_imageNamed:highlightImage] forState:UIControlStateHighlighted];
+    
+    if (normalImage) {
+        [btn setImage:[UIImage buk_imageNamed:normalImage] forState:UIControlStateNormal];
+    }
+    
     [btn addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
     
     return btn;
