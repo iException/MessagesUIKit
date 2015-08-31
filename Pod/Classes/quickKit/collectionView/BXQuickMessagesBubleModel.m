@@ -43,6 +43,7 @@
     buble.resizableCapInsets = UIEdgeInsetsMake(34, 20, 10, 40);
     buble.bubleContentInsets = UIEdgeInsetsMake(13, 21, 13, 16);
     buble.borderWidthInsets = UIEdgeInsetsMake(0.5, 0.7, 0.5, 0.5);
+    buble.defaultTextColor = [UIColor blackColor];
     
     return buble;
 }
@@ -57,6 +58,7 @@
     buble.resizableCapInsets = UIEdgeInsetsMake(10, 40, 34, 20);
     buble.bubleContentInsets = UIEdgeInsetsMake(13, 21, 13, 16);
     buble.borderWidthInsets = UIEdgeInsetsMake(0.5, 0.7, 0.5, 0.5);
+    buble.defaultTextColor = [UIColor blackColor];
     
     return buble;
 }
@@ -72,6 +74,7 @@
     buble.resizableCapInsets = UIEdgeInsetsMake(34, 40, 10, 20);
     buble.bubleContentInsets = UIEdgeInsetsMake(13, 16, 13, 21);
     buble.borderWidthInsets = UIEdgeInsetsMake(0.5, 0.5, 0.5, 0.7);
+    buble.defaultTextColor = [UIColor blackColor];
     
     return buble;
 }
@@ -85,6 +88,7 @@
     buble.resizableCapInsets = UIEdgeInsetsMake(10, 40, 34, 20);
     buble.bubleContentInsets = UIEdgeInsetsMake(13, 16, 13, 21);
     buble.borderWidthInsets = UIEdgeInsetsMake(0.5, 0.5, 0.5, 0.7);
+    buble.defaultTextColor = [UIColor blackColor];
     
     return buble;
 }

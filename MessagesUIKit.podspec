@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MessagesUIKit"
-  s.version          = "0.1.2"
+  s.version          = "0.1.3"
   s.summary          = "UIKit for Messaging. UI is similar to WeChat."
   s.description      = <<-DESC
                        UIKit for Messaging. UI is similar to WeChat. You can custome most of the view.

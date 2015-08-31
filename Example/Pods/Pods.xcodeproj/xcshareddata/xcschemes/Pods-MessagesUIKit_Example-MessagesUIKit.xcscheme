@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C6A60A198B3CF3E4F5CEBCD2"
+               BlueprintIdentifier = "60A605350F99BAE85F176F3B"
                BuildableName = "MessagesUIKit.framework"
                BlueprintName = "Pods-MessagesUIKit_Example-MessagesUIKit"
                ReferencedContainer = "container:Pods.xcodeproj">

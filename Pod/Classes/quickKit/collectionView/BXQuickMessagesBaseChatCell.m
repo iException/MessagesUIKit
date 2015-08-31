@@ -530,6 +530,8 @@
     _buble = buble;
     [self didChangeValueForKey:NSStringFromSelector(@selector(buble))];
     
+    [self.contentContainer setImage:buble.resizableImage];
+
     [self updateWidthConstraintForContentContainer];
 }
 
@@ -543,8 +545,6 @@
     BOOL isTop = [self isTop];
     
     self.buble = [BXQuickMessagesBubleModel defaultBubleWithTop:isTop left:isLeft];
-    
-    [self.contentContainer setImage:self.buble.resizableImage];
 }
 
 - (void)updateMarginConstraintsForContentContainer

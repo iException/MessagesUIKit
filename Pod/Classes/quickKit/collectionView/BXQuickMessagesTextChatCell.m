@@ -55,11 +55,30 @@
 
 - (void)setupCellWithMessage:(BXQuickMessage *)message
 {
+    self.textView.textColor = self.buble.defaultTextColor;
+    
     self.textView.text = message.text;
     CGSize sizeThatFitsTextView = [self.textView sizeThatFits:CGSizeMake(self.maxContentWidth, MAXFLOAT)];
     self.heightConstraint.constant = sizeThatFitsTextView.height;
     self.widthConstraint.constant = sizeThatFitsTextView.width;
     [self layoutIfNeeded];
+}
+
+- (void)prepareForReuse
+{
+    [super prepareForReuse];
+    
+    // fix the bug that dataDectorTypes'state will be remainded when reusing
+    self.textView.dataDetectorTypes = UIDataDetectorTypeNone;
+    self.textView.text = nil;
+    self.textView.dataDetectorTypes = UIDataDetectorTypePhoneNumber | UIDataDetectorTypeLink;
+}
+
+- (void)setBuble:(BXQuickMessagesBubleModel *)buble
+{
+    [super setBuble:buble];
+    
+    self.textView.textColor = buble.defaultTextColor;
 }
 
 #pragma mark - text view

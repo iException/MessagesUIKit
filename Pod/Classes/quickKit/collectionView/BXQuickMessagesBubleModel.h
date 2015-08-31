@@ -21,6 +21,8 @@
 @property (strong, nonatomic) UIColor *currentMaskColor;
 @property (strong, nonatomic) UIColor *currentBorderColor;
 
+@property (strong, nonatomic) UIColor *defaultTextColor;
+
 + (BXQuickMessagesBubleModel *)defaultBubleWithTop:(BOOL)top left:(BOOL)left;
 
 - (UIImage *)resizableImage;
