@@ -13,7 +13,13 @@
 
 + (UIImage *)buk_imageNamed:(NSString *)name
 {
-    return [self buk_imageNamed:name inBundle:[NSBundle buk_bundle]];
+    UIImage *image = [self buk_imageNamed:name inBundle:[NSBundle buk_bundle]];
+    
+    if (!image) {
+        image = [self imageNamed:name];
+    }
+    
+    return image;
 }
 
 + (UIImage *)buk_imageNamed:(NSString *)name inBundle:(NSBundle *)bundle
