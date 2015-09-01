@@ -103,6 +103,8 @@
         _textView.backgroundColor = [UIColor clearColor];
         _textView.editable = NO;
         _textView.dataDetectorTypes = UIDataDetectorTypePhoneNumber | UIDataDetectorTypeLink;
+        _textView.linkTextAttributes = @{NSForegroundColorAttributeName: _textView.tintColor, NSUnderlineStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]};
+
     }
     
     return _textView;
