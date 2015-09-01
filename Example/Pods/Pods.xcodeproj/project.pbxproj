@@ -446,6 +446,7 @@
 		5B88C624122DE8632C70C350 /* BXQuickMessageAudioMedia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BXQuickMessageAudioMedia.h; sourceTree = "<group>"; };
 		5BEC53311051B00800558861 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDecoder.h; path = SDWebImage/SDWebImageDecoder.h; sourceTree = "<group>"; };
 		614698A5781E10645F790715 /* BXMessagesInputMoreChoicesView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BXMessagesInputMoreChoicesView.h; sourceTree = "<group>"; };
+		65571B4C1B95417B0049E001 /* buk_media_location_mapholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = buk_media_location_mapholder.jpg; sourceTree = "<group>"; };
 		663FC68F3AA1ECF07F050AB0 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		683B7B8B1B7A0BDEC540FDC0 /* RecordingSignal004@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "RecordingSignal004@2x.png"; sourceTree = "<group>"; };
 		68BDD9298BBE7D9D14D931A3 /* BXMessagesViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BXMessagesViewController.h; sourceTree = "<group>"; };
@@ -734,6 +735,7 @@
 		2954F81AEF3F63FE339B21D0 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				65571B4C1B95417B0049E001 /* buk_media_location_mapholder.jpg */,
 				DC838157CB96D3CB01491D15 /* BXMessagesInputEmojiCell.xib */,
 				E1005423B9818CC1C69CF402 /* BXMessagesInputMoreChoiceCell.xib */,
 				09C796B0C2D7FEE068CE1A38 /* ReceiverVoiceNodePlaying001@2x.png */,
