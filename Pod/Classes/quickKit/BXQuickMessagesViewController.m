@@ -301,7 +301,9 @@ BXQuickMessagesChatCellDelegate>
     
     CGFloat calculatedHeight = [cell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
     
-    if (message.messageId) {
+    // Don't cache first item's height, because it's height may be changed after
+    // load history messages, according to the time diplay mechanism.
+    if (message.messageId && indexPath.section != 0 && indexPath.row != 0) {
         [self.cellHeightCache setObject:@(calculatedHeight) forKey:message.messageId];
     }
     
