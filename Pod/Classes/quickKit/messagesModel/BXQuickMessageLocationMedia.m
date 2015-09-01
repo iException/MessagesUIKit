@@ -83,7 +83,7 @@
     if (!_imageView) {
         _imageView = [[UIImageView alloc] init];
         _imageView.contentMode = UIViewContentModeScaleToFill;
-        _imageView.image = [UIImage buk_imageNamed:@"buk_media_location_mapholder.jpg"];
+        _imageView.image = [UIImage buk_imageNamed:@"buk-media-location-mapholder.jpg"];
     }
     
     return _imageView;
