@@ -146,7 +146,7 @@ typedef NS_ENUM(NSInteger, BXMessagesInputToolbarAudioButtonState) {
         default:
             title = @"按住 说话";
             color = [UIColor colorWithRed:0x6f/255.0 green:0x73/255.0 blue:0x78/255.0 alpha:1.0];
-            image = [UIImage imageNamed:@"buk-toolbar-whitebg"];
+            image = [UIImage buk_imageNamed:@"buk-toolbar-whitebg"];
             break;
     }
     
@@ -214,7 +214,7 @@ typedef NS_ENUM(NSInteger, BXMessagesInputToolbarAudioButtonState) {
 
     self.backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_backgroundView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_backgroundView)]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-7-[_backgroundView]-7-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_backgroundView)]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-6-[_backgroundView]-6-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_backgroundView)]];
 }
 
 #pragma mark -

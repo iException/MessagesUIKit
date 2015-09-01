@@ -60,7 +60,7 @@ static const CGFloat kBXMessagesInputToolbarTextViewMinHeight = 44;
     self.background.translatesAutoresizingMaskIntoConstraints = NO;
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_background]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_background)]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-7-[_background]-7-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_background)]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-6-[_background]-6-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_background)]];
 }
 
 - (UIImageView *)background

@@ -287,6 +287,7 @@ BXQuickMessagesChatCellDelegate>
         cell = [self.calculateHeightCells objectForKey:key];
         if (!cell) {
             cell = [[cellClass alloc] initWithFrame:self.view.bounds];
+            [self.calculateHeightCells setObject:cell forKey:key];
         }
         
         if ([cell respondsToSelector:@selector(setupCellWithMessage:)]) {

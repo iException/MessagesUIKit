@@ -81,6 +81,13 @@
     self.textView.textColor = buble.defaultTextColor;
 }
 
+- (void)setTintColor:(UIColor *)tintColor
+{
+    [super setTintColor:tintColor];
+    
+    _textView.linkTextAttributes = @{NSForegroundColorAttributeName: tintColor, NSUnderlineStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]};
+}
+
 #pragma mark - text view
 - (void)initTextView
 {

@@ -12,6 +12,8 @@
 
 @interface BXQuickMessagesBubleModel ()
 
+@property (nonatomic, strong) UIImage *resizableImage;
+
 @end
 
 @implementation BXQuickMessagesBubleModel
@@ -113,13 +115,15 @@
 
 - (UIImage *)resizableImage
 {
-    UIImage *image = [UIImage buk_imageNamed:self.maskBubleImage];
+    if (!_resizableImage) {
+        UIImage *image = [UIImage buk_imageNamed:self.maskBubleImage];
+        
+        image = [self bubleImageFromImage:image maskedWithColor:self.currentMaskColor borderColor:self.currentBorderColor];
+        
+        _resizableImage = [image resizableImageWithCapInsets:self.resizableCapInsets];
+    }
     
-    image = [self bubleImageFromImage:image maskedWithColor:self.currentMaskColor borderColor:self.currentBorderColor];
-    
-    return [image resizableImageWithCapInsets:self.resizableCapInsets];
-    
-    return [self resizableImageWithMaskColor:self.currentMaskColor borderColor:self.currentBorderColor];
+    return _resizableImage;
 }
 
 - (UIImage *)resizableImageWithBorderColor:(UIColor *)borderColor
