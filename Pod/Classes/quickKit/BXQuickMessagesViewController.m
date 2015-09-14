@@ -89,7 +89,7 @@ BXQuickMessagesChatCellDelegate>
 {
     BXMessagesInputMoreChoiceItem *item = [[BXMessagesInputMoreChoiceItem alloc] init];
     
-    item.cellNibName = NSStringFromClass([BXMessagesInputMoreChoiceCell class]);
+    item.cellClassName = NSStringFromClass([BXMessagesInputMoreChoiceCell class]);
     
     [item setConfigureBlock:^(UICollectionViewCell *cell) {
         [self bxConfigureCell:(BXMessagesInputMoreChoiceCell *)cell atIndex:index];
@@ -405,8 +405,8 @@ BXQuickMessagesChatCellDelegate>
             break;
     }
     
-    [cell.ibImageView setImage:[UIImage buk_imageNamed:imageName]];
-    cell.ibLabel.text = titleName;
+    [cell.imageView setImage:[UIImage buk_imageNamed:imageName]];
+    cell.titleLabel.text = titleName;
 }
 
 - (void)bxSelectMoreChoiceItemAtIndex:(NSUInteger)index

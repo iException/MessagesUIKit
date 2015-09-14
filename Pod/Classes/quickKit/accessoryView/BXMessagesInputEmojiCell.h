@@ -10,6 +10,6 @@
 
 @interface BXMessagesInputEmojiCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *ibEmojiLabel;
+@property (nonatomic, strong, readonly) UILabel *emojiLabel;
 
 @end

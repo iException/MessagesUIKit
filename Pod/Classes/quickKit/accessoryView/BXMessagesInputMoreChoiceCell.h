@@ -10,8 +10,7 @@
 
 @interface BXMessagesInputMoreChoiceCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *ibImageView;
-
-@property (weak, nonatomic) IBOutlet UILabel *ibLabel;
+@property (nonatomic, strong, readonly) UIImageView *imageView;
+@property (nonatomic, strong, readonly) UILabel *titleLabel;
 
 @end

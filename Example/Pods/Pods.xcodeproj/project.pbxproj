@@ -50,7 +50,6 @@
 		2257C6C38BFBC5CB374C1F22 /* BXMessagesInputToolbarTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A4589D47F5A8898134A14 /* BXMessagesInputToolbarTextView.m */; };
 		23433A0D6DEC5C951E319DD1 /* BXCollectionViewPageableFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BC70183567CCDC4755DC45 /* BXCollectionViewPageableFlowLayout.m */; };
 		2452D548956C2A8906142187 /* BXCollectionViewPageableFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 20A9271855047BF76D9C6023 /* BXCollectionViewPageableFlowLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		246FAE78B7CEF0C1E1C857DC /* BXMessagesInputEmojiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5EBF717805C45BBA4B0383 /* BXMessagesInputEmojiCell.xib */; };
 		24E362AF2970BF96264981B5 /* RecordingSignal006@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DCC3CBE5FF35F800C9F092 /* RecordingSignal006@2x.png */; };
 		2515BD3869FC2EDB7BFDD37A /* BXMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D0BEB95CD0FAF7A83B5A2C /* BXMessagesViewController.m */; };
 		256B24248DF58F3A620D47CF /* Pods-MessagesUIKit_Example-SDWebImage-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D384777BB4C8A0EABE7FCF4 /* Pods-MessagesUIKit_Example-SDWebImage-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -88,7 +87,6 @@
 		3B5F2B01FBB5E368A5E8DFF6 /* SenderVoiceNodePlaying001@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 856F76702446A3F92BE74D66 /* SenderVoiceNodePlaying001@2x.png */; };
 		3B91C997AD3D8FBE76C0BE71 /* BXQuickMessagesTextChatCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 988687CBB84792F9FA670684 /* BXQuickMessagesTextChatCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3B989A35A1177948B92EE9DE /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FFA340BE68EED8344FE30EF /* UIView+WebCacheOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3E407C6DE75F0770228A59A9 /* BXMessagesInputEmojiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5EBF717805C45BBA4B0383 /* BXMessagesInputEmojiCell.xib */; };
 		3ECEC668C6BF28F7F677B00C /* RecordingBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 479077AA4281EF540C3D4510 /* RecordingBkg@2x.png */; };
 		409BE0EACEA0E79B4A878D14 /* BXQuickMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 35A759A21B6CCD64F9A740D9 /* BXQuickMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4116326ED6DD3DC1A2B9A86D /* BXMessagesInputToolbarTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D85AE48D2E0071567A9373F /* BXMessagesInputToolbarTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -106,7 +104,6 @@
 		4B784FFDD8DF92D4A6A4EE4F /* UIImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 5905CD01DEBA56F7F6A2BADF /* UIImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CA8675E2B53CD7CD6747AF9 /* UIButton+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 733CDAC2826BA7D04314FDE3 /* UIButton+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D0C060A08ABFA7BE3DE6083 /* buk-toolbar-audio@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F357357DBE6A27DCE07F15A0 /* buk-toolbar-audio@3x.png */; };
-		4D5A3861D73B83D8A16A7177 /* BXMessagesInputMoreChoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE0C0A4BFD0E4E5A5E0620B4 /* BXMessagesInputMoreChoiceCell.xib */; };
 		4D8791E0B5B318E62A86E330 /* BXQuickMessagesTextChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9635E65C750CEA059E68169F /* BXQuickMessagesTextChatCell.m */; };
 		4EC1A1ADB522B5DD2B711333 /* BXMessagesInputToolbarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B21523A95A0B5F58DA033E99 /* BXMessagesInputToolbarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		502CCD08A2CEEA0DF0EAD401 /* BXQuickMessagePhotoMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7C32E7CC3BF16D178BEFD0 /* BXQuickMessagePhotoMedia.m */; };
@@ -238,7 +235,6 @@
 		BE57FCD2CA543780B1E16A8C /* BXMessagesCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CDD93A9C9C9FA3FC920E82E /* BXMessagesCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BEB2E9F28525C520AFC8230A /* BXQuickMessagesStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E4477FFCF1CBA787A97E2 /* BXQuickMessagesStatusLabel.m */; };
 		C0900D417AB2BA80A0E001E7 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2B34288514EE3C63EA5F5E /* SDWebImageDownloaderOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		C1810B9798A61E026F0E4872 /* BXMessagesInputMoreChoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE0C0A4BFD0E4E5A5E0620B4 /* BXMessagesInputMoreChoiceCell.xib */; };
 		C19F17FFD06B705C59442523 /* BXQuickMessagesTextChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9635E65C750CEA059E68169F /* BXQuickMessagesTextChatCell.m */; };
 		C1CDB9ABA0912E0553E513A7 /* ReceiverVoiceNodePlaying002@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 870C8A9F88A71638F2B8D775 /* ReceiverVoiceNodePlaying002@2x.png */; };
 		C1D25CA7A0FA9961F74E811E /* BXQuickMessagesStatusCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A1ACF6C936C2E0D3A129B913 /* BXQuickMessagesStatusCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -480,7 +476,6 @@
 		7CDD3511B4A6AA90C9E87C54 /* buk-toolbar-more@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "buk-toolbar-more@3x.png"; sourceTree = "<group>"; };
 		7D85AE48D2E0071567A9373F /* BXMessagesInputToolbarTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BXMessagesInputToolbarTextView.h; sourceTree = "<group>"; };
 		7EF41B931F30962CDDD43491 /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/SDWebImageManager.m; sourceTree = "<group>"; };
-		7F5EBF717805C45BBA4B0383 /* BXMessagesInputEmojiCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = BXMessagesInputEmojiCell.xib; sourceTree = "<group>"; };
 		856F76702446A3F92BE74D66 /* SenderVoiceNodePlaying001@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "SenderVoiceNodePlaying001@2x.png"; sourceTree = "<group>"; };
 		85CEE88AB990B07A7487D32C /* BXMessagesInputMoreChoicesView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BXMessagesInputMoreChoicesView.h; sourceTree = "<group>"; };
 		870C8A9F88A71638F2B8D775 /* ReceiverVoiceNodePlaying002@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "ReceiverVoiceNodePlaying002@2x.png"; sourceTree = "<group>"; };
@@ -511,7 +506,6 @@
 		AB32444AF67EA1239B553683 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MultiFormat.h"; path = "SDWebImage/UIImage+MultiFormat.h"; sourceTree = "<group>"; };
 		AB89BF089CF0AEC969D5D71A /* Pods-MessagesUIKit_Example-SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MessagesUIKit_Example-SDWebImage-dummy.m"; sourceTree = "<group>"; };
 		AD254C171158042CA48C9A85 /* BXMessagesInputToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BXMessagesInputToolbar.m; sourceTree = "<group>"; };
-		AE0C0A4BFD0E4E5A5E0620B4 /* BXMessagesInputMoreChoiceCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = BXMessagesInputMoreChoiceCell.xib; sourceTree = "<group>"; };
 		AE43D9D2CC3ABADD41B44914 /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/SDWebImageCompat.m; sourceTree = "<group>"; };
 		AE8C3425C2405B23AE0A0346 /* weChatBubble_Sending_Solid@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "weChatBubble_Sending_Solid@2x.png"; sourceTree = "<group>"; };
 		AE93D72D219828382255F307 /* BXQuickMessageLocationMedia.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BXQuickMessageLocationMedia.m; sourceTree = "<group>"; };
@@ -911,8 +905,6 @@
 		C482C1F1BF4D38834F4FBBD2 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				7F5EBF717805C45BBA4B0383 /* BXMessagesInputEmojiCell.xib */,
-				AE0C0A4BFD0E4E5A5E0620B4 /* BXMessagesInputMoreChoiceCell.xib */,
 				14AD853C291F849D5E63ADB2 /* ReceiverVoiceNodePlaying001@2x.png */,
 				870C8A9F88A71638F2B8D775 /* ReceiverVoiceNodePlaying002@2x.png */,
 				6DE4D8F7E65C5FE95FD16ACB /* ReceiverVoiceNodePlaying003@2x.png */,
@@ -1383,8 +1375,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E407C6DE75F0770228A59A9 /* BXMessagesInputEmojiCell.xib in Resources */,
-				4D5A3861D73B83D8A16A7177 /* BXMessagesInputMoreChoiceCell.xib in Resources */,
 				396E21E3AFE5CFA25E044533 /* ReceiverVoiceNodePlaying001@2x.png in Resources */,
 				C1CDB9ABA0912E0553E513A7 /* ReceiverVoiceNodePlaying002@2x.png in Resources */,
 				E5D7CD1E5F06F6A9EA6453D7 /* ReceiverVoiceNodePlaying003@2x.png in Resources */,
@@ -1441,8 +1431,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				246FAE78B7CEF0C1E1C857DC /* BXMessagesInputEmojiCell.xib in Resources */,
-				C1810B9798A61E026F0E4872 /* BXMessagesInputMoreChoiceCell.xib in Resources */,
 				0BC9BA0FD3250F6CEBF1CE20 /* ReceiverVoiceNodePlaying001@2x.png in Resources */,
 				64186063CC1421D3AC635DFB /* ReceiverVoiceNodePlaying002@2x.png in Resources */,
 				A28C2094DF9810D7B6180CCA /* ReceiverVoiceNodePlaying003@2x.png in Resources */,

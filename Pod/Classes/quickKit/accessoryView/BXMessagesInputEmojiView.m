@@ -54,8 +54,7 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_collectionView]-44-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_collectionView)]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_collectionView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_collectionView)]];
     
-    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([BXMessagesInputEmojiCell class])
-                                                    bundle:[NSBundle buk_bundle]]
+    [self.collectionView registerClass:[BXMessagesInputEmojiCell class]
           forCellWithReuseIdentifier:NSStringFromClass([BXMessagesInputEmojiCell class])];
 }
 
@@ -95,7 +94,7 @@
     BXMessagesInputEmojiCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BXMessagesInputEmojiCell class])
                                                                                forIndexPath:indexPath];
     
-    cell.ibEmojiLabel.text = [self.emojiArray objectAtIndex:indexPath.row];
+    cell.emojiLabel.text = [self.emojiArray objectAtIndex:indexPath.row];
     
     return cell;
 }

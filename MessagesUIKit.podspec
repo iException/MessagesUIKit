@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MessagesUIKit"
-  s.version          = "0.1.6"
+  s.version          = "0.1.7"
   s.summary          = "UIKit for Messaging. UI is similar to WeChat."
   s.description      = <<-DESC
                        UIKit for Messaging. UI is similar to WeChat. You can custome most of the view.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
-        'MessagesUIKit' => ['Pod/Assets/*.{jpg,png,xib,plist}']
+        'MessagesUIKit' => ['Pod/Assets/*.{jpg,png,plist}']
   }
 
   s.dependency 'SDWebImage', '3.7.2'
