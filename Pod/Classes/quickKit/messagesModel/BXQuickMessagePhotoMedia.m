@@ -128,8 +128,10 @@
     
     if ([self.imageUrl hasPrefix:@"http://"]) {
         [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:self.imageUrl] options:SDWebImageDownloaderHighPriority progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-            self.image = image;
-            [self.imageView setImage:self.image];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.image = image;
+                [self.imageView setImage:self.image];
+            });
         }];
         return nil;
     }else {
@@ -150,10 +152,12 @@
     
     if ([self.thumbnailImageUrl hasPrefix:@"http://"]) {
         [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:self.thumbnailImageUrl] options:SDWebImageDownloaderHighPriority progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-            self.thumbnailImage = image;
-            if (!self.image) {
-                [self.imageView setImage:self.thumbnailImage];
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.thumbnailImage = image;
+                if (!self.image) {
+                    [self.imageView setImage:self.thumbnailImage];
+                }
+            });
         }];
         return nil;
     }else {
@@ -169,8 +173,10 @@
     [self didChangeValueForKey:NSStringFromSelector(@selector(imageUrl))];
     
     [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:_imageUrl] options:SDWebImageDownloaderHighPriority progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-        self.image = image;
-        [self.imageView setImage:self.image];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.image = image;
+            [self.imageView setImage:self.image];
+        });
     }];
 }
 
@@ -181,10 +187,12 @@
     [self didChangeValueForKey:NSStringFromSelector(@selector(thumbnailImageUrl))];
     
     [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:_thumbnailImageUrl] options:SDWebImageDownloaderHighPriority progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-        self.thumbnailImage = image;
-        if (!self.image) {
-            [self.imageView setImage:self.thumbnailImage];
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.thumbnailImage = image;
+            if (!self.image) {
+                [self.imageView setImage:self.thumbnailImage];
+            }
+        });
     }];
 }
 
