@@ -192,17 +192,26 @@ static const CGFloat kBXMessagesInputToolbarTextViewMinHeight = 44;
 - (void)addTextViewEventObservers
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidBeginEditingNotification:) name:UITextViewTextDidBeginEditingNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewTextDidChangeNotification:) name:UITextViewTextDidChangeNotification object:nil];
 }
 
 - (void)removeTextViewEventObservers
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidBeginEditingNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidChangeNotification object:nil];
 }
 
 - (void)textViewDidBeginEditingNotification:(NSNotification *)notification
 {
     CGFloat offset = self.textView.contentSize.height - CGRectGetHeight(self.textView.bounds);
     self.textView.contentOffset = CGPointMake(0.0f, offset < 0? offset/2.0 : offset);
+}
+
+- (void)textViewTextDidChangeNotification:(NSNotification *)notification
+{
+    if (self.textView.text.length > 1000) {
+        self.textView.text = [self.textView.text substringToIndex:1000];
+    }
 }
 #pragma mark -
 - (void)dealloc
