@@ -17,7 +17,7 @@
 #import "BXQuickMessagesMediaChatCell.h"
 #import "BXQuickMessagesStatusCell.h"
 
-#import <UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h" 
 
 #import "NSBundle+MessagesUIKit.h"
 #import "UIImage+MessagesUIKit.h"
