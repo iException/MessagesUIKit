@@ -7,7 +7,7 @@
 //
 
 #import "BXQuickMessagePhotoMedia.h"
-#import <SDWebImageDownloader.h>
+#import "SDWebImageDownloader.h"
 
 @interface BXQuickMessagePhotoMedia()
 
