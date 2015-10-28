@@ -328,6 +328,8 @@ BXQuickMessagesChatCellDelegate>
     
     [collectionView registerClass:[BXQuickMessagesTextChatCell class] forCellWithReuseIdentifier:incomingBXQuickMessagesTextChatCell];
     [collectionView registerClass:[BXQuickMessagesTextChatCell class] forCellWithReuseIdentifier:outgoingBXQuickMessagesTextChatCell];
+    [collectionView registerClass:[BXQuickMessagesStickerChatCell class] forCellWithReuseIdentifier:incomingBXQuickMessagesStickerChatCell];
+    [collectionView registerClass:[BXQuickMessagesStickerChatCell class] forCellWithReuseIdentifier:outgoingBXQuickMessagesStickerChatCell];
     [collectionView registerClass:[BXQuickMessagesMediaChatCell class] forCellWithReuseIdentifier:incomingBXQuickMessagesMediaChatCell];
     [collectionView registerClass:[BXQuickMessagesMediaChatCell class] forCellWithReuseIdentifier:outgoingBXQuickMessagesMediaChatCell];
     [collectionView registerClass:[BXQuickMessagesStatusCell class] forCellWithReuseIdentifier:NSStringFromClass([BXQuickMessagesStatusCell class])];
