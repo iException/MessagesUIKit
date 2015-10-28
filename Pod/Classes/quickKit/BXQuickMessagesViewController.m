@@ -180,7 +180,7 @@ BXQuickMessagesChatCellDelegate>
         
         cell = mediaCell;
     } else if (message.messageType == BXQuickMessageType_Sticker) {
-        BXQuickMessagesStickerChatCell *stickerCell = [collectionView dequeueReusableCellWithReuseIdentifier:isMyMessage?outgoingBXQuickMessagesTextChatCell:incomingBXQuickMessagesTextChatCell forIndexPath:indexPath];
+        BXQuickMessagesStickerChatCell *stickerCell = [collectionView dequeueReusableCellWithReuseIdentifier:isMyMessage?outgoingBXQuickMessagesStickerChatCell:incomingBXQuickMessagesStickerChatCell forIndexPath:indexPath];
         stickerCell.avatarPosition = isMyMessage? BXQuickMessagesChatCellAvatarPostion_RightTop : BXQuickMessagesChatCellAvatarPostion_LeftTop;
         [stickerCell setupCellWithMessage:message];
         stickerCell.delegate = self;
