@@ -86,7 +86,10 @@ const CGFloat toolBarHeight = 40;
     [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_stickersGalleryView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_stickersGalleryView)]];
     
     // arrange sendButton
-
+    self.sendButton.translatesAutoresizingMaskIntoConstraints = NO;
+//    [self.sendButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[(==50)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendButton)]];
+    [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_sendButton]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendButton)]];
+    [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_sendButton]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendButton)]];
     
     // arrange toolBar
     self.toolBar.translatesAutoresizingMaskIntoConstraints = NO;
@@ -139,6 +142,26 @@ const CGFloat toolBarHeight = 40;
         [_stickersGalleryView registerClass:[BXMessagesInputStickersGalleryViewCell class] forCellWithReuseIdentifier:NSStringFromClass([BXMessagesInputStickersGalleryViewCell class])];
     }
     return _stickersGalleryView;
+}
+
+- (UIButton *)sendButton
+{
+    if (!_sendButton) {
+        _sendButton = [[UIButton alloc] init];
+        [_sendButton setTitle:@"发送" forState:UIControlStateNormal];
+        [_sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _sendButton.backgroundColor = [UIColor redColor];
+        
+        [_sendButton addTarget:self action:@selector(sendButtonTriggered) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _sendButton;
+}
+
+- (void)sendButtonTriggered
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputStickerView:selectedEmoji:)]) {
+        [self.delegate bxMessagesInputStickerView:self sendButtonPressed:self.sendButton];
+    }
 }
 
 #pragma mark - UICollectionViewDelegate & DataSource (for stickerGalleryView)
