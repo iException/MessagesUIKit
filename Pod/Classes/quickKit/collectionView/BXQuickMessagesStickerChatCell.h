@@ -10,4 +10,6 @@
 
 @interface BXQuickMessagesStickerChatCell : BXQuickMessagesBaseChatCell
 
+- (void)setupCellWithMessage:(BXQuickMessage *)message;
+
 @end
