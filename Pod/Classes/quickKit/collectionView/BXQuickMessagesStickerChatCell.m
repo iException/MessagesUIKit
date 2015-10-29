@@ -10,7 +10,6 @@
 
 @interface BXQuickMessagesStickerChatCell()
 
-@property (nonatomic, strong) UIImageView *stickerImageView;
 @property (weak, nonatomic) NSLayoutConstraint *widthConstraint;
 @property (weak, nonatomic) NSLayoutConstraint *heightConstraint;
 

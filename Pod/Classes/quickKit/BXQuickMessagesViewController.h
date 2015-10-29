@@ -94,7 +94,7 @@
 - (NSString *)bx_collectionView:(UICollectionView *)collectionView displayNameForItem:(BXQuickMessagesBaseChatCell *)item atIndexPath:(NSIndexPath *)indexPath;
 - (NSString *)bx_collectionView:(UICollectionView *)collectionView displayAvatarForItem:(BXQuickMessagesBaseChatCell *)item atIndexPath:(NSIndexPath *)indexPath;
 - (NSArray *)bx_moreCollectionViewDataSourceForLoadMore:(UICollectionView *)collectionView;
-
+- (void)bx_setupUserInfoForCell:(BXQuickMessagesBaseChatCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 - (void)bx_collectionView:(UICollectionView *)collectionView didTapAvatarAtIndexPath:(NSIndexPath *)indexPath;
 
