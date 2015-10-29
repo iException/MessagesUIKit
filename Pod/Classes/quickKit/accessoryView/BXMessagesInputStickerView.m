@@ -69,6 +69,7 @@ const CGFloat toolBarHeight = 40;
     [self.cachedMainViewCandidates addObject:emojiView];
     // add a customized sticker view
     BXMessagesInputCustomizedStickerView *stickerView = [[BXMessagesInputCustomizedStickerView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    stickerView.delegate = self;
     [self.cachedMainViewCandidates addObject:stickerView];
 }
 
