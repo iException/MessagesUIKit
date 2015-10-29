@@ -78,7 +78,7 @@ BXQuickMessagesChatCellDelegate>
 
 #pragma mark - need override methods
 - (void)bxSendTextMessage:(NSString *)text{}
-
+- (void)bxSendStickerMessage:(id)stickerInfo{}
 - (void)bxStartRecordAudio {}
 - (void)bxFinishRecordAudio {}
 - (void)bxCancelRecordAudio {}
@@ -123,6 +123,11 @@ BXQuickMessagesChatCellDelegate>
 - (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView sendText:(NSString *)text
 {
     [self bxSendTextMessage:text];
+}
+
+- (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView sendSticker:(NSDictionary *)stickerInfo
+{
+    [self bxSendStickerMessage:stickerInfo];
 }
 
 - (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView startRecordAudio:(UIButton *)audioButton

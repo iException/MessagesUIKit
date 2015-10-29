@@ -322,6 +322,13 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
     self.textView.textView.text = [NSString stringWithFormat:@"%@%@", self.textView.textView.text, emoji];
 }
 
+- (void)bxMessagesInputStickerView:(BXMessagesInputStickerView *)stickerView selectedSticker:(NSDictionary *)stickerInfo
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(bxQuickMessagesMultiInputView:sendSticker:)]) {
+        [self.delegate bxQuickMessagesMultiInputView:self sendSticker:stickerInfo];
+    }
+}
+
 - (void)bxMessagesInputStickerView:(BXMessagesInputStickerView *)stickerView sendButtonPressed:(UIButton *)sendButton
 {
     if (self.textView.textView.text.length != 0) {

@@ -11,12 +11,13 @@
 #import "BXMessagesInputStickersGalleryViewLayout.h"
 #import "BXMessagesInputStickersGalleryViewCell.h"
 #import "BXMessagesInputStickerDefaultEmojiView.h"
+#import "BXMessagesInputCustomizedStickerView.h"
 
-const NSInteger stickersCount = 1;
+const NSInteger stickersCount = 2;
 const CGFloat stickerViewHeight = 215;
 const CGFloat toolBarHeight = 40;
 
-@interface BXMessagesInputStickerView() <UICollectionViewDataSource,UICollectionViewDelegate,BXMessagesInputStickerDefaultEmojiViewDelegate>
+@interface BXMessagesInputStickerView() <UICollectionViewDataSource,UICollectionViewDelegate,BXMessagesInputStickerDefaultEmojiViewDelegate, BXMessagesInputCustomizedStickerViewDelegate>
 
 // main view where emojis and other stickers are presented in order
 @property (nonatomic, strong) UIView *stickerMainView;
@@ -66,6 +67,9 @@ const CGFloat toolBarHeight = 40;
     BXMessagesInputStickerDefaultEmojiView *emojiView = [[BXMessagesInputStickerDefaultEmojiView alloc] init];
     emojiView.delegate = self;
     [self.cachedMainViewCandidates addObject:emojiView];
+    // add a customized sticker view
+    BXMessagesInputCustomizedStickerView *stickerView = [[BXMessagesInputCustomizedStickerView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    [self.cachedMainViewCandidates addObject:stickerView];
 }
 
 - (void)initToolBar
@@ -208,6 +212,14 @@ const CGFloat toolBarHeight = 40;
 {
     if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputStickerView:selectedEmoji:)]) {
         [self.delegate bxMessagesInputStickerView:self selectedEmoji:emoji];
+    }
+}
+
+#pragma mark - BXMessagesInputCustomizedStickerView delegate
+- (void)bxMessagesInputCustomizedStickerView:(BXMessagesInputCustomizedStickerView *)stickerView selectedSticker:(NSDictionary *)stickerInfo
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputStickerView:selectedSticker:)]) {
+        [self.delegate bxMessagesInputStickerView:self selectedSticker:stickerInfo];
     }
 }
 

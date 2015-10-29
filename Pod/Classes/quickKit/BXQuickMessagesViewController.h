@@ -34,6 +34,12 @@
  */
 - (void)bxSendTextMessage:(NSString *)text;
 
+/**
+ *  Send Sticker.
+ *
+ *  Don't need call super, default do nothing.
+ */
+- (void)bxSendStickerMessage:(id)stickerInfo;
 
 
 // Audio part, if you use audio button, don't forget to override these methods.

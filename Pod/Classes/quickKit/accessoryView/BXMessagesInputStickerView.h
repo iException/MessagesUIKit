@@ -14,6 +14,7 @@
 @protocol BXMessagesInputStickerViewDelegate <NSObject>
 
 - (void)bxMessagesInputStickerView:(BXMessagesInputStickerView *)stickerView selectedEmoji:(NSString *)emoji;
+- (void)bxMessagesInputStickerView:(BXMessagesInputStickerView *)stickerView selectedSticker:(NSDictionary *)stickerInfo;
 - (void)bxMessagesInputStickerView:(BXMessagesInputStickerView *)stickerView deleteButtonPressed:(UIButton *)deleteButton;
 - (void)bxMessagesInputStickerView:(BXMessagesInputStickerView *)stickerView sendButtonPressed:(UIButton *)sendButton;
 
