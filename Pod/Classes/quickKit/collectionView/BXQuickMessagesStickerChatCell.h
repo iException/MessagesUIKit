@@ -10,8 +10,4 @@
 
 @interface BXQuickMessagesStickerChatCell : BXQuickMessagesBaseChatCell
 
-@property (nonatomic, strong) UIImageView *stickerImageView;
-
-- (void)setupCellWithMessage:(BXQuickMessage *)message;
-
 @end

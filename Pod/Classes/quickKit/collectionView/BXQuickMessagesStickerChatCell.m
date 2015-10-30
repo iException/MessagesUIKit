@@ -7,8 +7,12 @@
 //
 
 #import "BXQuickMessagesStickerChatCell.h"
+#import "FLAnimatedImageView.h"
 
 @interface BXQuickMessagesStickerChatCell()
+
+@property (nonatomic, strong) UIImageView *staticImageView;
+@property (nonatomic, strong) FLAnimatedImageView *dynamicImageView;
 
 @property (weak, nonatomic) NSLayoutConstraint *widthConstraint;
 @property (weak, nonatomic) NSLayoutConstraint *heightConstraint;
@@ -22,26 +26,26 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        [self initStickerImageView];
+//        [self initStickerImageView];
     }
     
     return self;
 }
 
-- (void)setupCellWithMessage:(BXQuickMessage *)message
-{
-    if (message.messageType != BXQuickMessageType_Sticker) {
-        return;
-    }
-    
-//    self.textView.textColor = self.buble.defaultTextColor;
+//- (void)setupCellWithMessage:(BXQuickMessage *)message
+//{
+//    if (message.messageType != BXQuickMessageType_Sticker) {
+//        return;
+//    }
 //    
-//    self.textView.text = message.text;
-//    CGSize sizeThatFitsTextView = [self.textView sizeThatFits:CGSizeMake(self.maxContentWidth, MAXFLOAT)];
-//    self.heightConstraint.constant = sizeThatFitsTextView.height;
-//    self.widthConstraint.constant = sizeThatFitsTextView.width;
-//    [self layoutIfNeeded];
-}
+////    self.textView.textColor = self.buble.defaultTextColor;
+////    
+////    self.textView.text = message.text;
+////    CGSize sizeThatFitsTextView = [self.textView sizeThatFits:CGSizeMake(self.maxContentWidth, MAXFLOAT)];
+////    self.heightConstraint.constant = sizeThatFitsTextView.height;
+////    self.widthConstraint.constant = sizeThatFitsTextView.width;
+////    [self layoutIfNeeded];
+//}
 
 - (void)prepareForReuse
 {
@@ -67,25 +71,43 @@
 //    _textView.linkTextAttributes = @{NSForegroundColorAttributeName: tintColor, NSUnderlineStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]};
 //}
 
-#pragma mark - text view
-- (void)initStickerImageView
+//#pragma mark - text view
+//- (void)initStickerImageView
+//{
+//    [self addViewToContentContainer:self.stickerImageView bubleType:BXQuickMessagesChatCellContentInsideBuble borderColor:nil];
+//    
+//    self.stickerImageView.translatesAutoresizingMaskIntoConstraints = NO;
+//    self.widthConstraint = [NSLayoutConstraint constraintWithItem:self.stickerImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:120];
+//    self.heightConstraint = [NSLayoutConstraint constraintWithItem:self.stickerImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:120];
+//    self.heightConstraint.priority = 999;
+//    [self.stickerImageView addConstraint:self.widthConstraint];
+//    [self.stickerImageView addConstraint:self.heightConstraint];
+//}
+//
+//- (UIImageView *)stickerImageView
+//{
+//    if (!_stickerImageView) {
+//        _stickerImageView = [[UIImageView alloc] init];
+//    }
+//    return _stickerImageView;
+//}
+
+#pragma mark - static image view
+- (UIImageView *)staticImageView
 {
-    [self addViewToContentContainer:self.stickerImageView bubleType:BXQuickMessagesChatCellContentInsideBuble borderColor:nil];
-    
-    self.stickerImageView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.widthConstraint = [NSLayoutConstraint constraintWithItem:self.stickerImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:120];
-    self.heightConstraint = [NSLayoutConstraint constraintWithItem:self.stickerImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:120];
-    self.heightConstraint.priority = 999;
-    [self.stickerImageView addConstraint:self.widthConstraint];
-    [self.stickerImageView addConstraint:self.heightConstraint];
+    if (!_staticImageView) {
+        _staticImageView = [[UIImageView alloc] init];
+    }
+    return _staticImageView;
 }
 
-- (UIImageView *)stickerImageView
+#pragma mark - dynamic image view
+- (FLAnimatedImageView *)dynamicImageView
 {
-    if (!_stickerImageView) {
-        _stickerImageView = [[UIImageView alloc] init];
+    if (!_dynamicImageView) {
+        _dynamicImageView = [[FLAnimatedImageView alloc] init];
     }
-    return _stickerImageView;
+    return _dynamicImageView;
 }
 
 @end
