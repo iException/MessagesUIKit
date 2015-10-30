@@ -93,6 +93,13 @@
 {
     if (!_staticImageView) {
         _staticImageView = [[UIImageView alloc] init];
+        
+        _staticImageView.translatesAutoresizingMaskIntoConstraints = NO;
+        self.staticImageWidthConstraint = [NSLayoutConstraint constraintWithItem:_staticImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:120];
+        self.staticImageHeightConstraint = [NSLayoutConstraint constraintWithItem:_staticImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:120];
+        self.staticImageHeightConstraint.priority = 999;
+        [_staticImageView addConstraint:self.staticImageWidthConstraint];
+        [_staticImageView addConstraint:self.staticImageHeightConstraint];
     }
     return _staticImageView;
 }
@@ -102,6 +109,13 @@
 {
     if (!_dynamicImageView) {
         _dynamicImageView = [[FLAnimatedImageView alloc] init];
+        
+        _dynamicImageView.translatesAutoresizingMaskIntoConstraints = NO;
+        self.dynamicImageWidthConstraint = [NSLayoutConstraint constraintWithItem:_dynamicImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:120];
+        self.dynamicImageHeightConstraint = [NSLayoutConstraint constraintWithItem:_dynamicImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:120];
+        self.staticImageHeightConstraint.priority = 999;
+        [_dynamicImageView addConstraint:self.dynamicImageWidthConstraint];
+        [_dynamicImageView addConstraint:self.dynamicImageHeightConstraint];
     }
     return _dynamicImageView;
 }
