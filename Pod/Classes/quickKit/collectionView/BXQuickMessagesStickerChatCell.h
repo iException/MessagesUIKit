@@ -7,7 +7,11 @@
 //
 
 #import "BXQuickMessagesBaseChatCell.h"
+#import "FLAnimatedImageView.h"
 
 @interface BXQuickMessagesStickerChatCell : BXQuickMessagesBaseChatCell
+
+@property (nonatomic, strong) UIImageView *staticImageView;
+@property (nonatomic, strong) FLAnimatedImageView *dynamicImageView;
 
 @end

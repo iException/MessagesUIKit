@@ -7,12 +7,8 @@
 //
 
 #import "BXQuickMessagesStickerChatCell.h"
-#import "FLAnimatedImageView.h"
 
 @interface BXQuickMessagesStickerChatCell()
-
-@property (nonatomic, strong) UIImageView *staticImageView;
-@property (nonatomic, strong) FLAnimatedImageView *dynamicImageView;
 
 @property (weak, nonatomic) NSLayoutConstraint *widthConstraint;
 @property (weak, nonatomic) NSLayoutConstraint *heightConstraint;
