@@ -113,7 +113,7 @@
         _dynamicImageView.translatesAutoresizingMaskIntoConstraints = NO;
         self.dynamicImageWidthConstraint = [NSLayoutConstraint constraintWithItem:_dynamicImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:120];
         self.dynamicImageHeightConstraint = [NSLayoutConstraint constraintWithItem:_dynamicImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:120];
-        self.staticImageHeightConstraint.priority = 999;
+        self.dynamicImageView.priority = 999;
         [_dynamicImageView addConstraint:self.dynamicImageWidthConstraint];
         [_dynamicImageView addConstraint:self.dynamicImageHeightConstraint];
     }
