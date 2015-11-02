@@ -204,7 +204,7 @@ static CGFloat const toolBarHeight             = 40;
 {
     if ([collectionView isEqual:self.stickersGalleryView]) {
         return self.stickersInfo.count + 1;    // first slot for emojis, others for stickers
-    } else if ([collectionView isKindOfClass:[BXMessagesInputCustomizedStickerView class]]) {
+    } else {
         BXMessagesInputCustomizedStickerView *stickerView = (BXMessagesInputCustomizedStickerView *)collectionView;
         [self getStickerPackCountAtIndex:stickerView.index];
     }
@@ -223,7 +223,7 @@ static CGFloat const toolBarHeight             = 40;
         cell.previewImageView.image = row ? [self getStickerPreviewImageAtIndex:row - 1] : [UIImage imageNamed:@"test_icon.png"];
         
         return cell;
-    } else if ([collectionView isKindOfClass:[BXMessagesInputCustomizedStickerView class]]) {
+    } else {
         BXMessagesInputCustomizedStickerView *stickerView = (BXMessagesInputCustomizedStickerView *)collectionView;
         BXMessagesInputStickerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BXMessagesInputStickerCell class])
                                                                                      forIndexPath:indexPath];
