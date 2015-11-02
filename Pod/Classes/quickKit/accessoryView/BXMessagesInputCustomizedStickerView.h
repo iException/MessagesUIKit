@@ -18,6 +18,10 @@
 
 @interface BXMessagesInputCustomizedStickerView : UIView
 
-@property (nonatomic, weak) id<BXMessagesInputCustomizedStickerViewDelegate> delegate;
+@property (nonatomic, weak) id<BXMessagesInputCustomizedStickerViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource> delegate;
+
+@property (nonatomic, assign) NSUInteger index;
+
+- (instancetype)initWithDelegate:(id)delegate index:(NSUInteger)indexValue;
 
 @end

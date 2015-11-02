@@ -10,12 +10,17 @@
 //#import "BXCollectionViewPageableFlowLayout.h"
 #import "BXMessagesInputStickersGalleryViewLayout.h"
 #import "BXMessagesInputStickersGalleryViewCell.h"
+#import "BXMessagesInputStickerCell.h"
 #import "BXMessagesInputStickerDefaultEmojiView.h"
 #import "BXMessagesInputCustomizedStickerView.h"
 
-const NSInteger stickersCount = 2;
-const CGFloat stickerViewHeight = 215;
-const CGFloat toolBarHeight = 40;
+static NSInteger const stickersCount           = 2;
+static CGFloat const stickerViewHeight         = 215;
+static CGFloat const toolBarHeight             = 40;
+// dictionary key for stickersInfo
+static NSString *const kStickerCount           = @"BXSticker_count";          // number of stickers in this pack
+static NSString *const kStickerPreviewImage    = @"BXSticker_previewImage";   // preview image to be presented in stickersGalleryView
+static NSString *const kStickerImages          = @"BXSticker_images";         // images data array
 
 @interface BXMessagesInputStickerView() <UICollectionViewDataSource,UICollectionViewDelegate,BXMessagesInputStickerDefaultEmojiViewDelegate, BXMessagesInputCustomizedStickerViewDelegate>
 
@@ -38,18 +43,38 @@ const CGFloat toolBarHeight = 40;
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    
     if (self) {
-        self.flexibleWidth = YES;
-        self.flexibleHeight = NO;
-        self.height = stickerViewHeight;
-        
-        self.backgroundColor = [UIColor whiteColor];
-        
-        [self initStickerMainView];
-        [self initToolBar];
+        [self initialize];
+
     }
     return self;
+}
+
+- (void)initialize
+{
+    self.flexibleWidth = YES;
+    self.flexibleHeight = NO;
+    self.height = stickerViewHeight;
+    
+    self.backgroundColor = [UIColor whiteColor];
+    
+    // get emoji & sticker gallery
+    [self prepareEmojiAndStickerPacks];
+    // init UI Elements
+    [self initStickerMainView];
+    [self initToolBar];
+    
+}
+
+// get local emoji & sticker packs info
+- (void)prepareEmojiAndStickerPacks
+{
+    [self loadStickerRecources];
+}
+
+// default do nothing
+- (void)loadStickerRecources
+{
 }
 
 - (void)initStickerMainView
@@ -68,7 +93,8 @@ const CGFloat toolBarHeight = 40;
     emojiView.delegate = self;
     [self.cachedMainViewCandidates addObject:emojiView];
     // add a customized sticker view
-    BXMessagesInputCustomizedStickerView *stickerView = [[BXMessagesInputCustomizedStickerView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+//    BXMessagesInputCustomizedStickerView *stickerView = [[BXMessagesInputCustomizedStickerView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    BXMessagesInputCustomizedStickerView *stickerView = [[BXMessagesInputCustomizedStickerView alloc] initWithDelegate:self index:0];
     stickerView.delegate = self;
     [self.cachedMainViewCandidates addObject:stickerView];
 }
@@ -169,26 +195,48 @@ const CGFloat toolBarHeight = 40;
     }
 }
 
-#pragma mark - UICollectionViewDelegate & DataSource (for stickerGalleryView)
+#pragma mark - UICollectionViewDelegate & DataSource (for stickerGalleryView & BXMessagesInputCustomizedStickerView)
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 1;
+    if ([collectionView isEqual:self.stickersGalleryView]) {
+        return 1;
+    } else {
+        return 1;
+    }
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return stickersCount;
+    if ([collectionView isEqual:self.stickersGalleryView]) {
+        return self.stickersInfo.count + 1;    // first slot for emojis, others for stickers
+    } else if ([collectionView isKindOfClass:[BXMessagesInputCustomizedStickerView class]]) {
+        BXMessagesInputCustomizedStickerView *stickerView = (BXMessagesInputCustomizedStickerView *)collectionView;
+        [self getStickerPackCountAtIndex:stickerView.index];
+    }
+    return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    BXMessagesInputStickersGalleryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BXMessagesInputStickersGalleryViewCell class]) forIndexPath:indexPath];
-    
-    if (!cell) {
-        cell = [[BXMessagesInputStickersGalleryViewCell alloc] init];
+    if ([collectionView isEqual:self.stickersGalleryView]) {
+        BXMessagesInputStickersGalleryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BXMessagesInputStickersGalleryViewCell class]) forIndexPath:indexPath];
+        
+        if (!cell) {
+            cell = [[BXMessagesInputStickersGalleryViewCell alloc] init];
+        }
+        cell.previewImageView.image = [self getStickerPreviewImageAtIndex:indexPath.row - 1];
+        
+        return cell;
+    } else if ([collectionView isKindOfClass:[BXMessagesInputCustomizedStickerView class]]) {
+        BXMessagesInputCustomizedStickerView *stickerView = (BXMessagesInputCustomizedStickerView *)collectionView;
+        BXMessagesInputStickerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BXMessagesInputStickerCell class])
+                                                                                     forIndexPath:indexPath];
+        
+        cell.stickerImageView.image = [[self getStickerImagesAtIndex:stickerView.index] objectAtIndex:indexPath.row];
+        
+        return cell;
     }
-    
-    return cell;
+    return nil;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -206,6 +254,34 @@ const CGFloat toolBarHeight = 40;
     UIView *packView = [self.cachedMainViewCandidates objectAtIndex:row];
     packView.frame = CGRectMake(0, 0, self.stickerMainView.frame.size.width, self.stickerMainView.frame.size.height);
     [self.stickerMainView addSubview:packView];
+}
+
+#pragma mark - stickerInfo reader
+- (NSUInteger)getStickerPackCountAtIndex:(NSUInteger)index
+{
+    NSDictionary *packInfo = [self.stickersInfo objectAtIndex:index];
+    NSAssert(packInfo, @"packInfo is nil");
+    NSNumber *count = [packInfo objectForKey:kStickerCount];
+    NSAssert(count, @"pack count is nil");
+    return [count integerValue];
+}
+
+- (UIImage *)getStickerPreviewImageAtIndex:(NSUInteger)index
+{
+    NSDictionary *packInfo = [self.stickersInfo objectAtIndex:index];
+    NSAssert(packInfo, @"packInfo is nil");
+    UIImage *previewImage = [packInfo objectForKey:kStickerPreviewImage];
+    NSAssert(previewImage, @"pack previewImage is nil");
+    return previewImage;
+}
+                                       
+- (NSArray *)getStickerImagesAtIndex:(NSUInteger)index
+{
+    NSDictionary *packInfo = [self.stickersInfo objectAtIndex:index];
+    NSAssert(packInfo, @"packInfo is nil");
+    NSArray *images = [packInfo objectForKey:kStickerImages];
+    NSAssert(images, @"pack images is nil");
+    return images;
 }
 
 #pragma mark - BXMessagesInputStickerDefaultEmojiView delegate

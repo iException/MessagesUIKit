@@ -30,4 +30,12 @@
 
 @property (weak, nonatomic) id<BXMessagesInputStickerViewDelegate> delegate;
 
+// each element in stickersInfo is a dictionary that stores all necessary info about a sticker pack
+@property (strong, nonatomic) NSArray *stickersInfo;
+
+// override this method to customize stickers resources loading
+// all information is stored into self.stickersInfo
+// the loaded stickers information should conform to key-value defined in BXMessagesInputStickerView.m
+- (void)loadStickerRecources;
+
 @end

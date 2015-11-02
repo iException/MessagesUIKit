@@ -10,7 +10,7 @@
 #import "BXMessagesInputStickerCell.h"
 #import "BXCollectionViewPageableFlowLayout.h"
 
-@interface BXMessagesInputCustomizedStickerView() <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface BXMessagesInputCustomizedStickerView() 
 
 @property (strong, nonatomic) NSArray *stickerArray;
 
@@ -21,24 +21,37 @@
 
 @implementation BXMessagesInputCustomizedStickerView
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithDelegate:(id)delegate index:(NSUInteger)indexValue
 {
-    self = [super initWithFrame:frame];
-    
+    self = [super init];
     if (self) {
-        //        self.flexibleWidth = YES;
-        //        self.flexibleHeight = NO;
-        //        self.height = 215;
-        
-        self.backgroundColor = [UIColor whiteColor];
-        
-        [self loadStickers];
-        
-        [self initCollectionView];
-        [self initPageControl];
+        [self initialize];
+        self.delegate = delegate;
+        self.index = indexValue;
     }
-    
     return self;
+}
+
+//- (instancetype)initWithFrame:(CGRect)frame
+//{
+//    self = [super initWithFrame:frame];
+//    
+//    if (self) {
+//        [self initialize];
+//        //        self.flexibleWidth = YES;
+//        //        self.flexibleHeight = NO;
+//        //        self.height = 215;
+//    }
+//    
+//    return self;
+//}
+
+- (void)initialize
+{
+    self.backgroundColor = [UIColor whiteColor];
+    
+    [self initCollectionView];
+    [self initPageControl];
 }
 
 #pragma mark - collection view
@@ -68,41 +81,41 @@
         _collectionView.pagingEnabled = YES;
         _collectionView.scrollsToTop = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
-        _collectionView.dataSource = self;
-        _collectionView.delegate = self;
+        _collectionView.dataSource = self.delegate;
+        _collectionView.delegate = self.delegate;
     }
     
     return _collectionView;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return self.stickerArray.count;
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 1;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    BXMessagesInputStickerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BXMessagesInputStickerCell class])
-                                                                               forIndexPath:indexPath];
-    
-    cell.stickerImageView.image = [self.stickerArray objectAtIndex:indexPath.row];
-    
-    return cell;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputCustomizedStickerView:selectedSticker:)]) {
-        NSDictionary *stickerInfo = @{@"number":@8};
-        [self.delegate bxMessagesInputCustomizedStickerView:self selectedSticker:stickerInfo];
-//        [self.delegate bxMessagesInputCustomizedStickerView:self selectedSticker:[self.stickerArray objectAtIndex:indexPath.row]];
-    }
-}
+//- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+//{
+//    return self.stickerArray.count;
+//}
+//
+//- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+//{
+//    return 1;
+//}
+//
+//- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    BXMessagesInputStickerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BXMessagesInputStickerCell class])
+//                                                                               forIndexPath:indexPath];
+//    
+//    cell.stickerImageView.image = [self.stickerArray objectAtIndex:indexPath.row];
+//    
+//    return cell;
+//}
+//
+//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputCustomizedStickerView:selectedSticker:)]) {
+//        NSDictionary *stickerInfo = @{@"number":@8};
+//        [self.delegate bxMessagesInputCustomizedStickerView:self selectedSticker:stickerInfo];
+////        [self.delegate bxMessagesInputCustomizedStickerView:self selectedSticker:[self.stickerArray objectAtIndex:indexPath.row]];
+//    }
+//}
 
 #pragma mark - init page control
 - (UIPageControl *)pageControl
@@ -159,17 +172,17 @@
     }
 }
 
-#pragma mark - load emojis
+#pragma mark - load stickers
 - (void)loadStickers
 {
-    NSMutableArray *stickers = NSMutableArray.new;
-    int count = 20;
-    UIImage *image = [UIImage imageNamed:@"test_icon"];
-    for (int i=0; i<count; i++) {
-        [stickers addObject:image];
-    }
-    self.stickerArray = [NSArray arrayWithArray:stickers];
-//    self.emojiArray = [NSArray arrayWithContentsOfFile:[[NSBundle buk_bundle] pathForResource:@"emoji" ofType:@"plist"]];
+//    NSMutableArray *stickers = NSMutableArray.new;
+//    int count = 20;
+//    UIImage *image = [UIImage imageNamed:@"test_icon"];
+//    for (int i=0; i<count; i++) {
+//        [stickers addObject:image];
+//    }
+//    self.stickerArray = [NSArray arrayWithArray:stickers];
+////    self.emojiArray = [NSArray arrayWithContentsOfFile:[[NSBundle buk_bundle] pathForResource:@"emoji" ofType:@"plist"]];
 }
 
 #pragma mark -
