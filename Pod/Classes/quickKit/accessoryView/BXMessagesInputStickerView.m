@@ -17,10 +17,6 @@
 static NSInteger const stickersCount           = 2;
 static CGFloat const stickerViewHeight         = 215;
 static CGFloat const toolBarHeight             = 40;
-// dictionary key for stickersInfo
-static NSString *const kStickerCount           = @"BXSticker_count";          // number of stickers in this pack
-static NSString *const kStickerPreviewImage    = @"BXSticker_previewImage";   // preview image to be presented in stickersGalleryView
-static NSString *const kStickerImages          = @"BXSticker_images";         // images data array
 
 @interface BXMessagesInputStickerView() <UICollectionViewDataSource,UICollectionViewDelegate,BXMessagesInputStickerDefaultEmojiViewDelegate, BXMessagesInputCustomizedStickerViewDelegate>
 
