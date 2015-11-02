@@ -25,9 +25,9 @@
 {
     self = [super init];
     if (self) {
-        [self initialize];
         self.delegate = delegate;
         self.index = indexValue;
+        [self initialize];
     }
     return self;
 }

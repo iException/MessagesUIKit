@@ -83,16 +83,15 @@ static CGFloat const toolBarHeight             = 40;
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-0-[_stickerMainView]-%f-|",toolBarHeight] options:0 metrics:nil views:NSDictionaryOfVariableBindings(_stickerMainView)]];
     
     // init cachedMainViewCandidates
-    self.cachedMainViewCandidates = NSMutableArray.new;
+    self.cachedMainViewCandidates = [NSMutableArray arrayWithCapacity:self.stickersInfo.count + 1];
     // add the default emoji view anyway
     BXMessagesInputStickerDefaultEmojiView *emojiView = [[BXMessagesInputStickerDefaultEmojiView alloc] init];
     emojiView.delegate = self;
-    [self.cachedMainViewCandidates addObject:emojiView];
+    [self.cachedMainViewCandidates setObject:emojiView atIndexedSubscript:0];
     // add a customized sticker view
 //    BXMessagesInputCustomizedStickerView *stickerView = [[BXMessagesInputCustomizedStickerView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     BXMessagesInputCustomizedStickerView *stickerView = [[BXMessagesInputCustomizedStickerView alloc] initWithDelegate:self index:0];
-    stickerView.delegate = self;
-    [self.cachedMainViewCandidates addObject:stickerView];
+    [self.cachedMainViewCandidates setObject:stickerView atIndexedSubscript:1];
 }
 
 - (void)initToolBar
@@ -214,13 +213,14 @@ static CGFloat const toolBarHeight             = 40;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger row = indexPath.row;
     if ([collectionView isEqual:self.stickersGalleryView]) {
         BXMessagesInputStickersGalleryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BXMessagesInputStickersGalleryViewCell class]) forIndexPath:indexPath];
         
         if (!cell) {
             cell = [[BXMessagesInputStickersGalleryViewCell alloc] init];
         }
-        cell.previewImageView.image = [self getStickerPreviewImageAtIndex:indexPath.row - 1];
+        cell.previewImageView.image = row ? [self getStickerPreviewImageAtIndex:row - 1] : [UIImage imageNamed:@"test_icon.png"];
         
         return cell;
     } else if ([collectionView isKindOfClass:[BXMessagesInputCustomizedStickerView class]]) {
