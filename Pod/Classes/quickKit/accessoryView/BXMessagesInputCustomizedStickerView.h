@@ -21,9 +21,16 @@ static NSString *const kStickerImages          = @"BXSticker_images";         //
 
 @end
 
+@protocol BXMessagesInputCustomizedStickerViewDataSource <NSObject>
+
+- (NSInteger)numberOfStickersOfPackAtIndex:(NSInteger)index;
+- (UIImage *)imageOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
+
+@end
+
 @interface BXMessagesInputCustomizedStickerView : UIView
 
-@property (nonatomic, weak) id<BXMessagesInputCustomizedStickerViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource> delegate;
+@property (nonatomic, weak) id<BXMessagesInputCustomizedStickerViewDelegate, BXMessagesInputCustomizedStickerViewDataSource> delegate;
 
 @property (nonatomic, assign) NSUInteger index;
 
