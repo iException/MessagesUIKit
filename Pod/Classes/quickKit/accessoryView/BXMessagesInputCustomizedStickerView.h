@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+// dictionary key for stickersInfo
+static NSString *const kStickerCount           = @"BXSticker_count";          // number of stickers in this pack
+static NSString *const kStickerPreviewImage    = @"BXSticker_previewImage";   // preview image to be presented in stickersGalleryView
+static NSString *const kStickerImages          = @"BXSticker_images";         // images data array
+
 @class BXMessagesInputCustomizedStickerView;
 
 @protocol BXMessagesInputCustomizedStickerViewDelegate <NSObject>

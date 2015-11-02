@@ -9,10 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BXMessagesInputAccessoryView.h"
 
-// dictionary key for stickersInfo
-NSString *const kStickerCount           = @"BXSticker_count";          // number of stickers in this pack
-NSString *const kStickerPreviewImage    = @"BXSticker_previewImage";   // preview image to be presented in stickersGalleryView
-NSString *const kStickerImages          = @"BXSticker_images";         // images data array
+
 
 @class BXMessagesInputStickerView;
 
