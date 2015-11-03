@@ -240,7 +240,7 @@ static CGFloat const toolBarHeight             = 40;
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[packView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(packView)]];
     
     // handle "sendButton" visibility
-    if (row) {
+    if (!row) {
         [self showSendButtonAnimatedly];
     } else {
         [self hideSendButtonAnimatedly];
