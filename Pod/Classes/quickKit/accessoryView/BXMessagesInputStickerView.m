@@ -95,19 +95,25 @@ static CGFloat const toolBarHeight             = 40;
 
 - (void)initToolBar
 {
-    [self.toolBar addSubview:self.addStickersButton];
     [self.toolBar addSubview:self.stickersGalleryView];
     [self.toolBar addSubview:self.sendButton];
     [self addSubview:self.toolBar];
     
-    // arrange addStickersButton
-    self.addStickersButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_addStickersButton]-0-[_stickersGalleryView]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_addStickersButton,_stickersGalleryView)]];
-    [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_addStickersButton]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_addStickersButton)]];
-    
+    if (self.hasExtention) {
+        [self.toolBar addSubview:self.addStickersButton];
+        // arrange addStickersButton
+        self.addStickersButton.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_addStickersButton]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_addStickersButton)]];
+        [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_addStickersButton]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_addStickersButton)]];
+    }
+
     // arrange stickersGalleryView
     self.stickersGalleryView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_stickersGalleryView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_stickersGalleryView)]];
+    if (self.hasExtention) {
+        [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_addStickersButton]-0-[_stickersGalleryView]-0-[_sendButton]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_stickersGalleryView,_addStickersButton,_sendButton)]];
+    } else {
+        [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_stickersGalleryView]-0-[_sendButton]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_stickersGalleryView,_sendButton)]];
+    }
     [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_stickersGalleryView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_stickersGalleryView)]];
     
     // arrange sendButton

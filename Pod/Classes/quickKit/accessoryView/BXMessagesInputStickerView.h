@@ -30,6 +30,14 @@
 
 @property (assign, nonatomic) CGFloat height;
 
+/**
+ *  indicating whether the sticker packs can be extended 
+ *  and a extention button will be shown in the bottom tool bar
+ */
+@property (assign, nonatomic) BOOL hasExtention;
+
+@property (strong, nonatomic) UIColor *bottomBarColor;
+
 @property (weak, nonatomic) id<BXMessagesInputStickerViewDelegate> delegate;
 
 // each element in stickersInfo is a dictionary that stores all necessary info about a sticker pack
