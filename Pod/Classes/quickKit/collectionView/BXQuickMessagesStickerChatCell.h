@@ -7,7 +7,7 @@
 //
 
 #import "BXQuickMessagesBaseChatCell.h"
-#import "FLAnimatedImageView.h"
+@import FLAnimatedImage;
 
 @interface BXQuickMessagesStickerChatCell : BXQuickMessagesBaseChatCell
 

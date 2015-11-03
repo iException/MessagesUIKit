@@ -118,7 +118,7 @@ static CGFloat const toolBarHeight             = 40;
     
     // arrange sendButton
     self.sendButton.translatesAutoresizingMaskIntoConstraints = NO;
-    //    [self.sendButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[(==50)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendButton)]];
+    [self.sendButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_sendButton(100)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendButton)]];
     [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_sendButton]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendButton)]];
     [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_sendButton]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendButton)]];
     
