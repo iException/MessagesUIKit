@@ -93,7 +93,7 @@
 {
     if (!_staticImageView) {
         _staticImageView = [[UIImageView alloc] init];
-        
+        _staticImageView.contentMode = UIViewContentModeScaleAspectFit;
         _staticImageView.translatesAutoresizingMaskIntoConstraints = NO;
         self.staticImageWidthConstraint = [NSLayoutConstraint constraintWithItem:_staticImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:120];
         self.staticImageHeightConstraint = [NSLayoutConstraint constraintWithItem:_staticImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:120];
@@ -109,7 +109,7 @@
 {
     if (!_dynamicImageView) {
         _dynamicImageView = [[FLAnimatedImageView alloc] init];
-        
+        _dynamicImageView.contentMode = UIViewContentModeScaleAspectFit;
         _dynamicImageView.translatesAutoresizingMaskIntoConstraints = NO;
         self.dynamicImageWidthConstraint = [NSLayoutConstraint constraintWithItem:_dynamicImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:120];
         self.dynamicImageHeightConstraint = [NSLayoutConstraint constraintWithItem:_dynamicImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:120];
