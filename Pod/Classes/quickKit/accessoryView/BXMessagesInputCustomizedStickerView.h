@@ -23,8 +23,9 @@ static NSString *const kStickerImages          = @"BXSticker_images";         //
 
 @protocol BXMessagesInputCustomizedStickerViewDataSource <NSObject>
 
-- (NSInteger)numberOfStickersOfPackAtIndex:(NSInteger)index;
+- (NSInteger)numberOfStickersOfPackAtIndex:(NSInteger)packIndex;
 - (UIImage *)imageOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
+- (NSString *)nameOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
 
 @end
 

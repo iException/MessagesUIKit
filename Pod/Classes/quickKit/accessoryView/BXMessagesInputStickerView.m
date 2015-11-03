@@ -249,6 +249,11 @@ static CGFloat const toolBarHeight             = 40;
     return [self getStickerImagesAtIndex:packIndex][stickerIndex];
 }
 
+- (NSString *)nameOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex
+{
+    return [NSString stringWithFormat:@"表情%ld",stickerIndex + 1];
+}
+
 #pragma mark - stickerInfo reader
 - (NSUInteger)getStickerPackCountAtIndex:(NSUInteger)index
 {

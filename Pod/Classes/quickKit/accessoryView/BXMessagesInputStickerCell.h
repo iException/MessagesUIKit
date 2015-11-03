@@ -10,6 +10,14 @@
 
 @interface BXMessagesInputStickerCell : UICollectionViewCell
 
+/**
+ *  preview image of this sticker
+ */
 @property (nonatomic, strong) UIImageView *stickerImageView;
+
+/**
+ *  name label of this sticker
+ */
+@property (nonatomic, strong) UILabel *nameLabel;
 
 @end

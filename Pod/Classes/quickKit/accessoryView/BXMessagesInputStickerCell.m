@@ -40,10 +40,14 @@
 - (void)initialize
 {
     [self.contentView addSubview:self.stickerImageView];
+    [self.contentView addSubview:self.nameLabel];
     
     self.stickerImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_stickerImageView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_stickerImageView)]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_stickerImageView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_stickerImageView)]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_stickerImageView]-[_nameLabel]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_stickerImageView,_nameLabel)]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_nameLabel]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_nameLabel)]];
 }
 
 #pragma mark - getters -
@@ -53,6 +57,17 @@
         _stickerImageView = [[UIImageView alloc] init];
     }
     return _stickerImageView;
+}
+
+- (UILabel *)nameLabel
+{
+    if (!_nameLabel) {
+        _nameLabel = [[UILabel alloc] init];
+        _nameLabel.text = @"";
+        _nameLabel.textColor = [UIColor blackColor];
+        _nameLabel.font = [UIFont systemFontOfSize:9];
+    }
+    return _nameLabel;
 }
 
 @end

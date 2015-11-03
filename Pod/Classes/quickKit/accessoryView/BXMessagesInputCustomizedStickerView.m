@@ -71,7 +71,7 @@
 {
     if (!_collectionView) {
         BXCollectionViewPageableFlowLayout *layout = [[BXCollectionViewPageableFlowLayout alloc] init];
-        layout.itemSize = CGSizeMake(50, 50);
+        layout.itemSize = CGSizeMake(50, 65);
         layout.itemMinimalVerticalPadding = 0;
         layout.itemMinimalHorizontalPadding = 0;
         layout.pageContentInsets = UIEdgeInsetsMake(15, 20, 30, 20);
@@ -105,12 +105,12 @@
 {
     BXMessagesInputStickerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BXMessagesInputStickerCell class])
                                                                                forIndexPath:indexPath];
-    
-//    cell.stickerImageView.image = [self.stickerArray objectAtIndex:indexPath.row];
     if (self.delegate && [self.delegate respondsToSelector:@selector(imageOfStickersWithPackIndex:stickerIndex:)]) {
         cell.stickerImageView.image = [self.delegate imageOfStickersWithPackIndex:self.index stickerIndex:indexPath.row];
     }
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(nameOfStickersWithPackIndex:stickerIndex:)]) {
+        cell.nameLabel.text = [self.delegate nameOfStickersWithPackIndex:self.index stickerIndex:indexPath.row];
+    }
     return cell;
 }
 
