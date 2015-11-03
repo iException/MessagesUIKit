@@ -31,6 +31,7 @@ static CGFloat const toolBarHeight             = 40;
 @property (nonatomic, strong) UIButton *addStickersButton;
 @property (nonatomic, strong) UICollectionView *stickersGalleryView;
 @property (nonatomic, strong) UIButton *sendButton;
+@property (nonatomic, strong) NSLayoutConstraint *sendButtonHorizontalConstraint;      // sendButton will be hidden when customizedStickerView is shown
 
 @end
 
@@ -119,7 +120,8 @@ static CGFloat const toolBarHeight             = 40;
     // arrange sendButton
     self.sendButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self.sendButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_sendButton(100)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendButton)]];
-    [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_sendButton]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendButton)]];
+    self.sendButtonHorizontalConstraint = [NSLayoutConstraint constraintWithItem:self.sendButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.toolBar attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
+    [self.toolBar addConstraint:self.sendButtonHorizontalConstraint];
     [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_sendButton]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendButton)]];
     
     // arrange toolBar
@@ -236,6 +238,33 @@ static CGFloat const toolBarHeight             = 40;
     packView.translatesAutoresizingMaskIntoConstraints = NO;
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[packView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(packView)]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[packView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(packView)]];
+    
+    // handle "sendButton" visibility
+    if (row) {
+        [self showSendButtonAnimatedly];
+    } else {
+        [self hideSendButtonAnimatedly];
+    }
+}
+
+- (void)showSendButtonAnimatedly
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.toolBar removeConstraint:self.sendButtonHorizontalConstraint];
+        self.sendButtonHorizontalConstraint = [NSLayoutConstraint constraintWithItem:self.sendButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.toolBar attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
+        [self.toolBar addConstraint:self.sendButtonHorizontalConstraint];
+        [self layoutIfNeeded];
+    }];
+}
+
+- (void)hideSendButtonAnimatedly
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.toolBar removeConstraint:self.sendButtonHorizontalConstraint];
+        self.sendButtonHorizontalConstraint = [NSLayoutConstraint constraintWithItem:self.sendButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.toolBar attribute:NSLayoutAttributeRight multiplier:1.0 constant:100];
+        [self.toolBar addConstraint:self.sendButtonHorizontalConstraint];
+        [self layoutIfNeeded];
+    }];
 }
 
 #pragma mark - BXMessagesInputCustomizedStickerViewDataSource
