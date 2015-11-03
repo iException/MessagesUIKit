@@ -51,7 +51,6 @@
 {
     if (!_stickerImageView) {
         _stickerImageView = [[UIImageView alloc] init];
-        _stickerImageView.backgroundColor = [UIColor yellowColor];
     }
     return _stickerImageView;
 }

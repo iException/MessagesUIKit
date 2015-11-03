@@ -41,7 +41,6 @@ static CGFloat const toolBarHeight             = 40;
     self = [super initWithFrame:frame];
     if (self) {
         [self initialize];
-
     }
     return self;
 }
@@ -59,7 +58,8 @@ static CGFloat const toolBarHeight             = 40;
     // init UI Elements
     [self initStickerMainView];
     [self initToolBar];
-    
+    // show the default emojis view
+    [self collectionView:self.stickersGalleryView didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
 }
 
 // get local emoji & sticker packs info

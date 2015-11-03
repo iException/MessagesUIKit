@@ -35,7 +35,6 @@ typedef NS_ENUM(NSInteger, BXQuickMessagesChatCellContentBubleType) {
 
 @interface BXQuickMessagesBaseChatCell : UICollectionViewCell
 
-
 @property (strong, nonatomic, readonly) UIImageView *avatar;
 
 /**
