@@ -19,4 +19,7 @@
 @property (nonatomic, strong) NSLayoutConstraint *dynamicImageWidthConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *dynamicImageHeightConstraint;
 
+- (void)stopAnimation;
+- (void)startAnimation;
+
 @end

@@ -33,4 +33,7 @@
 
 - (void)bx_registerCellsForCollectionView:(UICollectionView *)collectionView;
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset;
+
 @end
