@@ -66,6 +66,7 @@
         _nameLabel.text = @"";
         _nameLabel.textColor = [UIColor blackColor];
         _nameLabel.font = [UIFont systemFontOfSize:9];
+        _nameLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _nameLabel;
 }
