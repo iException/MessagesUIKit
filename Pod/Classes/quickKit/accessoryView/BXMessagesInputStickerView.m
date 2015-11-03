@@ -58,8 +58,6 @@ static CGFloat const toolBarHeight             = 40;
     // init UI Elements
     [self initStickerMainView];
     [self initToolBar];
-    // show the default emojis view
-    [self collectionView:self.stickersGalleryView didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
 }
 
 // get local emoji & sticker packs info
@@ -76,7 +74,7 @@ static CGFloat const toolBarHeight             = 40;
 - (void)initStickerMainView
 {
     [self addSubview:self.stickerMainView];
-
+    
     // arrange stickerMainView
     self.stickerMainView.translatesAutoresizingMaskIntoConstraints = NO;
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_stickerMainView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_stickerMainView)]];
@@ -89,9 +87,10 @@ static CGFloat const toolBarHeight             = 40;
     emojiView.delegate = self;
     [self.cachedMainViewCandidates setObject:emojiView atIndexedSubscript:0];
     // add a customized sticker view
-//    BXMessagesInputCustomizedStickerView *stickerView = [[BXMessagesInputCustomizedStickerView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     BXMessagesInputCustomizedStickerView *stickerView = [[BXMessagesInputCustomizedStickerView alloc] initWithDelegate:self index:0];
     [self.cachedMainViewCandidates setObject:stickerView atIndexedSubscript:1];
+    // default show the first view (emojis view)
+    [self collectionView:self.stickersGalleryView didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 }
 
 - (void)initToolBar
@@ -113,7 +112,7 @@ static CGFloat const toolBarHeight             = 40;
     
     // arrange sendButton
     self.sendButton.translatesAutoresizingMaskIntoConstraints = NO;
-//    [self.sendButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[(==50)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendButton)]];
+    //    [self.sendButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[(==50)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendButton)]];
     [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_sendButton]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendButton)]];
     [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_sendButton]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendButton)]];
     
@@ -194,23 +193,11 @@ static CGFloat const toolBarHeight             = 40;
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
-//    if ([collectionView isEqual:self.stickersGalleryView]) {
-//        return 1;
-//    } else {
-//        return 1;
-//    }
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.stickersInfo.count + 1;    // first slot for emojis, others for stickers
-//    if ([collectionView isEqual:self.stickersGalleryView]) {
-//        return self.stickersInfo.count + 1;    // first slot for emojis, others for stickers
-//    } else {
-//        BXMessagesInputCustomizedStickerView *stickerView = (BXMessagesInputCustomizedStickerView *)collectionView;
-//        [self getStickerPackCountAtIndex:stickerView.index];
-//    }
-//    return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -224,27 +211,6 @@ static CGFloat const toolBarHeight             = 40;
     cell.previewImageView.image = row ? [self getStickerPreviewImageAtIndex:row - 1] : [UIImage imageNamed:@"test_icon.png"];
     
     return cell;
-    
-
-//    if ([collectionView isEqual:self.stickersGalleryView]) {
-//        BXMessagesInputStickersGalleryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BXMessagesInputStickersGalleryViewCell class]) forIndexPath:indexPath];
-//        
-//        if (!cell) {
-//            cell = [[BXMessagesInputStickersGalleryViewCell alloc] init];
-//        }
-//        cell.previewImageView.image = row ? [self getStickerPreviewImageAtIndex:row - 1] : [UIImage imageNamed:@"test_icon.png"];
-//        
-//        return cell;
-//    } else {
-//        BXMessagesInputCustomizedStickerView *stickerView = (BXMessagesInputCustomizedStickerView *)collectionView;
-//        BXMessagesInputStickerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BXMessagesInputStickerCell class])
-//                                                                                     forIndexPath:indexPath];
-//        
-//        cell.stickerImageView.image = [[self getStickerImagesAtIndex:stickerView.index] objectAtIndex:indexPath.row];
-//        
-//        return cell;
-//    }
-//    return nil;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -260,8 +226,10 @@ static CGFloat const toolBarHeight             = 40;
         return;
     }
     UIView *packView = [self.cachedMainViewCandidates objectAtIndex:row];
-    packView.frame = CGRectMake(0, 0, self.stickerMainView.frame.size.width, self.stickerMainView.frame.size.height);
     [self.stickerMainView addSubview:packView];
+    packView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[packView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(packView)]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[packView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(packView)]];
 }
 
 #pragma mark - BXMessagesInputCustomizedStickerViewDataSource
@@ -293,7 +261,7 @@ static CGFloat const toolBarHeight             = 40;
     NSAssert(previewImage, @"pack previewImage is nil");
     return previewImage;
 }
-                                       
+
 - (NSArray *)getStickerImagesAtIndex:(NSUInteger)index
 {
     NSDictionary *packInfo = [self.stickersInfo objectAtIndex:index];
