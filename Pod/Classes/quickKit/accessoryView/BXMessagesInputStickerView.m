@@ -91,7 +91,10 @@ static CGFloat const toolBarHeight             = 40;
     BXMessagesInputCustomizedStickerView *stickerView = [[BXMessagesInputCustomizedStickerView alloc] initWithDelegate:self index:0];
     [self.cachedMainViewCandidates setObject:stickerView atIndexedSubscript:1];
     // default show the first view (emojis view)
-    [self collectionView:self.stickersGalleryView didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    [self.stickerMainView addSubview:emojiView];
+    emojiView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[emojiView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(emojiView)]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[emojiView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(emojiView)]];
 }
 
 - (void)initToolBar
