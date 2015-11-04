@@ -122,14 +122,14 @@
 
 - (void)startAnimation
 {
-    if (!self.dynamicImageView.isAnimating) {
+    if (![self.dynamicImageView isAnimating]) {
         [self.dynamicImageView startAnimating];
     }
 }
 
 - (void)stopAnimation
 {
-    if (self.dynamicImageView.isAnimating) {
+    if ([self.dynamicImageView isAnimating]) {
         [self.dynamicImageView stopAnimating];
     }
 }
