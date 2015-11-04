@@ -45,7 +45,15 @@
 
 // override this method to customize stickers resources loading
 // all information is stored into self.stickersInfo
-// the loaded stickers information should conform to key-value defined in BXMessagesInputStickerView.m
-- (void)loadStickerRecources;
+- (void)loadStickerResources;
+
+// override following method to customize stickers resouces parsing
+- (NSUInteger)getStickerPackCountAtIndex:(NSUInteger)index;
+- (UIImage *)getStickerPreviewImageAtIndex:(NSUInteger)index;
+- (NSArray *)getStickerImagesAtIndex:(NSUInteger)index;
+
+- (NSInteger)numberOfStickersOfPackAtIndex:(NSInteger)index;
+- (UIImage *)imageOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
+- (NSString *)nameOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
 
 @end

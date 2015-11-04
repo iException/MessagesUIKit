@@ -64,11 +64,11 @@ static CGFloat const toolBarHeight             = 40;
 // get local emoji & sticker packs info
 - (void)prepareEmojiAndStickerPacks
 {
-    [self loadStickerRecources];
+    [self loadStickerResources];
 }
 
 // default do nothing
-- (void)loadStickerRecources
+- (void)loadStickerResources
 {
 }
 
@@ -87,9 +87,13 @@ static CGFloat const toolBarHeight             = 40;
     BXMessagesInputStickerDefaultEmojiView *emojiView = [[BXMessagesInputStickerDefaultEmojiView alloc] init];
     emojiView.delegate = self;
     [self.cachedMainViewCandidates setObject:emojiView atIndexedSubscript:0];
-    // add a customized sticker view
-    BXMessagesInputCustomizedStickerView *stickerView = [[BXMessagesInputCustomizedStickerView alloc] initWithDelegate:self index:0];
-    [self.cachedMainViewCandidates setObject:stickerView atIndexedSubscript:1];
+    // add customized sticker view
+    for (int i=0; i<self.stickersInfo.count; i++) {
+        BXMessagesInputCustomizedStickerView *stickerView = [[BXMessagesInputCustomizedStickerView alloc] initWithDelegate:self index:i];
+        [self.cachedMainViewCandidates setObject:stickerView atIndexedSubscript:i+1];
+    }
+//    BXMessagesInputCustomizedStickerView *stickerView = [[BXMessagesInputCustomizedStickerView alloc] initWithDelegate:self index:0];
+//    [self.cachedMainViewCandidates setObject:stickerView atIndexedSubscript:1];
     // default show the first view (emojis view)
     [self.stickerMainView addSubview:emojiView];
     emojiView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -270,49 +274,49 @@ static CGFloat const toolBarHeight             = 40;
     }];
 }
 
-#pragma mark - BXMessagesInputCustomizedStickerViewDataSource
-- (NSInteger)numberOfStickersOfPackAtIndex:(NSInteger)index
-{
-    return [self getStickerPackCountAtIndex:index];
-}
+//#pragma mark - BXMessagesInputCustomizedStickerViewDataSource
+//- (NSInteger)numberOfStickersOfPackAtIndex:(NSInteger)index
+//{
+//    return [self getStickerPackCountAtIndex:index];
+//}
+//
+//- (UIImage *)imageOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex
+//{
+//    return [self getStickerImagesAtIndex:packIndex][stickerIndex];
+//}
+//
+//- (NSString *)nameOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex
+//{
+//    return [NSString stringWithFormat:@"表情%ld",stickerIndex + 1];
+//}
 
-- (UIImage *)imageOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex
-{
-    return [self getStickerImagesAtIndex:packIndex][stickerIndex];
-}
-
-- (NSString *)nameOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex
-{
-    return [NSString stringWithFormat:@"表情%ld",stickerIndex + 1];
-}
-
-#pragma mark - stickerInfo reader
-- (NSUInteger)getStickerPackCountAtIndex:(NSUInteger)index
-{
-    NSDictionary *packInfo = [self.stickersInfo objectAtIndex:index];
-    NSAssert(packInfo, @"packInfo is nil");
-    NSNumber *count = [packInfo objectForKey:kStickerCount];
-    NSAssert(count, @"pack count is nil");
-    return [count integerValue];
-}
-
-- (UIImage *)getStickerPreviewImageAtIndex:(NSUInteger)index
-{
-    NSDictionary *packInfo = [self.stickersInfo objectAtIndex:index];
-    NSAssert(packInfo, @"packInfo is nil");
-    UIImage *previewImage = [packInfo objectForKey:kStickerPreviewImage];
-    NSAssert(previewImage, @"pack previewImage is nil");
-    return previewImage;
-}
-
-- (NSArray *)getStickerImagesAtIndex:(NSUInteger)index
-{
-    NSDictionary *packInfo = [self.stickersInfo objectAtIndex:index];
-    NSAssert(packInfo, @"packInfo is nil");
-    NSArray *images = [packInfo objectForKey:kStickerImages];
-    NSAssert(images, @"pack images is nil");
-    return images;
-}
+//#pragma mark - stickerInfo reader
+//- (NSUInteger)getStickerPackCountAtIndex:(NSUInteger)index
+//{
+//    NSDictionary *packInfo = [self.stickersInfo objectAtIndex:index];
+//    NSAssert(packInfo, @"packInfo is nil");
+//    NSNumber *count = [packInfo objectForKey:kStickerCount];
+//    NSAssert(count, @"pack count is nil");
+//    return [count integerValue];
+//}
+//
+//- (UIImage *)getStickerPreviewImageAtIndex:(NSUInteger)index
+//{
+//    NSDictionary *packInfo = [self.stickersInfo objectAtIndex:index];
+//    NSAssert(packInfo, @"packInfo is nil");
+//    UIImage *previewImage = [packInfo objectForKey:kStickerPreviewImage];
+//    NSAssert(previewImage, @"pack previewImage is nil");
+//    return previewImage;
+//}
+//
+//- (NSArray *)getStickerImagesAtIndex:(NSUInteger)index
+//{
+//    NSDictionary *packInfo = [self.stickersInfo objectAtIndex:index];
+//    NSAssert(packInfo, @"packInfo is nil");
+//    NSArray *images = [packInfo objectForKey:kStickerImages];
+//    NSAssert(images, @"pack images is nil");
+//    return images;
+//}
 
 #pragma mark - BXMessagesInputStickerDefaultEmojiView delegate
 - (void)bxMessagesInputStickerDefaultEmojiView:(BXMessagesInputStickerDefaultEmojiView *)emojiView selectedEmoji:(NSString *)emoji
