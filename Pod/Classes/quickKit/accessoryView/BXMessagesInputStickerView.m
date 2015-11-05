@@ -168,7 +168,7 @@ static CGFloat const toolBarHeight             = 40;
 {
     if (!_stickersGalleryView) {
         BXMessagesInputStickersGalleryViewLayout *layout = [[BXMessagesInputStickersGalleryViewLayout alloc] init];
-        layout.numberOfItems = self.stickersInfo.count;
+        layout.numberOfItems = self.stickersInfo.count + 1;
         layout.itemSize = CGSizeMake(45, toolBarHeight);
         
         _stickersGalleryView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
