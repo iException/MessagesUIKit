@@ -72,6 +72,7 @@ static CGFloat const toolBarHeight             = 40;
 
 - (void)initStickerMainView
 {
+    self.stickerMainView = nil;
     [self addSubview:self.stickerMainView];
     
     // arrange stickerMainView
@@ -79,6 +80,19 @@ static CGFloat const toolBarHeight             = 40;
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_stickerMainView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_stickerMainView)]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-0-[_stickerMainView]-%f-|",toolBarHeight] options:0 metrics:nil views:NSDictionaryOfVariableBindings(_stickerMainView)]];
     
+    // init candidates
+    [self initCachedMainViewCandidates];
+    
+    // default show the first view (emojis view)
+    BXMessagesInputStickerDefaultEmojiView *emojiView = self.cachedMainViewCandidates[0];
+    [self.stickerMainView addSubview:emojiView];
+    emojiView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[emojiView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(emojiView)]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[emojiView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(emojiView)]];
+}
+
+- (void)initCachedMainViewCandidates
+{
     // init cachedMainViewCandidates
     self.cachedMainViewCandidates = [NSMutableArray arrayWithCapacity:self.stickersInfo.count + 1];
     // add the default emoji view anyway
@@ -90,17 +104,14 @@ static CGFloat const toolBarHeight             = 40;
         BXMessagesInputCustomizedStickerView *stickerView = [[BXMessagesInputCustomizedStickerView alloc] initWithDelegate:self index:i];
         [self.cachedMainViewCandidates setObject:stickerView atIndexedSubscript:i+1];
     }
-//    BXMessagesInputCustomizedStickerView *stickerView = [[BXMessagesInputCustomizedStickerView alloc] initWithDelegate:self index:0];
-//    [self.cachedMainViewCandidates setObject:stickerView atIndexedSubscript:1];
-    // default show the first view (emojis view)
-    [self.stickerMainView addSubview:emojiView];
-    emojiView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[emojiView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(emojiView)]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[emojiView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(emojiView)]];
 }
 
 - (void)initToolBar
 {
+    self.toolBar = nil;
+    self.stickersGalleryView = nil;
+    self.sendButton = nil;
+    
     [self.toolBar addSubview:self.stickersGalleryView];
     [self.toolBar addSubview:self.sendButton];
     [self addSubview:self.toolBar];
@@ -112,7 +123,7 @@ static CGFloat const toolBarHeight             = 40;
         [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_addStickersButton]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_addStickersButton)]];
         [self.toolBar addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_addStickersButton]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_addStickersButton)]];
     }
-
+    
     // arrange stickersGalleryView
     self.stickersGalleryView.translatesAutoresizingMaskIntoConstraints = NO;
     if (self.hasExtention) {
@@ -172,7 +183,7 @@ static CGFloat const toolBarHeight             = 40;
         layout.itemSize = CGSizeMake(45, toolBarHeight);
         
         _stickersGalleryView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-        _stickersGalleryView.backgroundColor = [UIColor clearColor];
+        _stickersGalleryView.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
         _stickersGalleryView.scrollsToTop = NO;
         _stickersGalleryView.showsHorizontalScrollIndicator = YES;
         _stickersGalleryView.dataSource = self;
@@ -283,6 +294,16 @@ static CGFloat const toolBarHeight             = 40;
 #pragma mark - BXMessagesInputCustomizedStickerView delegate
 - (void)bxMessagesInputCustomizedStickerView:(BXMessagesInputCustomizedStickerView *)stickerView packIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex
 {
+}
+
+#pragma mark - public method
+- (void)reloadAll
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self initStickerMainView];
+        [self initToolBar];
+        [self layoutIfNeeded];
+    });
 }
 
 @end

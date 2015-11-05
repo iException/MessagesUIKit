@@ -55,4 +55,9 @@
 - (NSString *)nameOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
 - (void)bxMessagesInputCustomizedStickerView:(BXMessagesInputCustomizedStickerView *)stickerView packIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
 
+/**
+ *  reload UI elements according to newly set self.stickersInfo
+ */
+- (void)reloadAll;
+
 @end

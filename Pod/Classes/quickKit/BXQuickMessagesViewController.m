@@ -385,8 +385,8 @@ BXQuickMessagesChatCellDelegate>
 #pragma mark - collection view gesture
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-//    [super scrollViewWillBeginDragging:scrollView];
-//    
+    [super scrollViewWillBeginDragging:scrollView];
+    
 //    // stop animating while dragging
 //    UICollectionView *collectionView = (UICollectionView *)scrollView;
 //    NSArray *indexPaths = [collectionView indexPathsForVisibleItems];
