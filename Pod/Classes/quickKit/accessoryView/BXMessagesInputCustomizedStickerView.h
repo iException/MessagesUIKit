@@ -17,7 +17,7 @@ static NSString *const kStickerImages          = @"BXSticker_images";         //
 
 @protocol BXMessagesInputCustomizedStickerViewDelegate <NSObject>
 
-- (void)bxMessagesInputCustomizedStickerView:(BXMessagesInputCustomizedStickerView *)stickerView selectedSticker:(NSDictionary *)stickerInfo;
+- (void)bxMessagesInputCustomizedStickerView:(BXMessagesInputCustomizedStickerView *)stickerView packIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
 
 @end
 
@@ -33,6 +33,9 @@ static NSString *const kStickerImages          = @"BXSticker_images";         //
 
 @property (nonatomic, weak) id<BXMessagesInputCustomizedStickerViewDelegate, BXMessagesInputCustomizedStickerViewDataSource> delegate;
 
+/**
+ *  index in stickerGalleryView (index 0 -> 2nd sticker view, 1st sticker view is default emojis view)
+ */
 @property (nonatomic, assign) NSUInteger index;
 
 - (instancetype)initWithDelegate:(id)delegate index:(NSUInteger)indexValue;

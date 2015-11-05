@@ -327,11 +327,11 @@ static CGFloat const toolBarHeight             = 40;
 }
 
 #pragma mark - BXMessagesInputCustomizedStickerView delegate
-- (void)bxMessagesInputCustomizedStickerView:(BXMessagesInputCustomizedStickerView *)stickerView selectedSticker:(NSDictionary *)stickerInfo
+- (void)bxMessagesInputCustomizedStickerView:(BXMessagesInputCustomizedStickerView *)stickerView packIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputStickerView:selectedSticker:)]) {
-        [self.delegate bxMessagesInputStickerView:self selectedSticker:stickerInfo];
-    }
+//    if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputStickerView:selectedSticker:)]) {
+//        [self.delegate bxMessagesInputStickerView:self selectedSticker:stickerInfo];
+//    }
 }
 
 @end

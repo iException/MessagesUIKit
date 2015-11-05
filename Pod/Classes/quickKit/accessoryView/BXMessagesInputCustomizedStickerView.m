@@ -116,13 +116,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputCustomizedStickerView:selectedSticker:)]) {
-        NSDictionary *stickerInfo = @{
-                                      @"packId":@(self.index),
-                                      @"stickerId":@(indexPath.row)
-                                      };
-        [self.delegate bxMessagesInputCustomizedStickerView:self selectedSticker:stickerInfo];
-//        [self.delegate bxMessagesInputCustomizedStickerView:self selectedSticker:[self.stickerArray objectAtIndex:indexPath.row]];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputCustomizedStickerView:packIndex:stickerIndex:)]) {
+        [self.delegate bxMessagesInputCustomizedStickerView:self packIndex:self.index stickerIndex:indexPath.row];
     }
 }
 

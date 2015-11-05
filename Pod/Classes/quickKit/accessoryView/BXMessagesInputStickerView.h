@@ -9,14 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "BXMessagesInputAccessoryView.h"
 
-
-
 @class BXMessagesInputStickerView;
+@class BXMessagesInputCustomizedStickerView;
 
 @protocol BXMessagesInputStickerViewDelegate <NSObject>
 
 - (void)bxMessagesInputStickerView:(BXMessagesInputStickerView *)stickerView selectedEmoji:(NSString *)emoji;
-- (void)bxMessagesInputStickerView:(BXMessagesInputStickerView *)stickerView selectedSticker:(NSDictionary *)stickerInfo;
+- (void)bxMessagesInputStickerView:(BXMessagesInputStickerView *)stickerView selectedSticker:(id)stickerInfo;
 - (void)bxMessagesInputStickerView:(BXMessagesInputStickerView *)stickerView deleteButtonPressed:(UIButton *)deleteButton;
 - (void)bxMessagesInputStickerView:(BXMessagesInputStickerView *)stickerView sendButtonPressed:(UIButton *)sendButton;
 
@@ -51,9 +50,9 @@
 - (NSUInteger)getStickerPackCountAtIndex:(NSUInteger)index;
 - (UIImage *)getStickerPreviewImageAtIndex:(NSUInteger)index;
 - (NSArray *)getStickerImagesAtIndex:(NSUInteger)index;
-
 - (NSInteger)numberOfStickersOfPackAtIndex:(NSInteger)index;
 - (UIImage *)imageOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
 - (NSString *)nameOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
+- (void)bxMessagesInputCustomizedStickerView:(BXMessagesInputCustomizedStickerView *)stickerView packIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
 
 @end
