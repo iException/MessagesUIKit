@@ -315,11 +315,22 @@ static CGFloat const toolBarHeight             = 40;
     [self loadingStickerMainView];
 }
 
+- (void)resumeAll
+{
+    self.toolBar.hidden = NO;
+    [self resumeStickerMainView];
+}
+
 - (void)loadingStickerMainView
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.progressHUD.labelText = @"加载中...";
     });
+}
+
+- (void)resumeStickerMainView
+{
+    [self initStickerMainView];
 }
 
 #pragma mark - progress hud for stickerMainView

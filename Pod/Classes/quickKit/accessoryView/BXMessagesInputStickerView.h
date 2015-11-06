@@ -65,4 +65,9 @@
  */
 - (void)loadingAll;
 
+/**
+ *  resume from loading view
+ */
+- (void)resumeAll;
+
 @end
