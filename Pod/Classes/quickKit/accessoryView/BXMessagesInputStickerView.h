@@ -60,4 +60,9 @@
  */
 - (void)reloadAll;
 
+/**
+ *  show loading view before stickers data are saved properly
+ */
+- (void)loadingAll;
+
 @end

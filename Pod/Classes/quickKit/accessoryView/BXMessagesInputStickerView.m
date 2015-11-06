@@ -12,6 +12,7 @@
 #import "BXMessagesInputStickerCell.h"
 #import "BXMessagesInputStickerDefaultEmojiView.h"
 #import "BXMessagesInputCustomizedStickerView.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 static CGFloat const stickerViewHeight         = 215;
 static CGFloat const toolBarHeight             = 40;
@@ -30,6 +31,8 @@ static CGFloat const toolBarHeight             = 40;
 @property (nonatomic, strong) UICollectionView *stickersGalleryView;
 @property (nonatomic, strong) UIButton *sendButton;
 @property (nonatomic, strong) NSLayoutConstraint *sendButtonHorizontalConstraint;      // sendButton will be hidden when customizedStickerView is shown
+
+@property (nonatomic, strong) MBProgressHUD *progressHUD;
 
 @end
 
@@ -304,6 +307,35 @@ static CGFloat const toolBarHeight             = 40;
         [self initToolBar];
         [self layoutIfNeeded];
     });
+}
+
+- (void)loadingAll
+{
+    self.toolBar.hidden = YES;
+    [self loadingStickerMainView];
+}
+
+- (void)loadingStickerMainView
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.progressHUD.labelText = @"加载中...";
+    });
+}
+
+#pragma mark - progress hud for stickerMainView
+- (MBProgressHUD *)progressHUD
+{
+    if (!_progressHUD) {
+        _progressHUD = [[MBProgressHUD alloc] initWithView:self.stickerMainView];
+        _progressHUD.removeFromSuperViewOnHide = YES;
+        _progressHUD.dimBackground = YES;
+        _progressHUD.mode = MBProgressHUDModeIndeterminate;
+        _progressHUD.labelText = @"";
+        [self.stickerMainView addSubview:_progressHUD];
+        [_progressHUD show:YES];
+    }
+    
+    return _progressHUD;
 }
 
 @end
