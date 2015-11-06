@@ -12,6 +12,7 @@
 #import "BXMessagesInputStickerCell.h"
 #import "BXMessagesInputStickerDefaultEmojiView.h"
 #import "BXMessagesInputCustomizedStickerView.h"
+#import "UIImage+MessagesUIKit.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 
 static CGFloat const stickerViewHeight         = 215;
@@ -235,9 +236,17 @@ static CGFloat const toolBarHeight             = 40;
     if (!cell) {
         cell = [[BXMessagesInputStickersGalleryViewCell alloc] init];
     }
-    cell.previewImageView.image = row ? [self getStickerPreviewImageAtIndex:row - 1] : [UIImage imageNamed:@"test_icon.png"];
+    cell.previewImageView.image = row ? [self getStickerPreviewImageAtIndex:row - 1] : [self emojisPreviewImage];
     
     return cell;
+}
+
+- (UIImage *)emojisPreviewImage
+{
+    if (self.emojisPreviewImageName) {
+        return [UIImage imageNamed:self.emojisPreviewImageName];
+    }
+    return [UIImage buk_imageNamed:@"preview_default_emojis.png"];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

@@ -35,6 +35,8 @@
  */
 @property (assign, nonatomic) BOOL hasExtention;
 
+@property (copy, nonatomic) NSString *emojisPreviewImageName;
+
 @property (strong, nonatomic) UIColor *bottomBarColor;
 
 @property (weak, nonatomic) id<BXMessagesInputStickerViewDelegate> delegate;

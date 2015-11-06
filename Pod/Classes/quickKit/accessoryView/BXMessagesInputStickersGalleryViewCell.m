@@ -59,7 +59,6 @@
 {
     if (!_previewImageView) {
         _previewImageView = [[UIImageView alloc] init];
-        _previewImageView.image = [UIImage imageNamed:@"test_icon"];
     }
     return _previewImageView;
 }

@@ -179,14 +179,6 @@
 #pragma mark - load stickers
 - (void)loadStickers
 {
-//    NSMutableArray *stickers = NSMutableArray.new;
-//    int count = 20;
-//    UIImage *image = [UIImage imageNamed:@"test_icon"];
-//    for (int i=0; i<count; i++) {
-//        [stickers addObject:image];
-//    }
-//    self.stickerArray = [NSArray arrayWithArray:stickers];
-////    self.emojiArray = [NSArray arrayWithContentsOfFile:[[NSBundle buk_bundle] pathForResource:@"emoji" ofType:@"plist"]];
 }
 
 #pragma mark -
