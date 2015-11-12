@@ -20,4 +20,7 @@
  */
 @property (nonatomic, strong) UILabel *nameLabel;
 
+- (void)highlight;
+- (void)unhighlight;
+
 @end

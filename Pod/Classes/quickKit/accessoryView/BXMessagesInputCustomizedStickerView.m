@@ -17,6 +17,11 @@
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) UIPageControl *pageControl;
 
+/**
+ *  this is a helper property to get long press gesture on collection view done
+ */
+@property (strong, nonatomic) NSIndexPath *previousIndexPath;
+
 @end
 
 @implementation BXMessagesInputCustomizedStickerView
@@ -35,14 +40,14 @@
 //- (instancetype)initWithFrame:(CGRect)frame
 //{
 //    self = [super initWithFrame:frame];
-//    
+//
 //    if (self) {
 //        [self initialize];
 //        //        self.flexibleWidth = YES;
 //        //        self.flexibleHeight = NO;
 //        //        self.height = 215;
 //    }
-//    
+//
 //    return self;
 //}
 
@@ -83,6 +88,16 @@
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
+        
+        // attach long press gesture to collectionView
+        UILongPressGestureRecognizer* lpgr =
+        [[UILongPressGestureRecognizer alloc]
+         initWithTarget:self
+         action:@selector(handleLongPress:)];
+        lpgr.minimumPressDuration = .5;  // seconds
+        //        lpgr.delegate = self;
+        lpgr.delaysTouchesBegan = YES;
+        [self.collectionView addGestureRecognizer:lpgr];
     }
     
     return _collectionView;
@@ -104,7 +119,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     BXMessagesInputStickerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BXMessagesInputStickerCell class])
-                                                                               forIndexPath:indexPath];
+                                                                                 forIndexPath:indexPath];
     if (self.delegate && [self.delegate respondsToSelector:@selector(imageOfStickersWithPackIndex:stickerIndex:)]) {
         cell.stickerImageView.image = [self.delegate imageOfStickersWithPackIndex:self.index stickerIndex:indexPath.row];
     }
@@ -118,6 +133,76 @@
 {
     if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputCustomizedStickerView:packIndex:stickerIndex:)]) {
         [self.delegate bxMessagesInputCustomizedStickerView:self packIndex:self.index stickerIndex:indexPath.row];
+    }
+}
+
+#pragma mark - collection view gesture
+- (void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    UICollectionViewCell* cell;
+    CGPoint p = [gestureRecognizer locationInView:self.collectionView];
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:p];
+    
+    if (indexPath == nil){
+        // if moving out of collection view , unhighlight previous cell
+        UICollectionViewCell *previousCell = [self.collectionView cellForItemAtIndexPath:self.previousIndexPath];
+        [self unhighlightCell:previousCell];
+        return;
+    } else {
+        cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+    }
+    
+    switch (gestureRecognizer.state) {
+        case UIGestureRecognizerStateBegan: {
+            [self highlightCell:cell];
+            self.previousIndexPath = indexPath;
+            break;
+        }
+        case UIGestureRecognizerStateChanged: {
+            if (![indexPath isEqual:self.previousIndexPath]) {
+                // unhighlight previous cell
+                UICollectionViewCell *previousCell = [self.collectionView cellForItemAtIndexPath:self.previousIndexPath];
+                if (previousCell) {
+                    [self unhighlightCell:previousCell];
+                }
+                self.previousIndexPath = indexPath;
+                
+                // highlight this cell
+                [self highlightCell:cell];
+            }
+            break;
+        }
+        case UIGestureRecognizerStateEnded: {
+            [self unhighlightCell:cell];
+            break;
+        }
+        default: {
+            return;
+        }
+    }
+}
+
+- (void)highlightCell:(UICollectionViewCell *)cell
+{
+    if (!cell) {
+        return;
+    }
+    
+    if ([cell isKindOfClass:[BXMessagesInputStickerCell class]]) {
+        BXMessagesInputStickerCell *stickerCell = (BXMessagesInputStickerCell *)cell;
+        [stickerCell highlight];
+    }
+}
+
+- (void)unhighlightCell:(UICollectionViewCell *)cell
+{
+    if (!cell) {
+        return;
+    }
+    
+    if ([cell isKindOfClass:[BXMessagesInputStickerCell class]]) {
+        BXMessagesInputStickerCell *stickerCell = (BXMessagesInputStickerCell *)cell;
+        [stickerCell unhighlight];
     }
 }
 

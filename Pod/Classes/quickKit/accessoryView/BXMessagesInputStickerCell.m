@@ -71,4 +71,15 @@
     return _nameLabel;
 }
 
+#pragma mark - public -
+- (void)highlight
+{
+    self.stickerImageView.backgroundColor = [UIColor colorWithWhite:0.800 alpha:1.000];
+}
+
+- (void)unhighlight
+{
+    self.stickerImageView.backgroundColor = [UIColor clearColor];
+}
+
 @end
