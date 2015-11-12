@@ -29,6 +29,6 @@ Pod::Spec.new do |s|
   }
 
   s.dependency 'SDWebImage', '3.7.2'
-  s.dependency 'FLAnimatedImage', '~> 1.0'
+#  s.dependency 'FLAnimatedImage', '~> 1.0'
   s.dependency 'MBProgressHUD'
 end
