@@ -144,6 +144,17 @@
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.pageControl attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:30]];
     
     [self addPageControlKVOObservers];
+    
+    // add tap gesture
+    [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)changePage:(id)sender {
+    UIPageControl *pager = sender;
+    CGRect frame = self.collectionView.frame;
+    frame.origin.x = frame.size.width * pager.currentPage;
+    frame.origin.y = 0;
+    [self.collectionView scrollRectToVisible:frame animated:YES];
 }
 
 - (void)addPageControlKVOObservers
