@@ -37,23 +37,9 @@
     return self;
 }
 
-//- (instancetype)initWithFrame:(CGRect)frame
-//{
-//    self = [super initWithFrame:frame];
-//
-//    if (self) {
-//        [self initialize];
-//        //        self.flexibleWidth = YES;
-//        //        self.flexibleHeight = NO;
-//        //        self.height = 215;
-//    }
-//
-//    return self;
-//}
-
 - (void)initialize
 {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor colorWithWhite:0.980 alpha:1.000];
     
     [self initCollectionView];
     [self initPageControl];

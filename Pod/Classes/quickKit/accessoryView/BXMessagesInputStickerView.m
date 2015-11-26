@@ -187,7 +187,7 @@ static CGFloat const toolBarHeight             = 40;
         layout.itemSize = CGSizeMake(45, toolBarHeight);
         
         _stickersGalleryView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-        _stickersGalleryView.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+        _stickersGalleryView.backgroundColor = [UIColor whiteColor];
         _stickersGalleryView.scrollsToTop = NO;
         _stickersGalleryView.showsHorizontalScrollIndicator = YES;
         _stickersGalleryView.dataSource = self;

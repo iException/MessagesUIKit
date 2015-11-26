@@ -29,16 +29,9 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-//        self.flexibleWidth = YES;
-//        self.flexibleHeight = NO;
-//        self.height = 215;
-        
-        self.backgroundColor = [UIColor whiteColor];
-        
+        self.backgroundColor = [UIColor colorWithWhite:0.980 alpha:1.000];
         [self loadEmojis];
-        
         [self initCollectionView];
-//        [self initButtons];
         [self initPageControl];
     }
     
@@ -171,77 +164,6 @@
         self.pageControl.currentPage = self.collectionView.contentOffset.x / self.collectionView.bounds.size.width;
     }
 }
-
-//#pragma mark - buttons
-//- (void)initButtons
-//{
-//    [self addSubview:self.deleteButton];
-//    
-//    self.deleteButton.translatesAutoresizingMaskIntoConstraints = NO;
-//    
-//    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.deleteButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-1]];
-//    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.deleteButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.collectionView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
-//    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.deleteButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:1]];
-//    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.deleteButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeWidth multiplier:0.5 constant:0]];
-//    
-//    [self addSubview:self.sendButton];
-//    
-//    self.sendButton.translatesAutoresizingMaskIntoConstraints = NO;
-//    
-//    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.sendButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.deleteButton attribute:NSLayoutAttributeRight multiplier:1.0 constant:-1]];
-//    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.sendButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:1]];
-//    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.sendButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.deleteButton attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
-//    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.sendButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.deleteButton attribute:NSLayoutAttributeBottom multiplier:1.0 constant:1]];
-//}
-//
-//- (UIButton *)sendButton
-//{
-//    if (!_sendButton) {
-//        _sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        _sendButton.backgroundColor = [UIColor colorWithRed:0xf9/255.0 green:0xf9/255.0 blue:0xf9/255.0 alpha:1.0];
-//        [_sendButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-//        [_sendButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-//        [_sendButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
-//        [_sendButton addTarget:self action:@selector(sendButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//        [_sendButton setTitle:@"发送" forState:UIControlStateNormal];
-//        
-//        _sendButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//        _sendButton.layer.borderWidth = 1.0f;
-//    }
-//    
-//    return _sendButton;
-//}
-//
-//- (void)sendButtonPressed:(UIButton *)button
-//{
-//    if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputEmojiView:sendButtonPressed:)]) {
-//        [self.delegate bxMessagesInputEmojiView:self sendButtonPressed:button];
-//    }
-//}
-//
-//- (UIButton *)deleteButton
-//{
-//    if (!_deleteButton) {
-//        _deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        _deleteButton.backgroundColor = [UIColor colorWithRed:0xf9/255.0 green:0xf9/255.0 blue:0xf9/255.0 alpha:1.0];
-//        [_deleteButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-//        [_deleteButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-//        [_deleteButton addTarget:self action:@selector(deleteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//        [_deleteButton setTitle:@"删除" forState:UIControlStateNormal];
-//        
-//        _deleteButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//        _deleteButton.layer.borderWidth = 1.0f;
-//    }
-//    
-//    return _deleteButton;
-//}
-//
-//- (void)deleteButtonPressed:(UIButton *)button
-//{
-//    if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputEmojiView:deleteButtonPressed:)]) {
-//        [self.delegate bxMessagesInputEmojiView:self deleteButtonPressed:button];
-//    }
-//}
 
 #pragma mark - load emojis
 - (void)loadEmojis

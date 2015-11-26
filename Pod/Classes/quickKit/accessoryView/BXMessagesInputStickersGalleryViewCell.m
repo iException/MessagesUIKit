@@ -40,8 +40,8 @@
     
     [self.contentView addSubview:self.previewImageView];
     self.previewImageView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_previewImageView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_previewImageView)]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_previewImageView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_previewImageView)]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-5-[_previewImageView]-5-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_previewImageView)]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[_previewImageView]-5-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_previewImageView)]];
     
     // cutting line
     UIView *cuttingLine = [[UIView alloc] init];

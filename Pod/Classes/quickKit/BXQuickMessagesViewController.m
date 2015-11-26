@@ -382,39 +382,6 @@ BXQuickMessagesChatCellDelegate>
     return NO;
 }
 
-#pragma mark - collection view gesture
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    [super scrollViewWillBeginDragging:scrollView];
-    
-//    // stop animating while dragging
-//    UICollectionView *collectionView = (UICollectionView *)scrollView;
-//    NSArray *indexPaths = [collectionView indexPathsForVisibleItems];
-//    for (NSIndexPath *indexPath in indexPaths) {
-//        UICollectionViewCell *cell = [self bx_collectionView:collectionView cellForItemAtIndexPath:indexPath];
-//        if ([cell isKindOfClass:[BXQuickMessagesStickerChatCell class]]) {
-//            BXQuickMessagesStickerChatCell *stickerCell = (BXQuickMessagesStickerChatCell *)cell;
-//            [stickerCell stopAnimation];
-//        }
-//    }
-}
-
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
-{
-//    [super scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
-//    
-//    // resume animation
-//    UICollectionView *collectionView = (UICollectionView *)scrollView;
-//    NSArray *indexPaths = [collectionView indexPathsForVisibleItems];
-//    for (NSIndexPath *indexPath in indexPaths) {
-//        UICollectionViewCell *cell = [self bx_collectionView:collectionView cellForItemAtIndexPath:indexPath];
-//        if ([cell isKindOfClass:[BXQuickMessagesStickerChatCell class]]) {
-//            BXQuickMessagesStickerChatCell *stickerCell = (BXQuickMessagesStickerChatCell *)cell;
-//            [stickerCell startAnimation];
-//        }
-//    }
-}
-
 #pragma mark - chat cell delegate
 - (void)bxQuickMessagesChatCellDidTappedAvatar:(BXQuickMessagesBaseChatCell *)cell
 {
