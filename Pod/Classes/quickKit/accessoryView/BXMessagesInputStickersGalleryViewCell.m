@@ -45,7 +45,7 @@
     
     // cutting line
     UIView *cuttingLine = [[UIView alloc] init];
-    cuttingLine.backgroundColor = [UIColor grayColor];
+    cuttingLine.backgroundColor = [UIColor colorWithWhite:0.900 alpha:1.000];
     
     [self.contentView addSubview:cuttingLine];
     cuttingLine.translatesAutoresizingMaskIntoConstraints = NO;
