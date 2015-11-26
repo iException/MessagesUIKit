@@ -23,7 +23,7 @@
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-    attributes.size = CGSizeMake(self.itemSize.width - 10, self.itemSize.height - 10);
+    attributes.size = self.itemSize;
 
     attributes.center = CGPointMake((0.5+indexPath.row)*self.itemSize.width, self.itemSize.height/2);
     
