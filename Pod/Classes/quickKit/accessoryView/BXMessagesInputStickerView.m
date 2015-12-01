@@ -217,6 +217,11 @@ static CGFloat const toolBarHeight             = 40;
     }
 }
 
+- (void)setSendButtonColor:(UIColor *)sendButtonColor
+{
+    self.sendButton.backgroundColor = sendButtonColor;
+}
+
 #pragma mark - UICollectionViewDelegate & DataSource (for stickerGalleryView)
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {

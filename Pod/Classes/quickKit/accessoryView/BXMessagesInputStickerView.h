@@ -39,6 +39,8 @@
 
 @property (strong, nonatomic) UIColor *bottomBarColor;
 
+@property (strong, nonatomic) UIColor *sendButtonColor;
+
 @property (weak, nonatomic) id<BXMessagesInputStickerViewDelegate> delegate;
 
 // each element in stickersInfo is a dictionary that stores all necessary info about a sticker pack
