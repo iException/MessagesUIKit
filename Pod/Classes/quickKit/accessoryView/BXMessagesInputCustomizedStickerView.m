@@ -81,7 +81,6 @@
          initWithTarget:self
          action:@selector(handleLongPress:)];
         lpgr.minimumPressDuration = .5;  // seconds
-        //        lpgr.delegate = self;
         lpgr.delaysTouchesBegan = YES;
         [self.collectionView addGestureRecognizer:lpgr];
     }
@@ -132,7 +131,7 @@
     if (indexPath == nil){
         // if moving out of collection view , unhighlight previous cell
         UICollectionViewCell *previousCell = [self.collectionView cellForItemAtIndexPath:self.previousIndexPath];
-        [self unhighlightCell:previousCell];
+        [self unhighlightCell:previousCell atIndex:self.previousIndexPath.row];
         return;
     } else {
         cell = [self.collectionView cellForItemAtIndexPath:indexPath];
@@ -140,7 +139,7 @@
     
     switch (gestureRecognizer.state) {
         case UIGestureRecognizerStateBegan: {
-            [self highlightCell:cell];
+            [self highlightCell:cell atIndex:indexPath.row];
             self.previousIndexPath = indexPath;
             break;
         }
@@ -149,17 +148,17 @@
                 // unhighlight previous cell
                 UICollectionViewCell *previousCell = [self.collectionView cellForItemAtIndexPath:self.previousIndexPath];
                 if (previousCell) {
-                    [self unhighlightCell:previousCell];
+                    [self unhighlightCell:previousCell atIndex:self.previousIndexPath.row];
                 }
                 self.previousIndexPath = indexPath;
                 
                 // highlight this cell
-                [self highlightCell:cell];
+                [self highlightCell:cell atIndex:indexPath.row];
             }
             break;
         }
         case UIGestureRecognizerStateEnded: {
-            [self unhighlightCell:cell];
+            [self unhighlightCell:cell atIndex:indexPath.row];
             break;
         }
         default: {
@@ -168,7 +167,7 @@
     }
 }
 
-- (void)highlightCell:(UICollectionViewCell *)cell
+- (void)highlightCell:(UICollectionViewCell *)cell atIndex:(NSInteger)index
 {
     if (!cell) {
         return;
@@ -177,10 +176,13 @@
     if ([cell isKindOfClass:[BXMessagesInputStickerCell class]]) {
         BXMessagesInputStickerCell *stickerCell = (BXMessagesInputStickerCell *)cell;
         [stickerCell highlight];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputCustomizedStickerView:cellLongPressedWillBeginAtPackIndex:stickerIndex:)]) {
+            [self.delegate bxMessagesInputCustomizedStickerView:self cellLongPressedWillBeginAtPackIndex:self.index stickerIndex:index];
+        }
     }
 }
 
-- (void)unhighlightCell:(UICollectionViewCell *)cell
+- (void)unhighlightCell:(UICollectionViewCell *)cell atIndex:(NSInteger)index
 {
     if (!cell) {
         return;
@@ -189,6 +191,9 @@
     if ([cell isKindOfClass:[BXMessagesInputStickerCell class]]) {
         BXMessagesInputStickerCell *stickerCell = (BXMessagesInputStickerCell *)cell;
         [stickerCell unhighlight];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputCustomizedStickerView:cellLongPressedWillEndAtPackIndex:stickerIndex:)]) {
+            [self.delegate bxMessagesInputCustomizedStickerView:self cellLongPressedWillEndAtPackIndex:self.index stickerIndex:index];
+        }
     }
 }
 

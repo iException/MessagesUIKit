@@ -58,6 +58,8 @@
 - (UIImage *)imageOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
 - (NSString *)nameOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
 - (void)bxMessagesInputCustomizedStickerView:(BXMessagesInputCustomizedStickerView *)stickerView packIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
+- (void)bxMessagesInputCustomizedStickerView:(BXMessagesInputCustomizedStickerView *)stickerView cellLongPressedWillBeginAtPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
+- (void)bxMessagesInputCustomizedStickerView:(BXMessagesInputCustomizedStickerView *)stickerView cellLongPressedWillEndAtPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
 
 /**
  *  reload UI elements according to newly set self.stickersInfo
