@@ -19,13 +19,9 @@ static NSString *const kStickerImages          = @"BXSticker_images";         //
 
 - (void)bxMessagesInputCustomizedStickerView:(BXMessagesInputCustomizedStickerView *)stickerView packIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex;
 
-- (void)bxMessagesInputCustomizedStickerView:
+- (UIView *)bxMessagesInputCustomizedStickerView:
             (BXMessagesInputCustomizedStickerView *)stickerView
-         cellLongPressedWillBeginAtPackIndex:(NSInteger)packIndex
-                                stickerIndex:(NSInteger)stickerIndex;
-- (void)bxMessagesInputCustomizedStickerView:
-            (BXMessagesInputCustomizedStickerView *)stickerView
-           cellLongPressedWillEndAtPackIndex:(NSInteger)packIndex
+                previewImageViewForPackIndex:(NSInteger)packIndex
                                 stickerIndex:(NSInteger)stickerIndex;
 
 @end

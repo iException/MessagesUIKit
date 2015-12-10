@@ -10,6 +10,9 @@
 #import "BXMessagesInputStickerCell.h"
 #import "BXCollectionViewPageableFlowLayout.h"
 
+#define PREVIEW_IMAGE_WIDTH 130
+#define PREVIEW_IMAGE_HEIGHT 130
+
 @interface BXMessagesInputCustomizedStickerView() <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (strong, nonatomic) NSArray *stickerArray;
@@ -21,6 +24,8 @@
  *  this is a helper property to get long press gesture on collection view done
  */
 @property (strong, nonatomic) NSIndexPath *previousIndexPath;
+
+@property (strong, nonatomic) UIView *previewView;
 
 @end
 
@@ -176,8 +181,23 @@
     if ([cell isKindOfClass:[BXMessagesInputStickerCell class]]) {
         BXMessagesInputStickerCell *stickerCell = (BXMessagesInputStickerCell *)cell;
         [stickerCell highlight];
-        if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputCustomizedStickerView:cellLongPressedWillBeginAtPackIndex:stickerIndex:)]) {
-            [self.delegate bxMessagesInputCustomizedStickerView:self cellLongPressedWillBeginAtPackIndex:self.index stickerIndex:index];
+        
+        // add preview view
+        [self.previewView removeFromSuperview];
+        for (UIView *subView in self.previewView.subviews) {
+            [subView removeFromSuperview];
+        }
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputCustomizedStickerView:previewImageViewForPackIndex:stickerIndex:)]) {
+            CGFloat originX = stickerCell.center.x - PREVIEW_IMAGE_WIDTH / 2;
+            originX = originX > 0 ? originX : 0;
+            originX = originX + PREVIEW_IMAGE_WIDTH > self.frame.size.width ? self.frame.size.width - PREVIEW_IMAGE_WIDTH : originX;
+            CGFloat originY = stickerCell.frame.origin.y - PREVIEW_IMAGE_HEIGHT;
+            self.previewView.frame = CGRectMake(originX, originY, PREVIEW_IMAGE_WIDTH, PREVIEW_IMAGE_HEIGHT);
+            UIView *previewContentView = [self.delegate bxMessagesInputCustomizedStickerView:self previewImageViewForPackIndex:self.index stickerIndex:index];
+            previewContentView.frame = CGRectMake(0, 0, PREVIEW_IMAGE_WIDTH, PREVIEW_IMAGE_HEIGHT);
+            [self.previewView addSubview:previewContentView];
+            [self addSubview:self.previewView];
         }
     }
 }
@@ -191,8 +211,11 @@
     if ([cell isKindOfClass:[BXMessagesInputStickerCell class]]) {
         BXMessagesInputStickerCell *stickerCell = (BXMessagesInputStickerCell *)cell;
         [stickerCell unhighlight];
-        if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputCustomizedStickerView:cellLongPressedWillEndAtPackIndex:stickerIndex:)]) {
-            [self.delegate bxMessagesInputCustomizedStickerView:self cellLongPressedWillEndAtPackIndex:self.index stickerIndex:index];
+        
+        // remove preview view
+        [self.previewView removeFromSuperview];
+        for (UIView *subView in self.previewView.subviews) {
+            [subView removeFromSuperview];
         }
     }
 }
@@ -272,6 +295,20 @@
 - (void)dealloc
 {
     [self removePageControlKVOObservers];
+}
+
+#pragma mark - getter & setter -
+- (UIView *)previewView
+{
+    if (!_previewView) {
+        _previewView = [[UIView alloc] init];
+        _previewView.frame = CGRectMake(0, 0, PREVIEW_IMAGE_WIDTH, PREVIEW_IMAGE_HEIGHT);
+        _previewView.backgroundColor = [UIColor whiteColor];
+        _previewView.alpha = 0.9;
+        _previewView.layer.cornerRadius = 4;
+        _previewView.clipsToBounds = YES;
+    }
+    return _previewView;
 }
 
 @end

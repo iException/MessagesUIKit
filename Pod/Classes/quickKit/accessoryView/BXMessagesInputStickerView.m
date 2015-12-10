@@ -313,11 +313,10 @@ static CGFloat const toolBarHeight             = 40;
 {
 }
 
-- (void)bxMessagesInputCustomizedStickerView:(BXMessagesInputCustomizedStickerView *)stickerView cellLongPressedWillBeginAtPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex
-{
-}
-
-- (void)bxMessagesInputCustomizedStickerView:(BXMessagesInputCustomizedStickerView *)stickerView cellLongPressedWillEndAtPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex
+- (UIView *)bxMessagesInputCustomizedStickerView:
+(BXMessagesInputCustomizedStickerView *)stickerView
+                    previewImageViewForPackIndex:(NSInteger)packIndex
+                                    stickerIndex:(NSInteger)stickerIndex
 {
 }
 
