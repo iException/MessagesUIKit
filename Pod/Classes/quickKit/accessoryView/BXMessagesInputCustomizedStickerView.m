@@ -189,7 +189,7 @@
         }
         
         if (self.delegate && [self.delegate respondsToSelector:@selector(bxMessagesInputCustomizedStickerView:previewImageViewForPackIndex:stickerIndex:)]) {
-            CGFloat originX = stickerCell.center.x - PREVIEW_IMAGE_WIDTH / 2;
+            CGFloat originX = fmod(stickerCell.center.x, self.frame.size.width) - PREVIEW_IMAGE_WIDTH / 2;
             originX = originX > 0 ? originX : 0;
             originX = originX + PREVIEW_IMAGE_WIDTH > self.frame.size.width ? self.frame.size.width - PREVIEW_IMAGE_WIDTH : originX;
             CGFloat originY = stickerCell.frame.origin.y - PREVIEW_IMAGE_HEIGHT;
