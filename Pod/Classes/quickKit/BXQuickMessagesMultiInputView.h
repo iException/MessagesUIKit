@@ -15,6 +15,7 @@
 @optional
 
 - (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView sendText:(NSString *)text;
+- (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView sendSticker:(id)stickerInfo;
 - (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView startRecordAudio:(UIButton *)audioButton;
 - (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView finishRecordAudio:(UIButton *)audioButton;
 - (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView cancelRecordAudio:(UIButton *)audioButton;

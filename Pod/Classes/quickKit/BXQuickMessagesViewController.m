@@ -14,17 +14,20 @@
 
 #import "BXQuickMessagesBaseChatCell.h"
 #import "BXQuickMessagesTextChatCell.h"
+#import "BXQuickMessagesStickerChatCell.h"
 #import "BXQuickMessagesMediaChatCell.h"
 #import "BXQuickMessagesStatusCell.h"
 
-#import <UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h" 
 
 #import "NSBundle+MessagesUIKit.h"
 #import "UIImage+MessagesUIKit.h"
 
 static NSString * const incomingBXQuickMessagesTextChatCell = @"incomingBXQuickMessagesTextChatCell";
+static NSString * const incomingBXQuickMessagesStickerChatCell = @"incomingBXQuickMessagesStickerChatCell";
 static NSString * const incomingBXQuickMessagesMediaChatCell = @"incomingBXQuickMessagesMediaChatCell";
 static NSString * const outgoingBXQuickMessagesTextChatCell = @"outgoingBXQuickMessagesTextChatCell";
+static NSString * const outgoingBXQuickMessagesStickerChatCell = @"outgoingBXQuickMessagesStickerChatCell";
 static NSString * const outgoingBXQuickMessagesMediaChatCell = @"outgoingBXQuickMessagesMediaChatCell";
 
 @interface BXQuickMessagesViewController () <BXQuickMessagesMultiInputViewDelegate,
@@ -75,7 +78,7 @@ BXQuickMessagesChatCellDelegate>
 
 #pragma mark - need override methods
 - (void)bxSendTextMessage:(NSString *)text{}
-
+- (void)bxSendStickerMessage:(id)stickerInfo{}
 - (void)bxStartRecordAudio {}
 - (void)bxFinishRecordAudio {}
 - (void)bxCancelRecordAudio {}
@@ -122,6 +125,11 @@ BXQuickMessagesChatCellDelegate>
     [self bxSendTextMessage:text];
 }
 
+- (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView sendSticker:(NSDictionary *)stickerInfo
+{
+    [self bxSendStickerMessage:stickerInfo];
+}
+
 - (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView startRecordAudio:(UIButton *)audioButton
 {
     [self bxStartRecordAudio];
@@ -164,7 +172,7 @@ BXQuickMessagesChatCellDelegate>
         BXQuickMessagesStatusCell *statusCell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([BXQuickMessagesStatusCell class]) forIndexPath:indexPath];
         [statusCell setupCellWithMessage:message];
         cell = statusCell;
-    }else if (message.messageType == BXQuickMessageType_Media) {
+    } else if (message.messageType == BXQuickMessageType_Media) {
         BXQuickMessagesMediaChatCell *mediaCell = [collectionView dequeueReusableCellWithReuseIdentifier:isMyMessage?outgoingBXQuickMessagesMediaChatCell:incomingBXQuickMessagesMediaChatCell forIndexPath:indexPath];
         mediaCell.avatarPosition = isMyMessage? BXQuickMessagesChatCellAvatarPostion_RightTop : BXQuickMessagesChatCellAvatarPostion_LeftTop;
         
@@ -176,7 +184,15 @@ BXQuickMessagesChatCellDelegate>
         mediaCell.sendStatus = message.sendStatus;
         
         cell = mediaCell;
-    }else {
+    } else if (message.messageType == BXQuickMessageType_Sticker) {
+        BXQuickMessagesStickerChatCell *stickerCell = [collectionView dequeueReusableCellWithReuseIdentifier:isMyMessage?outgoingBXQuickMessagesStickerChatCell:incomingBXQuickMessagesStickerChatCell forIndexPath:indexPath];
+        stickerCell.avatarPosition = isMyMessage? BXQuickMessagesChatCellAvatarPostion_RightTop : BXQuickMessagesChatCellAvatarPostion_LeftTop;
+        [stickerCell setupCellWithMessage:message];
+        stickerCell.delegate = self;
+        [self bx_setupUserInfoForCell:stickerCell atIndexPath:indexPath];
+        stickerCell.sendStatus = message.sendStatus;
+        cell = stickerCell;
+    } else {
         BXQuickMessagesTextChatCell *textCell = [collectionView dequeueReusableCellWithReuseIdentifier:isMyMessage?outgoingBXQuickMessagesTextChatCell:incomingBXQuickMessagesTextChatCell forIndexPath:indexPath];
         textCell.avatarPosition = isMyMessage? BXQuickMessagesChatCellAvatarPostion_RightTop : BXQuickMessagesChatCellAvatarPostion_LeftTop;
         
@@ -317,6 +333,8 @@ BXQuickMessagesChatCellDelegate>
     
     [collectionView registerClass:[BXQuickMessagesTextChatCell class] forCellWithReuseIdentifier:incomingBXQuickMessagesTextChatCell];
     [collectionView registerClass:[BXQuickMessagesTextChatCell class] forCellWithReuseIdentifier:outgoingBXQuickMessagesTextChatCell];
+    [collectionView registerClass:[BXQuickMessagesStickerChatCell class] forCellWithReuseIdentifier:incomingBXQuickMessagesStickerChatCell];
+    [collectionView registerClass:[BXQuickMessagesStickerChatCell class] forCellWithReuseIdentifier:outgoingBXQuickMessagesStickerChatCell];
     [collectionView registerClass:[BXQuickMessagesMediaChatCell class] forCellWithReuseIdentifier:incomingBXQuickMessagesMediaChatCell];
     [collectionView registerClass:[BXQuickMessagesMediaChatCell class] forCellWithReuseIdentifier:outgoingBXQuickMessagesMediaChatCell];
     [collectionView registerClass:[BXQuickMessagesStatusCell class] forCellWithReuseIdentifier:NSStringFromClass([BXQuickMessagesStatusCell class])];

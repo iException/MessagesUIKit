@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, BXQuickMessageType) {
     BXQuickMessageType_Unknown,
     BXQuickMessageType_Status,
     BXQuickMessageType_Text,
+    BXQuickMessageType_Sticker,
     BXQuickMessageType_Media,
     BXQuickMessageType_Other
 };

@@ -1,5 +1,7 @@
 PODS:
-  - MessagesUIKit (0.1.4):
+  - FLAnimatedImage (1.0.8)
+  - MessagesUIKit (0.1.7):
+    - FLAnimatedImage (~> 1.0)
     - SDWebImage (= 3.7.2)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
@@ -10,10 +12,11 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   MessagesUIKit:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  MessagesUIKit: 515986a9a41757c431d071f0469184432e75c851
+  FLAnimatedImage: f9422f796135aff80d8c00b2afc48015bb746e24
+  MessagesUIKit: b2b2eda22ef23a7c83585e0094f7f57feadbc8fc
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.39.0

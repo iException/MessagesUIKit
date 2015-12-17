@@ -15,7 +15,9 @@
 #import "BXMessagesInputMoreChoicesView.h"
 #import "BXCollectionViewPageableFlowLayout.h"
 #import "BXMessagesInputMoreChoiceCell.h"
-#import "BXMessagesInputEmojiView.h"
+#import "BXMessagesInputStickerView.h"
+//#import "BXMessagesInputEmojiView.h"
+
 
 typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
     BXMessagesKeyboardExchangePlace_None,
@@ -23,7 +25,7 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
     BXMessagesKeyboardExchangePlace_Emoji
 };
 
-@interface BXQuickMessagesMultiInputView() <UITextViewDelegate, BXMessagesInputEmojiViewDelegate, BXMessagesInputToolbarAudioButtonDelegate, BXMessagesInputMoreChoicesViewDelegate>
+@interface BXQuickMessagesMultiInputView() <UITextViewDelegate, BXMessagesInputStickerViewDelegate, BXMessagesInputToolbarAudioButtonDelegate, BXMessagesInputMoreChoicesViewDelegate>
 
 @property (strong, nonatomic) BXMessagesInputToolbarButton *audioButton;
 @property (strong, nonatomic) BXMessagesInputToolbarButton *emojiButton;
@@ -34,7 +36,8 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
 @property (assign, nonatomic) BXMessagesKeyboardExchangePlace keyboardButtonPlace;
 
 @property (strong, nonatomic) BXMessagesInputMoreChoicesView *moreChoicesAccessoryView;
-@property (strong, nonatomic) BXMessagesInputEmojiView *inputEmojiView;
+//@property (strong, nonatomic) BXMessagesInputEmojiView *inputEmojiView;
+@property (strong, nonatomic) BXMessagesInputStickerView *inputStickerView;
 
 @end
 
@@ -156,7 +159,7 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
         [self showAccessoryView:YES animated:YES];
     }
     
-    [self.accessoryView displayAccessoryItem:self.inputEmojiView animated:YES];
+    [self.accessoryView displayAccessoryItem:self.inputStickerView animated:YES];
 }
 
 - (BXMessagesInputToolbarButton *)accessoryButton
@@ -174,16 +177,16 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
     
     if ([self.textView.textView isFirstResponder]) {
         [self showAccessoryView:YES animated:NO];
-        [self.accessoryView removeAccessoryItem:self.inputEmojiView animated:NO];
+        [self.accessoryView removeAccessoryItem:self.inputStickerView animated:NO];
         [self.textView.textView resignFirstResponder];
     }else if (self.isShowingAccessoryView) {
         if (self.isShowingEmojiView) {
-            [self.accessoryView removeAccessoryItem:self.inputEmojiView animated:YES];
+            [self.accessoryView removeAccessoryItem:self.inputStickerView animated:YES];
         }else {
             [self.textView.textView becomeFirstResponder];
         }
     }else {
-        [self.accessoryView removeAccessoryItem:self.inputEmojiView animated:YES];
+        [self.accessoryView removeAccessoryItem:self.inputStickerView animated:YES];
         
         [self showAccessoryView:YES animated:YES];
     }
@@ -204,7 +207,7 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
     [self changeKeyboardButtonBack];
     
     if (self.isShowingEmojiView) {
-        [self.accessoryView removeAccessoryItem:self.inputEmojiView animated:NO];
+        [self.accessoryView removeAccessoryItem:self.inputStickerView animated:NO];
     }
     
     self.isOnlyToolbar = NO;
@@ -297,36 +300,45 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
     return nil;
 }
 
-#pragma mark - emoji input view
-- (BXMessagesInputEmojiView *)inputEmojiView
+#pragma mark - inputStickerView & BXMessagesInputStickerViewDelegate
+- (BXMessagesInputStickerView *)inputStickerView
 {
-    if (!_inputEmojiView) {
-        _inputEmojiView = [[BXMessagesInputEmojiView alloc] init];
-        _inputEmojiView.delegate = self;
+    if (!_inputStickerView) {
+        _inputStickerView = [[BXMessagesInputStickerView alloc] init];
+        _inputStickerView.delegate = self;
     }
     
-    return _inputEmojiView;
+    return _inputStickerView;
 }
 
 - (BOOL)isShowingEmojiView
 {
-    return self.inputEmojiView.superview != nil;
+    return self.inputStickerView.superview != nil;
 }
 
-- (void)bxMessagesInputEmojiView:(BXMessagesInputEmojiView *)emojiView selectedEmoji:(NSString *)emoji
+
+- (void)bxMessagesInputStickerView:(BXMessagesInputStickerView *)stickerView selectedEmoji:(NSString *)emoji
 {
     self.textView.textView.text = [NSString stringWithFormat:@"%@%@", self.textView.textView.text, emoji];
 }
 
-- (void)bxMessagesInputEmojiView:(BXMessagesInputEmojiView *)emojiView sendButtonPressed:(UIButton *)sendButton
+- (void)bxMessagesInputStickerView:(BXMessagesInputStickerView *)stickerView selectedSticker:(id)stickerInfo
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(bxQuickMessagesMultiInputView:sendSticker:)]) {
+        [self.delegate bxQuickMessagesMultiInputView:self sendSticker:stickerInfo];
+    }
+}
+
+- (void)bxMessagesInputStickerView:(BXMessagesInputStickerView *)stickerView sendButtonPressed:(UIButton *)sendButton
 {
     if (self.textView.textView.text.length != 0) {
         [self sendText];
     }
 }
 
-- (void)bxMessagesInputEmojiView:(BXMessagesInputEmojiView *)emojiView deleteButtonPressed:(UIButton *)deleteButton
+- (void)bxMessagesInputStickerView:(BXMessagesInputStickerView *)stickerView deleteButtonPressed:(UIButton *)deleteButton
 {
     [self.textView.textView deleteBackward];
 }
+
 @end

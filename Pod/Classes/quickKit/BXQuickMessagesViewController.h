@@ -34,6 +34,12 @@
  */
 - (void)bxSendTextMessage:(NSString *)text;
 
+/**
+ *  Send Sticker.
+ *
+ *  Don't need call super, default do nothing.
+ */
+- (void)bxSendStickerMessage:(id)stickerInfo;
 
 
 // Audio part, if you use audio button, don't forget to override these methods.
@@ -88,7 +94,7 @@
 - (NSString *)bx_collectionView:(UICollectionView *)collectionView displayNameForItem:(BXQuickMessagesBaseChatCell *)item atIndexPath:(NSIndexPath *)indexPath;
 - (NSString *)bx_collectionView:(UICollectionView *)collectionView displayAvatarForItem:(BXQuickMessagesBaseChatCell *)item atIndexPath:(NSIndexPath *)indexPath;
 - (NSArray *)bx_moreCollectionViewDataSourceForLoadMore:(UICollectionView *)collectionView;
-
+- (void)bx_setupUserInfoForCell:(BXQuickMessagesBaseChatCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 - (void)bx_collectionView:(UICollectionView *)collectionView didTapAvatarAtIndexPath:(NSIndexPath *)indexPath;
 
@@ -97,7 +103,5 @@
 - (void)bx_collectionView:(UICollectionView *)collectionView didTapResendButtonAtIndexPath:(NSIndexPath *)indexPath;
 
 - (CGFloat)bx_collectionView:(UICollectionView *)collectionView heightForItemAtIndexPath:(NSIndexPath *)indexPath;
-
-- (UICollectionViewCell *)bx_collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
