@@ -1,22 +1,25 @@
 PODS:
-  - FLAnimatedImage (1.0.8)
+  - MBProgressHUD (0.9.2)
   - MessagesUIKit (0.1.7):
-    - FLAnimatedImage (~> 1.0)
+    - MBProgressHUD
     - SDWebImage (= 3.7.2)
+    - TTTAttributedLabel (= 1.13.4)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
+  - TTTAttributedLabel (1.13.4)
 
 DEPENDENCIES:
   - MessagesUIKit (from `../`)
 
 EXTERNAL SOURCES:
   MessagesUIKit:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  FLAnimatedImage: f9422f796135aff80d8c00b2afc48015bb746e24
-  MessagesUIKit: b2b2eda22ef23a7c83585e0094f7f57feadbc8fc
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MessagesUIKit: fee42d3fd0023720f57a9f9808ebc2f5018817db
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
 
 COCOAPODS: 0.39.0

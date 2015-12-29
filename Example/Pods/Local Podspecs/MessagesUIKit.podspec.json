@@ -1,8 +1,8 @@
 {
   "name": "MessagesUIKit",
-  "version": "0.1.4",
+  "version": "0.1.7",
   "summary": "UIKit for Messaging. UI is similar to WeChat.",
-  "description": "                       UIKit for Messaging. UI is similar to WeChat. You can custome most of the view.\n",
+  "description": "UIKit for Messaging. UI is similar to WeChat. You can custome most of the view.",
   "homepage": "https://github.com/iException/MessagesUIKit",
   "license": "MIT",
   "authors": {
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/iException/MessagesUIKit.git",
-    "tag": "0.1.4"
+    "tag": "0.1.7"
   },
   "platforms": {
     "ios": "7.0"
@@ -19,12 +19,18 @@
   "source_files": "Pod/Classes/**/*",
   "resource_bundles": {
     "MessagesUIKit": [
-      "Pod/Assets/*.{jpg,png,xib,plist}"
+      "Pod/Assets/*.{jpg,png,plist}"
     ]
   },
   "dependencies": {
     "SDWebImage": [
       "3.7.2"
+    ],
+    "TTTAttributedLabel": [
+      "1.13.4"
+    ],
+    "MBProgressHUD": [
+
     ]
   }
 }

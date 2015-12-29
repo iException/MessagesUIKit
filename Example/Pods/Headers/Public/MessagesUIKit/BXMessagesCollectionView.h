@@ -1,1 +1,0 @@
-../../../../../Pod/Classes/core/BXMessagesCollectionView.h

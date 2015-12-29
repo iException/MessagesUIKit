@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 baixing. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TTTAttributedLabel.h"
 
-@interface BXQuickMessagesInsetsLabel : UILabel
+@interface BXQuickMessagesInsetsLabel : TTTAttributedLabel
 
 @property (assign, nonatomic) UIEdgeInsets insets;
 

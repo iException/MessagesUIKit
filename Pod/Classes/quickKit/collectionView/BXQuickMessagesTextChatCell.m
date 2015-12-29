@@ -57,7 +57,11 @@
 {
     self.textView.textColor = self.buble.defaultTextColor;
     
-    self.textView.text = message.text;
+    if (message.attributedText && [self.textView respondsToSelector:@selector(setAttributedText:)]) {
+        self.textView.attributedText = message.attributedText;
+    } else {
+        self.textView.text = message.text;
+    }
     CGSize sizeThatFitsTextView = [self.textView sizeThatFits:CGSizeMake(self.maxContentWidth, MAXFLOAT)];
     self.heightConstraint.constant = sizeThatFitsTextView.height;
     self.widthConstraint.constant = sizeThatFitsTextView.width;
@@ -71,6 +75,7 @@
     // fix the bug that dataDectorTypes'state will be remainded when reusing
     self.textView.dataDetectorTypes = UIDataDetectorTypeNone;
     self.textView.text = nil;
+    self.textView.attributedText = nil;
     self.textView.dataDetectorTypes = UIDataDetectorTypePhoneNumber | UIDataDetectorTypeLink;
 }
 

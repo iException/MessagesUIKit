@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		528CF557802B9208E40AAC6A /* Pods_MessagesUIKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798BEF3ECBAF92E1FF17A03C /* Pods_MessagesUIKit_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		528CF557802B9208E40AAC6A /* Pods_MessagesUIKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798BEF3ECBAF92E1FF17A03C /* Pods_MessagesUIKit_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -21,7 +21,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		6763F55203AECF47ABBBE03D /* Pods_MessagesUIKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2FD6F834FDFBD0D6C3C2E55 /* Pods_MessagesUIKit_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		6763F55203AECF47ABBBE03D /* Pods_MessagesUIKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2FD6F834FDFBD0D6C3C2E55 /* Pods_MessagesUIKit_Example.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
