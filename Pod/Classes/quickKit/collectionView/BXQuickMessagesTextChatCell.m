@@ -57,11 +57,8 @@
 {
     self.textView.textColor = self.buble.defaultTextColor;
     
-    if (message.attributedText && [self.textView respondsToSelector:@selector(setAttributedText:)]) {
-        self.textView.attributedText = message.attributedText;
-    } else {
-        self.textView.text = message.text;
-    }
+    self.textView.text = message.text;
+
     CGSize sizeThatFitsTextView = [self.textView sizeThatFits:CGSizeMake(self.maxContentWidth, MAXFLOAT)];
     self.heightConstraint.constant = sizeThatFitsTextView.height;
     self.widthConstraint.constant = sizeThatFitsTextView.width;

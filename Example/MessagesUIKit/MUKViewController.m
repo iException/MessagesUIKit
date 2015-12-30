@@ -7,7 +7,7 @@
 //
 
 #import "MUKViewController.h"
-#import <MessagesUIKit/UIImage+MessagesUIKit.h>
+#import "UIImage+MessagesUIKit.h"
 
 @interface MUKViewController ()
 

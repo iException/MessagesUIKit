@@ -37,8 +37,6 @@ typedef NS_ENUM(NSInteger, BXQuickMessageType) {
 
 @property (copy, nonatomic) NSString *text;
 
-@property (copy, nonatomic) NSAttributedString *attributedText;
-
 @property (strong, nonatomic) NSDate *date;
 
 @property (assign, nonatomic) BXQuickMessageSendStatus sendStatus;

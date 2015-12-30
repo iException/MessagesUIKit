@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class BXQuickMessage;
+@class BXQuickMessagesStatusLabel;
 
 @interface BXQuickMessagesStatusCell : UICollectionViewCell
+
+@property (strong, nonatomic, readonly) BXQuickMessagesStatusLabel *statusLabel;
 
 - (void)showTimeWithDate:(NSDate *)date;
 

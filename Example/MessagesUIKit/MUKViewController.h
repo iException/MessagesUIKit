@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 hyice. All rights reserved.
 //
 
-#import <MessagesUIKit/BXQuickMessagesViewController.h>
+#import "BXQuickMessagesViewController.h"
 
 @interface MUKViewController : BXQuickMessagesViewController
 

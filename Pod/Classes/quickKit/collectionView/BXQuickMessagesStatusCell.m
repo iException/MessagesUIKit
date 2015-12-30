@@ -104,11 +104,7 @@
 
 - (void)setupCellWithMessage:(BXQuickMessage *)message
 {
-    if (message.attributedText && message.attributedText.length) {
-        self.statusLabel.text = message.attributedText;
-    } else {
-        self.statusLabel.text = message.text;
-    }
+    self.statusLabel.text = message.text;
 }
 
 @end
