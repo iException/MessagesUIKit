@@ -33,4 +33,6 @@
 
 - (void)bx_registerCellsForCollectionView:(UICollectionView *)collectionView;
 
+- (void)bx_collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+
 @end

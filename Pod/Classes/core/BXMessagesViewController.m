@@ -12,7 +12,7 @@
 #import "BXMessagesCollectionView.h"
 #import "BXMessagesInputAccessoryView.h"
 
-@interface BXMessagesViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface BXMessagesViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate>
 
 @property (strong, nonatomic) BXMessagesCollectionView *collectionView;
 @property (strong, nonatomic) BXMessagesMultiInputView *multiInputView;
@@ -67,6 +67,8 @@
     return 50;
 }
 
+- (void)bx_collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {}
+
 - (void)bx_registerCellsForCollectionView:(UICollectionView *)collectionView {}
 
 #pragma mark - collection view
@@ -116,6 +118,12 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return [self bx_collectionView:collectionView cellForItemAtIndexPath:indexPath];
+}
+
+#pragma mark - collection view delegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self bx_collectionView:collectionView didSelectItemAtIndexPath:indexPath];
 }
 
 #pragma mark - collection view layout delegate
