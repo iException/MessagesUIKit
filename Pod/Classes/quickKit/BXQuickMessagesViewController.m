@@ -447,6 +447,12 @@ BXQuickMessagesChatCellDelegate>
     }
 }
 
+#pragma mark - UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    return !self.multiInputView.isOnlyToolbar;
+}
+
 #pragma mark - load more collection view data
 - (void)setShowLoadMore:(BOOL)showLoadMore
 {

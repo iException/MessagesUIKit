@@ -12,7 +12,8 @@
 #import "BXMessagesCollectionView.h"
 #import "BXMessagesInputAccessoryView.h"
 
-@interface BXMessagesViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface BXMessagesViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,
+UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) BXMessagesCollectionView *collectionView;
 @property (strong, nonatomic) BXMessagesMultiInputView *multiInputView;
@@ -69,6 +70,8 @@
 
 - (void)bx_registerCellsForCollectionView:(UICollectionView *)collectionView {}
 
+- (void)bx_collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {};
+
 #pragma mark - collection view
 - (BXMessagesCollectionView *)collectionView
 {
@@ -85,6 +88,7 @@
         [self bx_registerCellsForCollectionView:_collectionView];
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(collectionViewTapped:)];
+        tap.delegate = self;
         [_collectionView addGestureRecognizer:tap];
     }
     
@@ -118,12 +122,24 @@
     return [self bx_collectionView:collectionView cellForItemAtIndexPath:indexPath];
 }
 
+#pragma mark - collection view delegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self bx_collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+}
+
 #pragma mark - collection view layout delegate
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return CGSizeMake(self.collectionView.bounds.size.width, [self bx_collectionView:collectionView heightForItemAtIndexPath:indexPath]);
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    return self.multiInputView.isShowingAccessoryView;
 }
 
 #pragma mark - multi input view
