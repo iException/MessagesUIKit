@@ -20,12 +20,25 @@
         self.font = [UIFont systemFontOfSize:14];
         self.layer.cornerRadius = 5;
         self.clipsToBounds = YES;
+        
+        self.linkAttributes = @{
+                                (id)kCTForegroundColorAttributeName : (id)self.tintColor.CGColor,
+                                NSUnderlineStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]
+                                };
     }
     
     return self;
 }
 
+- (void)setTintColor:(UIColor *)tintColor
+{
+    [super setTintColor:tintColor];
 
+    self.linkAttributes = @{
+                            (id)kCTForegroundColorAttributeName : (id)tintColor.CGColor,
+                            NSUnderlineStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]
+                            };
+}
 
 
 
