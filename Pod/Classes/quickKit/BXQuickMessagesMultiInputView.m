@@ -16,7 +16,6 @@
 #import "BXCollectionViewPageableFlowLayout.h"
 #import "BXMessagesInputMoreChoiceCell.h"
 #import "BXMessagesInputStickerView.h"
-//#import "BXMessagesInputEmojiView.h"
 
 
 typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
@@ -36,7 +35,6 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
 @property (assign, nonatomic) BXMessagesKeyboardExchangePlace keyboardButtonPlace;
 
 @property (strong, nonatomic) BXMessagesInputMoreChoicesView *moreChoicesAccessoryView;
-//@property (strong, nonatomic) BXMessagesInputEmojiView *inputEmojiView;
 @property (strong, nonatomic) BXMessagesInputStickerView *inputStickerView;
 
 @end

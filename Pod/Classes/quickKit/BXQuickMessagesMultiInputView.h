@@ -9,6 +9,9 @@
 #import "BXMessagesMultiInputView.h"
 
 @class BXMessagesInputMoreChoiceItem;
+@class BXMessagesInputToolbarButton;
+@class BXMessagesInputToolbarTextView;
+@class BXMessagesInputToolbarAudioButton;
 
 @protocol BXQuickMessagesMultiInputViewDelegate <NSObject>
 
@@ -37,6 +40,14 @@
  *
  */
 @interface BXQuickMessagesMultiInputView : BXMessagesMultiInputView
+
+@property (strong, nonatomic, readonly) BXMessagesInputToolbarButton *audioButton;
+@property (strong, nonatomic, readonly) BXMessagesInputToolbarButton *emojiButton;
+@property (strong, nonatomic, readonly) BXMessagesInputToolbarButton *accessoryButton;
+@property (strong, nonatomic, readonly) BXMessagesInputToolbarButton *keyboardButton;
+@property (strong, nonatomic, readonly) BXMessagesInputToolbarTextView *textView;
+@property (strong, nonatomic, readonly) BXMessagesInputToolbarAudioButton *audioRecordButton;
+
 
 @property (weak, nonatomic) id<BXQuickMessagesMultiInputViewDelegate> delegate;
 
