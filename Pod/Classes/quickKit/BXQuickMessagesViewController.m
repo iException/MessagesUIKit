@@ -494,21 +494,37 @@ BXQuickMessagesChatCellDelegate>
 {
     if (object == self.collectionView && [keyPath isEqualToString:NSStringFromSelector(@selector(contentOffset))]) {
 
-        if (!_showLoadMore || self.isLoading || self.collectionView.contentOffset.y > 0 || !self.viewDidAppearOnce || self.collectionView.isDragging) {
+        if (!_showLoadMore || self.isLoading || !self.viewDidAppearOnce || self.collectionView.isDragging) {
+            return;
+        }
+        
+        if (self.sortType == BXQuickMessagesSortTypeTimeDescending) {
+            if (self.collectionView.contentOffset.y <= self.collectionView.contentSize.height - self.collectionView.frame.size.height || self.collectionView.contentOffset.y <= 0) {
+                return;
+            }
+        } else if (self.collectionView.contentOffset.y > 0) {
             return;
         }
     
         self.isLoading = YES;
         
         [UIView animateWithDuration:0.25f animations:^{
-            self.collectionView.contentInset = UIEdgeInsetsMake(25, 0, 0, 0);
+            if (self.sortType == BXQuickMessagesSortTypeTimeAscending) {
+                self.collectionView.contentInset = UIEdgeInsetsMake(25, 0, 0, 0);
+            } else {
+                self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 25, 0);
+            }
         } completion:^(BOOL finished) {
             NSArray *moreData = [self bx_moreCollectionViewDataSourceForLoadMore:self.collectionView];
             
             if (moreData && moreData.count) {
-                [moreData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                    [self.dataSource insertObject:obj atIndex:0];
-                }];
+                if (self.sortType == BXQuickMessagesSortTypeTimeAscending) {
+                    [moreData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                        [self.dataSource insertObject:obj atIndex:0];
+                    }];
+                } else {
+                    self.dataSource = [self.dataSource arrayByAddingObjectsFromArray:moreData];
+                }
                 
                 CGFloat oldOffset = self.collectionView.contentSize.height - self.collectionView.contentOffset.y;
                 
@@ -517,7 +533,9 @@ BXQuickMessagesChatCellDelegate>
                     [self.collectionView setContentOffset:self.collectionView.contentOffset animated:NO];
                     [self.collectionView reloadData];
                     [self.collectionView layoutIfNeeded];
-                    [self.collectionView setContentOffset:CGPointMake(0.0, self.collectionView.contentSize.height - oldOffset) animated:NO];
+                    if (self.sortType == BXQuickMessagesSortTypeTimeAscending) {
+                        [self.collectionView setContentOffset:CGPointMake(0.0, self.collectionView.contentSize.height - oldOffset) animated:NO];
+                    }
                     self.isLoading = NO;
                     self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
                 });

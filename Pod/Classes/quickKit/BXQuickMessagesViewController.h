@@ -12,6 +12,11 @@
 #import "BXQuickMessagesBaseChatCell.h"
 #import "BXQuickMessagesMultiInputView.h"
 
+typedef NS_ENUM(NSInteger, BXQuickMessagesSortType) {
+    BXQuickMessagesSortTypeTimeAscending = 0,
+    BXQuickMessagesSortTypeTimeDescending
+};
+
 /**
  *  The BXQuickMessagesViewController class is an abstract class you use to quickly start messaging.
  *  Because it is abstract, you do not use this class directly but instead subclass to perform the 
@@ -26,6 +31,8 @@
 @property (strong, nonatomic) NSMutableArray *dataSource;
 
 @property (assign, nonatomic) BOOL showLoadMore;
+
+@property (assign, nonatomic) BXQuickMessagesSortType sortType;
 
 /**
  *  Send Text Or Emoji Text. 
