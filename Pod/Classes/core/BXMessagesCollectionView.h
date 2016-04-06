@@ -11,6 +11,7 @@
 @interface BXMessagesCollectionView : UICollectionView
 
 @property (nonatomic, readonly) UIActivityIndicatorView *loadingIndicator;
+@property (nonatomic, assign) BOOL showIndicatorAtBottom;
 
 - (void)scrollToBottomAnimated:(BOOL)animated;
 

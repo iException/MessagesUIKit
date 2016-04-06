@@ -498,7 +498,7 @@ BXQuickMessagesChatCellDelegate>
             return;
         }
         
-        if (self.sortType == BXQuickMessagesSortTypeTimeDescending) {
+        if (self.loadFrom == BXQuickMessagesLoadingFromBottom) {
             if (self.collectionView.contentOffset.y <= self.collectionView.contentSize.height - self.collectionView.frame.size.height || self.collectionView.contentOffset.y <= 0) {
                 return;
             }
@@ -509,7 +509,7 @@ BXQuickMessagesChatCellDelegate>
         self.isLoading = YES;
         
         [UIView animateWithDuration:0.25f animations:^{
-            if (self.sortType == BXQuickMessagesSortTypeTimeAscending) {
+            if (self.loadFrom == BXQuickMessagesLoadingFromTop) {
                 self.collectionView.contentInset = UIEdgeInsetsMake(25, 0, 0, 0);
             } else {
                 self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 25, 0);
@@ -518,7 +518,7 @@ BXQuickMessagesChatCellDelegate>
             NSArray *moreData = [self bx_moreCollectionViewDataSourceForLoadMore:self.collectionView];
             
             if (moreData && moreData.count) {
-                if (self.sortType == BXQuickMessagesSortTypeTimeAscending) {
+                if (self.loadFrom == BXQuickMessagesLoadingFromTop) {
                     [moreData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                         [self.dataSource insertObject:obj atIndex:0];
                     }];
@@ -533,7 +533,7 @@ BXQuickMessagesChatCellDelegate>
                     [self.collectionView setContentOffset:self.collectionView.contentOffset animated:NO];
                     [self.collectionView reloadData];
                     [self.collectionView layoutIfNeeded];
-                    if (self.sortType == BXQuickMessagesSortTypeTimeAscending) {
+                    if (self.loadFrom == BXQuickMessagesLoadingFromTop) {
                         [self.collectionView setContentOffset:CGPointMake(0.0, self.collectionView.contentSize.height - oldOffset) animated:NO];
                     }
                     self.isLoading = NO;

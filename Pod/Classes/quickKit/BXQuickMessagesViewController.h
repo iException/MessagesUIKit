@@ -12,9 +12,9 @@
 #import "BXQuickMessagesBaseChatCell.h"
 #import "BXQuickMessagesMultiInputView.h"
 
-typedef NS_ENUM(NSInteger, BXQuickMessagesSortType) {
-    BXQuickMessagesSortTypeTimeAscending = 0,
-    BXQuickMessagesSortTypeTimeDescending
+typedef NS_ENUM(NSInteger, BXQuickMessagesLoadingType) {
+    BXQuickMessagesLoadingFromTop = 0,
+    BXQuickMessagesLoadingFromBottom
 };
 
 /**
@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger, BXQuickMessagesSortType) {
 
 @property (assign, nonatomic) BOOL showLoadMore;
 
-@property (assign, nonatomic) BXQuickMessagesSortType sortType;
+@property (assign, nonatomic) BXQuickMessagesLoadingType loadFrom;
 
 /**
  *  Send Text Or Emoji Text. 
