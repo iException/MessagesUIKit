@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) UIActivityIndicatorView *loadingIndicator;
 
+@property (assign, nonatomic) BOOL isObserving;
+
 @end
 
 @implementation BXMessagesCollectionView
@@ -28,6 +30,13 @@
     return self;
 }
 
+- (void)dealloc
+{
+    if (self.isObserving) {
+        [self removeObserver:self forKeyPath:@"contentSize"];
+    }
+}
+
 - (void)scrollToBottomAnimated:(BOOL)animated
 {
     NSInteger numberOfItems = [self numberOfItemsInSection:0];
@@ -42,6 +51,35 @@
                      atScrollPosition:UICollectionViewScrollPositionBottom
                              animated:animated];
     });
+}
+
+- (void)setShowIndicatorAtBottom:(BOOL)showIndicatorAtBottom
+{
+    _showIndicatorAtBottom = showIndicatorAtBottom;
+    if (!showIndicatorAtBottom) {
+        self.loadingIndicator.frame = CGRectMake(0, -20, CGRectGetWidth(self.bounds), 20);
+        if (self.isObserving) {
+            [self removeObserver:self forKeyPath:@"contentSize"];
+            self.isObserving = NO;
+        }
+    } else {
+        if (!self.isObserving) {
+            [self addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
+            self.isObserving = YES;
+        }
+        self.loadingIndicator.frame = CGRectMake(0, self.contentSize.height, self.bounds.size.width, 20);
+    }
+}
+
+#pragma mark - kvo
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"contentSize"]) {
+        self.loadingIndicator.frame = CGRectMake(0, self.contentSize.height, CGRectGetWidth(self.bounds), 20);
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 #pragma mark - loading indicator

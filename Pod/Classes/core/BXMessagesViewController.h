@@ -35,4 +35,6 @@
 
 - (void)bx_collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 
+- (void)hideInputView:(BOOL)hide;
+
 @end
