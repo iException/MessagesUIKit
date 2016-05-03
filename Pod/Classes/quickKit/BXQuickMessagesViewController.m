@@ -523,7 +523,7 @@ BXQuickMessagesChatCellDelegate>
                         [self.dataSource insertObject:obj atIndex:0];
                     }];
                 } else {
-                    self.dataSource = [self.dataSource arrayByAddingObjectsFromArray:moreData];
+                    self.dataSource = [[self.dataSource arrayByAddingObjectsFromArray:moreData] mutableCopy];
                 }
                 
                 CGFloat oldOffset = self.collectionView.contentSize.height - self.collectionView.contentOffset.y;
