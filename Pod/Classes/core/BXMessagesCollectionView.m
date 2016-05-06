@@ -44,14 +44,12 @@
         return;
     }
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:numberOfItems-1 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:numberOfItems-1 inSection:0];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        if ([self cellForItemAtIndexPath:indexPath]) {
-            [self scrollToItemAtIndexPath:indexPath
-                         atScrollPosition:UICollectionViewScrollPositionBottom
-                                 animated:animated];
-        }
+        [self scrollToItemAtIndexPath:indexPath
+                     atScrollPosition:UICollectionViewScrollPositionBottom
+                             animated:animated];
     });
 }
 
