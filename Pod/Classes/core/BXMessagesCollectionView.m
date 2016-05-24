@@ -45,12 +45,9 @@
     }
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:numberOfItems-1 inSection:0];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self scrollToItemAtIndexPath:indexPath
-                     atScrollPosition:UICollectionViewScrollPositionBottom
-                             animated:animated];
-    });
+    [self scrollToItemAtIndexPath:indexPath
+                 atScrollPosition:UICollectionViewScrollPositionBottom
+                         animated:animated];
 }
 
 - (void)setShowIndicatorAtBottom:(BOOL)showIndicatorAtBottom
