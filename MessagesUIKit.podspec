@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
         'MessagesUIKit' => ['Pod/Assets/*.{jpg,png,plist}']
   }
 
-  s.dependency 'SDWebImage', '3.7.2'
-  s.dependency 'TTTAttributedLabel', '1.13.4'
+  s.dependency 'SDWebImage', '~> 3.7'
+  s.dependency 'TTTAttributedLabel', '~> 1.13'
   s.dependency 'MBProgressHUD'
 end
