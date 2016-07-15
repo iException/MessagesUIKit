@@ -24,10 +24,10 @@
   },
   "dependencies": {
     "SDWebImage": [
-      "3.7.2"
+      "~> 3.7"
     ],
     "TTTAttributedLabel": [
-      "1.13.4"
+      "~> 1.13"
     ],
     "MBProgressHUD": [
 

@@ -1,1 +1,0 @@
-../../../../../Pod/Classes/quickKit/BXQuickMessagesCollectionView.h

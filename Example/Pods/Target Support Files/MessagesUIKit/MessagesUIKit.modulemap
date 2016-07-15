@@ -1,6 +1,0 @@
-framework module MessagesUIKit {
-  umbrella header "MessagesUIKit-umbrella.h"
-
-  export *
-  module * { export * }
-}

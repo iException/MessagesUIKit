@@ -1,6 +1,8 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD-iOS7.1" "$PODS_CONFIGURATION_BUILD_DIR/MessagesUIKit-iOS7.1" "$PODS_CONFIGURATION_BUILD_DIR/SDWebImage-iOS7.1" "$PODS_CONFIGURATION_BUILD_DIR/TTTAttributedLabel-iOS7.1"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/MBProgressHUD.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/MessagesUIKit.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/SDWebImage.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/TTTAttributedLabel.framework/Headers"
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD-iOS7.1/MBProgressHUD.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/MessagesUIKit-iOS7.1/MessagesUIKit.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/SDWebImage-iOS7.1/SDWebImage.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/TTTAttributedLabel-iOS7.1/TTTAttributedLabel.framework/Headers"
 OTHER_LDFLAGS = $(inherited) -framework "MBProgressHUD" -framework "MessagesUIKit" -framework "SDWebImage" -framework "TTTAttributedLabel"
-PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-MessagesUIKit_Tests
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}/Pods
