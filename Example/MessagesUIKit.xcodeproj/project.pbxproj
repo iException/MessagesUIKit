@@ -23,6 +23,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		B92D52F8EE9932B8530E3AD5 /* Pods_MessagesUIKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09D7D206F1DFF87D53A49DF /* Pods_MessagesUIKit_Example.framework */; };
+		F462C2FA1D387D6D003D3E1B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F462C2F91D387D6D003D3E1B /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		95FA372505B40B0F20DECC41 /* Pods-MessagesUIKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesUIKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesUIKit_Example/Pods-MessagesUIKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BFA9FA214EADC9BEDB34BD1F /* MessagesUIKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MessagesUIKit.podspec; path = ../MessagesUIKit.podspec; sourceTree = "<group>"; };
 		C09D7D206F1DFF87D53A49DF /* Pods_MessagesUIKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessagesUIKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F462C2F91D387D6D003D3E1B /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				6003F5A6195388D20070C39A /* MUKViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				F462C2F91D387D6D003D3E1B /* Launch Screen.storyboard */,
 			);
 			name = "Example for MessagesUIKit";
 			path = MessagesUIKit;
@@ -247,6 +250,10 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = hyice;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 74UX6D4SCA;
+						DevelopmentTeamName = "Shanghai Kijiji Information Technology Co., Ltd.";
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -278,6 +285,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				F462C2FA1D387D6D003D3E1B /* Launch Screen.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,7 +523,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MessagesUIKit/MessagesUIKit-Prefix.pch";
 				INFOPLIST_FILE = "MessagesUIKit/MessagesUIKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -531,7 +539,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MessagesUIKit/MessagesUIKit-Prefix.pch";
 				INFOPLIST_FILE = "MessagesUIKit/MessagesUIKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

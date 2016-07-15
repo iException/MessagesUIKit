@@ -353,6 +353,8 @@
 		F3CC263790DBE53E4C4DD044FA6A50DE /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6F14B12F124C1FB66A637D7DE8217C /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		F3F17E5BB7207D3896334F9F9E510D50 /* buk-toolbar-more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A517B4993CB70FC112983EB932734875 /* buk-toolbar-more@2x.png */; };
 		F460B85D495ABCD51A6E816CF0333083 /* BXQuickMessagesTimeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FE02BF7FB46B328A573B58417D983F /* BXQuickMessagesTimeLabel.m */; };
+		F462C2FD1D38806D003D3E1B /* NSMutableArray+SafeOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = F462C2FB1D38806D003D3E1B /* NSMutableArray+SafeOperations.h */; };
+		F462C2FE1D38806D003D3E1B /* NSMutableArray+SafeOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = F462C2FC1D38806D003D3E1B /* NSMutableArray+SafeOperations.m */; };
 		F49D98691FB5666645FBEF93689DC593 /* SenderVoiceNodePlaying001@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 640C08314822DD86013015DCA3C1D577 /* SenderVoiceNodePlaying001@2x.png */; };
 		F51659C9705E0B840CC914E53B1C4918 /* BXMessagesCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = EDDAB5D5F7CCABD639128D7812CE88BF /* BXMessagesCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F53E0E3D7A8CB023C457684DA081FC78 /* MessagesUIKit-iOS7.0-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1440022E97F183C1ED5D7CB097A27454 /* MessagesUIKit-iOS7.0-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -730,6 +732,8 @@
 		F343C17997B1010708DAA347DB1507D3 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
 		F37BE16D9140D6F1C1FF03762A44D190 /* buk-toolbar-keyboard@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "buk-toolbar-keyboard@2x.png"; sourceTree = "<group>"; };
 		F44B3C3D7F1FA24DCFE00FEA0D3F96DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		F462C2FB1D38806D003D3E1B /* NSMutableArray+SafeOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SafeOperations.h"; sourceTree = "<group>"; };
+		F462C2FC1D38806D003D3E1B /* NSMutableArray+SafeOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SafeOperations.m"; sourceTree = "<group>"; };
 		F4B297DC04AE15B899266903C11F51CB /* BXMessagesInputStickersGalleryViewLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BXMessagesInputStickersGalleryViewLayout.m; sourceTree = "<group>"; };
 		F4F35620C6F5B44600D23FE7B6AD4C2B /* BXMessagesInputToolbarTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BXMessagesInputToolbarTextView.h; sourceTree = "<group>"; };
 		F5F548F55F2B7503D2E435857B49B97F /* BXMessagesInputRecordView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BXMessagesInputRecordView.h; sourceTree = "<group>"; };
@@ -1338,6 +1342,8 @@
 				7DAD0CFF4F6E96C882B40D10AFD46D5D /* NSBundle+MessagesUIKit.m */,
 				330745FF14FAB746E5196CC6346BAA82 /* UIImage+MessagesUIKit.h */,
 				47F61A5BE0E728BEF016E9AEB405D9A5 /* UIImage+MessagesUIKit.m */,
+				F462C2FB1D38806D003D3E1B /* NSMutableArray+SafeOperations.h */,
+				F462C2FC1D38806D003D3E1B /* NSMutableArray+SafeOperations.m */,
 				B55CD05602DEDAA12A9E4467F7332318 /* core */,
 				C176B67C6310B77C8451289E500CFF02 /* quickKit */,
 			);
@@ -1409,6 +1415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC8980D3BB1CDACFAF383CFFAC38BC8C /* MBProgressHUD-iOS7.0-umbrella.h in Headers */,
+				F462C2FD1D38806D003D3E1B /* NSMutableArray+SafeOperations.h in Headers */,
 				A30CD9A58805AD1D0AFE330B20082806 /* MBProgressHUD.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2025,6 +2032,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C37B71D11DDFFC2DDEA938028B51755B /* MBProgressHUD-iOS7.0-dummy.m in Sources */,
+				F462C2FE1D38806D003D3E1B /* NSMutableArray+SafeOperations.m in Sources */,
 				93411C86728F05EBE4AA9DDE74576FD1 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
