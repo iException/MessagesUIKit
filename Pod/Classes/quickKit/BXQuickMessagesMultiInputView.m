@@ -30,6 +30,7 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
 @property (strong, nonatomic) BXMessagesInputToolbarButton *emojiButton;
 @property (strong, nonatomic) BXMessagesInputToolbarButton *accessoryButton;
 @property (strong, nonatomic) BXMessagesInputToolbarButton *keyboardButton;
+@property (strong, nonatomic) BXMessagesInputToolbarButton *testButton;
 @property (strong, nonatomic) BXMessagesInputToolbarTextView *textView;
 @property (strong, nonatomic) BXMessagesInputToolbarAudioButton *audioRecordButton;
 @property (assign, nonatomic) BXMessagesKeyboardExchangePlace keyboardButtonPlace;
@@ -44,11 +45,11 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
 - (void)setupInputToolbarItems
 {
     self.keyboardButtonPlace = BXMessagesKeyboardExchangePlace_None;
-    
     [self.inputToolbar addToolbarItem:self.audioButton];
     [self.inputToolbar addToolbarItem:self.textView];
     [self.inputToolbar addToolbarItem:self.emojiButton];
     [self.inputToolbar addToolbarItem:self.accessoryButton];
+    [self.inputToolbar insertToolbarItem:self.testButton index:1];
 }
 
 - (void)setupDefaultAccessoryItem
@@ -167,6 +168,19 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
     }
     
     return _accessoryButton;
+}
+
+- (BXMessagesInputToolbarButton *)testButton
+{
+    if (!_testButton) {
+        _testButton = [BXMessagesInputToolbarButton buttonWithNormalImage:@"buk-toolbar-emoji" target:self selector:@selector(testButtonPressed:)];
+    }
+    return _testButton;
+}
+
+- (void)testButtonPressed:(UIButton *)sender
+{
+    [self.inputToolbar removeToolbarItemAtIndex:0];
 }
 
 - (void)accessoryButtonPressed:(UIButton *)btn

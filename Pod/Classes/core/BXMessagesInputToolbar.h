@@ -30,4 +30,11 @@
 - (void)replaceToolbarItem:(UIView<BXMessagesInputToolbarItem> *)oldItem
                    withItem:(UIView<BXMessagesInputToolbarItem> *)newItem;
 
+- (void)insertToolbarItem:(UIView<BXMessagesInputToolbarItem> *)item 
+                    index:(NSInteger)index;
+
+- (void)removeToolbarItem:(UIView<BXMessagesInputToolbarItem> *)item;
+
+- (void)removeToolbarItemAtIndex:(NSInteger)index;
+
 @end

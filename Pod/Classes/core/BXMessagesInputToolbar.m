@@ -8,6 +8,7 @@
 
 #import "BXMessagesInputToolbar.h"
 #import "UIView+BXMessagesKit.h"
+#import "NSMutableArray+SafeOperations.h"
 
 @interface BXMessagesInputToolbar()
 
@@ -39,23 +40,7 @@
 
 - (void)addToolbarItem:(UIView<BXMessagesInputToolbarItem> *)item
 {
-    if (item == nil) {
-        return;
-    }
-    
-    if ([self.toolbarItems indexOfObject:item] != NSNotFound) {
-        return;
-    }
-    
-    UIView<BXMessagesInputToolbarItem> *preItem = [self.toolbarItems lastObject];
-    [self.toolbarItems addObject:item];
-    [self addSubview:item];
-    
-    if (preItem) {
-        [self removeRightConstraintForItem:preItem];
-    }
-    
-    [self addConstraintForItem:item leftView:preItem rightView:nil];
+    [self insertToolbarItem:item index:self.toolbarItems.count];
 }
 
 - (void)replaceToolbarItem:(UIView<BXMessagesInputToolbarItem> *)oldItem
@@ -105,6 +90,71 @@
     
     [self addSubview:newItem];
     [self addConstraintForItem:newItem leftView:leftView rightView:rightView];
+}
+
+- (void)insertToolbarItem:(UIView<BXMessagesInputToolbarItem> *)item 
+                    index:(NSInteger)index
+{
+    if (index < 0 || index > self.toolbarItems.count) {
+        return;
+    }
+    
+    if (!item) {
+        return;
+    }
+    
+    if ([self.toolbarItems indexOfObject:item] != NSNotFound) {
+        return;
+    }
+    
+    UIView<BXMessagesInputToolbarItem> *leftItem = [self.toolbarItems bx_safeObjectAtIndex:index - 1];
+    UIView<BXMessagesInputToolbarItem> *rightItem = [self.toolbarItems bx_safeObjectAtIndex:index];
+    [self.toolbarItems bx_addSafeObject:item atIndex:index];
+    [self addSubview:item];
+    
+    if (leftItem && rightItem) {
+        [self removeRightConstraintForItem:leftItem];
+        [self removeLeftConstraintForItem:rightItem];
+    } else if (leftItem && !rightItem) {
+        [self removeRightConstraintForItem:leftItem];
+    } else if (!leftItem && rightItem) {
+        [self removeLeftConstraintForItem:rightItem];
+    }
+    
+    [self addConstraintForItem:item leftView:leftItem rightView:rightItem];
+}
+
+- (void)removeToolbarItem:(UIView<BXMessagesInputToolbarItem> *)item
+{
+    if (!item) {
+        return;
+    }
+    NSInteger index = [self.toolbarItems indexOfObject:item]; 
+    [self removeToolbarItemAtIndex:index];
+}
+
+- (void)removeToolbarItemAtIndex:(NSInteger)index
+{    
+    if (index == NSNotFound || index < 0 || index >= self.toolbarItems.count) {
+        return;
+    }
+    UIView<BXMessagesInputToolbarItem> *item = [self.toolbarItems bx_safeObjectAtIndex:index];
+    if (!item) {
+        return;
+    }
+    
+    UIView<BXMessagesInputToolbarItem> *leftItem = [self.toolbarItems bx_safeObjectAtIndex:index - 1];
+    UIView<BXMessagesInputToolbarItem> *rightItem = [self.toolbarItems bx_safeObjectAtIndex:index + 1];
+    [self.toolbarItems removeObject:item];
+    [item removeFromSuperview];
+    if (leftItem && rightItem) {
+        [self resetHorizontalConstraintsForItem:leftItem];
+        [self resetHorizontalConstraintsForItem:rightItem];
+    } else if (leftItem && !rightItem) {
+        [self resetHorizontalConstraintsForItem:leftItem];
+    } else if (!leftItem && rightItem) {
+        [self resetHorizontalConstraintsForItem:rightItem];
+    }
 }
 
 #pragma mark - kvo
@@ -189,6 +239,40 @@
     if (rightConstraint) {
         [self removeConstraint:rightConstraint];
     }
+}
+
+- (void)removeLeftConstraintForItem:(UIView *)item
+{
+    __block NSLayoutConstraint *leftConstraint = nil;
+    [self.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *constraint, NSUInteger idx, BOOL *stop) {
+        if ((constraint.firstItem == item && constraint.firstAttribute == NSLayoutAttributeLeft)
+            || (constraint.secondItem == item && constraint.secondAttribute == NSLayoutAttributeLeft)) {
+            leftConstraint = constraint;
+            *stop = YES;
+        }
+    }];
+    
+    if (leftConstraint) {
+        [self removeConstraint:leftConstraint];
+    }
+}
+
+- (void)resetHorizontalConstraintsForItem:(UIView<BXMessagesInputToolbarItem> *)item
+{
+    NSInteger index = [self.toolbarItems indexOfObject:item]; 
+    if (index == NSNotFound) {
+        return;
+    }
+    if (item.flexibleWidth) {
+        self.flexibleWidthItem = nil;
+    }
+    [self removeRightConstraintForItem:item];
+    [self removeLeftConstraintForItem:item];
+    UIView<BXMessagesInputToolbarItem> *leftItem = [self.toolbarItems bx_safeObjectAtIndex:index - 1];
+    UIView<BXMessagesInputToolbarItem> *rightItem = [self.toolbarItems bx_safeObjectAtIndex:index + 1];
+    [self removeRightConstraintForItem:leftItem];
+    [self removeLeftConstraintForItem:rightItem];
+    [self addConstraintForItem:item leftView:leftItem rightView:rightItem];
 }
 
 - (void)addConstraintForItem:(UIView<BXMessagesInputToolbarItem> *)item
