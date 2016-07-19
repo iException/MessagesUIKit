@@ -1785,6 +1785,12 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					D4BAD7A522F342BCB24A9100A22FF042 = {
+						DevelopmentTeam = 74UX6D4SCA;
+						DevelopmentTeamName = "Shanghai Kijiji Information Technology Co., Ltd.";
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
