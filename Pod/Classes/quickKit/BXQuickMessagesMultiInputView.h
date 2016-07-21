@@ -60,5 +60,6 @@
 
 - (void)updateVolumnRate:(CGFloat)volumnRate;
 - (void)emojiButtonPressed:(UIButton *)btn;
+- (void)accessoryButtonPressed:(UIButton *)btn;
 
 @end
