@@ -182,7 +182,7 @@ typedef NS_ENUM(NSInteger, BXMessagesInputToolbarAudioButtonState) {
         _recordView.type = BXMessagesInputRecordViewRecordType;
         _recordView.hidden = YES;
         
-        UIView *superSuperView = self.bxMessagesKit_superSuperView;
+        UIView *superSuperView = [UIApplication sharedApplication].keyWindow;
         [superSuperView addSubview:_recordView];
         
         _recordView.translatesAutoresizingMaskIntoConstraints = NO;
