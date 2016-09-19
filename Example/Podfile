@@ -1,12 +1,11 @@
-source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
 use_frameworks!
 
 target 'MessagesUIKit_Example' do
   pod "MessagesUIKit", :path => "../"
-end
 
-target 'MessagesUIKit_Tests' do
-  pod "MessagesUIKit", :path => "../"
+  target 'MessagesUIKit_Tests' do
+    inherit! :search_paths
+  end
 
-  
 end
