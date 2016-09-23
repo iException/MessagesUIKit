@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 baixing. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "BXMessagesInputAccessoryView.h"
 
 @class BXMessagesInputMoreChoiceItem;

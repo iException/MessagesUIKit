@@ -8,8 +8,8 @@
 
 #import "BXQuickMessagesBaseChatCell.h"
 #import "BXQuickMessagesTimeLabel.h"
-#import "UIView+BXMessagesKit.h"
 #import "BXQuickMessage.h"
+#import "UIView+BXMessagesKit.h"
 #import "NSBundle+MessagesUIKit.h"
 #import "UIImage+MessagesUIKit.h"
 

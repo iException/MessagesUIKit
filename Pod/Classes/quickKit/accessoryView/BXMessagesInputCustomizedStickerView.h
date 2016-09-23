@@ -6,7 +6,7 @@
 //
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 // dictionary key for stickersInfo
 static NSString *const kStickerCount           = @"BXSticker_count";          // number of stickers in this pack

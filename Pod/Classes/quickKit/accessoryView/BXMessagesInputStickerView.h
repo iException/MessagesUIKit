@@ -6,7 +6,6 @@
 //
 //
 
-#import <UIKit/UIKit.h>
 #import "BXMessagesInputAccessoryView.h"
 
 @class BXMessagesInputStickerView;

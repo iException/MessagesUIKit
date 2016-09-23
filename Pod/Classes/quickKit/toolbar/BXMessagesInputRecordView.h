@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 baixing. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 typedef NS_ENUM(NSInteger, BXMessagesInputRecordViewType) {
     BXMessagesInputRecordViewUnknownType = 0,

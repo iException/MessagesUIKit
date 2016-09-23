@@ -18,10 +18,9 @@
 #import "BXQuickMessagesMediaChatCell.h"
 #import "BXQuickMessagesStatusCell.h"
 
-#import "UIImageView+WebCache.h" 
-
 #import "NSBundle+MessagesUIKit.h"
 #import "UIImage+MessagesUIKit.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 static NSString * const incomingBXQuickMessagesTextChatCell = @"incomingBXQuickMessagesTextChatCell";
 static NSString * const incomingBXQuickMessagesStickerChatCell = @"incomingBXQuickMessagesStickerChatCell";

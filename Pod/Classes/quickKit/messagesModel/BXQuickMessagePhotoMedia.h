@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 baixing. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "BXQuickMessageMedia.h"
 
 @interface BXQuickMessagePhotoMedia : NSObject <BXQuickMessageMedia>
