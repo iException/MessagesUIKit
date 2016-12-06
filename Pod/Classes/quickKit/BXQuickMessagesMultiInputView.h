@@ -7,26 +7,19 @@
 //
 
 #import "BXMessagesMultiInputView.h"
+#import "BXMessagesInputStickerView.h"
+#import "BXMessagesInputToolbarAudioButton.h"
+#import "BXMessagesInputMoreChoicesView.h"
 
 @class BXMessagesInputMoreChoiceItem;
 @class BXMessagesInputToolbarButton;
 @class BXMessagesInputToolbarTextView;
 @class BXMessagesInputToolbarAudioButton;
 
-@protocol BXQuickMessagesMultiInputViewDelegate <NSObject>
 
-@optional
 
-- (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView sendText:(NSString *)text;
-- (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView sendSticker:(id)stickerInfo;
-- (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView startRecordAudio:(UIButton *)audioButton;
-- (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView finishRecordAudio:(UIButton *)audioButton;
-- (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView cancelRecordAudio:(UIButton *)audioButton;
 
-- (NSInteger)bxNumberOfMoreChoicesItems:(BXMessagesMultiInputView *)multiInputView;
-- (BXMessagesInputMoreChoiceItem *)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView moreChoicesItemAtIndex:(NSUInteger)index;
-
-@end
+@protocol BXQuickMessagesMultiInputViewDelegate;
 
 /**
  *  Input part of Messages UIKit, including toolbar and accessory view. 
@@ -39,7 +32,7 @@
  *  and custom UI like this class.
  *
  */
-@interface BXQuickMessagesMultiInputView : BXMessagesMultiInputView
+@interface BXQuickMessagesMultiInputView : BXMessagesMultiInputView <UITextViewDelegate, BXMessagesInputStickerViewDelegate, BXMessagesInputToolbarAudioButtonDelegate, BXMessagesInputMoreChoicesViewDelegate>
 
 @property (strong, nonatomic, readonly) BXMessagesInputToolbarButton *audioButton;
 @property (strong, nonatomic, readonly) BXMessagesInputToolbarButton *emojiButton;
@@ -47,6 +40,9 @@
 @property (strong, nonatomic, readonly) BXMessagesInputToolbarButton *keyboardButton;
 @property (strong, nonatomic, readonly) BXMessagesInputToolbarTextView *textView;
 @property (strong, nonatomic, readonly) BXMessagesInputToolbarAudioButton *audioRecordButton;
+
+@property (strong, nonatomic, readonly) BXMessagesInputMoreChoicesView *moreChoicesAccessoryView;
+@property (strong, nonatomic, readonly) BXMessagesInputStickerView *inputStickerView;
 
 
 @property (weak, nonatomic) id<BXQuickMessagesMultiInputViewDelegate> delegate;
@@ -61,5 +57,21 @@
 - (void)updateVolumnRate:(CGFloat)volumnRate;
 - (void)emojiButtonPressed:(UIButton *)btn;
 - (void)accessoryButtonPressed:(UIButton *)btn;
+
+@end
+
+
+@protocol BXQuickMessagesMultiInputViewDelegate <NSObject>
+
+@optional
+
+- (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView sendText:(NSString *)text;
+- (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView sendSticker:(id)stickerInfo;
+- (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView startRecordAudio:(UIButton *)audioButton;
+- (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView finishRecordAudio:(UIButton *)audioButton;
+- (void)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView cancelRecordAudio:(UIButton *)audioButton;
+
+- (NSInteger)bxNumberOfMoreChoicesItems:(BXMessagesMultiInputView *)multiInputView;
+- (BXMessagesInputMoreChoiceItem *)bxQuickMessagesMultiInputView:(BXMessagesMultiInputView *)multiInputView moreChoicesItemAtIndex:(NSUInteger)index;
 
 @end

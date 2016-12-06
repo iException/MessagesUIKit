@@ -24,7 +24,7 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
     BXMessagesKeyboardExchangePlace_Emoji
 };
 
-@interface BXQuickMessagesMultiInputView() <UITextViewDelegate, BXMessagesInputStickerViewDelegate, BXMessagesInputToolbarAudioButtonDelegate, BXMessagesInputMoreChoicesViewDelegate>
+@interface BXQuickMessagesMultiInputView()
 
 @property (strong, nonatomic) BXMessagesInputToolbarButton *audioButton;
 @property (strong, nonatomic) BXMessagesInputToolbarButton *emojiButton;
@@ -32,10 +32,9 @@ typedef NS_ENUM(NSInteger, BXMessagesKeyboardExchangePlace) {
 @property (strong, nonatomic) BXMessagesInputToolbarButton *keyboardButton;
 @property (strong, nonatomic) BXMessagesInputToolbarTextView *textView;
 @property (strong, nonatomic) BXMessagesInputToolbarAudioButton *audioRecordButton;
-@property (assign, nonatomic) BXMessagesKeyboardExchangePlace keyboardButtonPlace;
-
 @property (strong, nonatomic) BXMessagesInputMoreChoicesView *moreChoicesAccessoryView;
 @property (strong, nonatomic) BXMessagesInputStickerView *inputStickerView;
+@property (assign, nonatomic) BXMessagesKeyboardExchangePlace keyboardButtonPlace;
 
 @end
 

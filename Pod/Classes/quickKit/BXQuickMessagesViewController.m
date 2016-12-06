@@ -29,8 +29,7 @@ static NSString * const outgoingBXQuickMessagesTextChatCell = @"outgoingBXQuickM
 static NSString * const outgoingBXQuickMessagesStickerChatCell = @"outgoingBXQuickMessagesStickerChatCell";
 static NSString * const outgoingBXQuickMessagesMediaChatCell = @"outgoingBXQuickMessagesMediaChatCell";
 
-@interface BXQuickMessagesViewController () <BXQuickMessagesMultiInputViewDelegate,
-BXQuickMessagesChatCellDelegate>
+@interface BXQuickMessagesViewController () <BXQuickMessagesChatCellDelegate>
 
 @property (strong, nonatomic) BXQuickMessagesMultiInputView *multiInputView;
 

@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, BXQuickMessagesLoadingType) {
  *  Because it is abstract, you do not use this class directly but instead subclass to perform the 
  *  actual task.
  */
-@interface BXQuickMessagesViewController : BXMessagesViewController
+@interface BXQuickMessagesViewController : BXMessagesViewController <BXQuickMessagesMultiInputViewDelegate>
 
 @property (strong, nonatomic, readonly) BXQuickMessagesMultiInputView *multiInputView;
 
