@@ -221,6 +221,10 @@ static NSString * const outgoingBXQuickMessagesMediaChatCell = @"outgoingBXQuick
     if (!cell) {
         return;
     }
+
+    if (indexPath.item > self.dataSource.count - 1) {
+        return;
+    }
     
     BXQuickMessage *message = [self.dataSource objectAtIndex:indexPath.item];
 
