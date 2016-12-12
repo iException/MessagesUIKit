@@ -649,7 +649,7 @@
                                                                            toItem:self.contentContainer
                                                                         attribute:isLeft? NSLayoutAttributeRight : NSLayoutAttributeLeft
                                                                        multiplier:1.0
-                                                                         constant:0];
+                                                                         constant:isLeft? 3.0f : -3.0f];
     [self addConstraint:self.unreadBadgeHorizontalConstraint];
 }
 
@@ -694,7 +694,7 @@
                                                                                   toItem:self.contentContainer
                                                                                attribute:isLeft? NSLayoutAttributeRight : NSLayoutAttributeLeft
                                                                               multiplier:1.0
-                                                                                constant:0];
+                                                                                constant:isLeft? 3.0f : -3.0f];
     self.contentDescriptionLabel.textAlignment = isLeft? NSTextAlignmentLeft : NSTextAlignmentRight;
     [self addConstraint:self.contentDescriptionHorizontalConstraint];
 }
