@@ -574,7 +574,7 @@
                                                                                 toItem:self.avatar
                                                                              attribute:isLeft? NSLayoutAttributeRight : NSLayoutAttributeLeft
                                                                             multiplier:1.0
-                                                                              constant:0 * (isLeft? 1 : -1)];
+                                                                              constant:12 * (isLeft? 1 : -1)];
     [self addConstraint:self.contentContainerHorizontalMarginConstraint];
     
     

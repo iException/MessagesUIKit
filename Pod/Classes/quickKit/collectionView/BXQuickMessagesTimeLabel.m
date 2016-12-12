@@ -20,10 +20,8 @@
 {
     self = [super initWithInsets:insets];
     if (self) {
-        self.backgroundColor = [UIColor colorWithRed:0xae/255.0 green:0xae/255.0 blue:0xae/255.0 alpha:1.0];
-        self.textColor = [UIColor whiteColor];
+        self.textColor = [UIColor colorWithRed:0.502f green:0.549f blue:0.612f alpha:1.0f];
         self.font = [UIFont systemFontOfSize:12];
-        self.layer.cornerRadius = 5;
         self.clipsToBounds = YES;
     }
     return self;
