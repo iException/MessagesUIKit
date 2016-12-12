@@ -657,7 +657,7 @@
 {
     if (!_unreadBadge) {
         _unreadBadge = [[UIView alloc] init];
-        _unreadBadge.backgroundColor = [UIColor redColor];
+        _unreadBadge.backgroundColor = [UIColor colorWithRed:0.376f green:0.569f blue:0.898f alpha:1.0f];
         _unreadBadge.hidden = YES;
         _unreadBadge.layer.cornerRadius = 3;
         _unreadBadge.clipsToBounds = YES;
@@ -778,9 +778,9 @@
 - (UIButton *)actionButton
 {
     if (!_actionButton) {
-        _actionButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        _actionButton.tintColor = [UIColor redColor];
+        _actionButton = [[UIButton alloc] init];
         _actionButton.hidden = YES;
+        [_actionButton setImage:[UIImage buk_imageNamed:@"warning-button"] forState:UIControlStateNormal];
         [_actionButton addTarget:self action:@selector(actionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     }
     
