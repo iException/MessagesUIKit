@@ -39,7 +39,7 @@
 {
     BXQuickMessagesBubleModel *buble = [[BXQuickMessagesBubleModel alloc] init];
     
-    buble.maskBubleImage = @"weChatBubble_Receiving_Solid";
+    buble.maskBubleImage = @"left-buble";
     buble.defaultMaskColor = [UIColor colorWithRed:0xff/255.0 green:0xff/255.0 blue:0xff/255.0 alpha:1.0];
     buble.defaultBorderColor = [UIColor colorWithRed:0xcd/255.0 green:0xcb/255.0 blue:0xca/255.0 alpha:1.0];
     buble.resizableCapInsets = UIEdgeInsetsMake(34, 20, 10, 40);
@@ -54,7 +54,7 @@
 {
     BXQuickMessagesBubleModel *buble = [[BXQuickMessagesBubleModel alloc] init];
     
-    buble.maskBubleImage = @"weChatBubble_Receiving_Solid";
+    buble.maskBubleImage = @"left-buble";
     buble.defaultMaskColor = [UIColor colorWithRed:0xff/255.0 green:0xff/255.0 blue:0xff/255.0 alpha:1.0];
     buble.defaultBorderColor = [UIColor colorWithRed:0xcd/255.0 green:0xcb/255.0 blue:0xca/255.0 alpha:1.0];
     buble.resizableCapInsets = UIEdgeInsetsMake(10, 40, 34, 20);
@@ -69,7 +69,7 @@
 {
     BXQuickMessagesBubleModel *buble = [[BXQuickMessagesBubleModel alloc] init];
     
-    buble.maskBubleImage = @"weChatBubble_Sending_Solid";
+    buble.maskBubleImage = @"right-buble";
     
     buble.defaultMaskColor = [UIColor colorWithRed:0xa0/255.0 green:0xe7/255.0 blue:0x5a/255.0 alpha:1.0];
     buble.defaultBorderColor = [UIColor colorWithRed:0x83/255.0 green:0xd4/255.0 blue:0x5a/255.0 alpha:1.0];
@@ -84,7 +84,7 @@
 + (BXQuickMessagesBubleModel *)defaultRightBottomBuble
 {
     BXQuickMessagesBubleModel *buble = [[BXQuickMessagesBubleModel alloc] init];
-    buble.maskBubleImage = @"weChatBubble_Sending_Solid";
+    buble.maskBubleImage = @"right-buble";
     buble.defaultMaskColor = [UIColor colorWithRed:0xa0/255.0 green:0xe7/255.0 blue:0x5a/255.0 alpha:1.0];
     buble.defaultBorderColor = [UIColor colorWithRed:0x83/255.0 green:0xd4/255.0 blue:0x5a/255.0 alpha:1.0];
     buble.resizableCapInsets = UIEdgeInsetsMake(10, 40, 34, 20);
