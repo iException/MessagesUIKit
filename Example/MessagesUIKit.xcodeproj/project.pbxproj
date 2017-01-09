@@ -38,8 +38,8 @@
 
 /* Begin PBXFileReference section */
 		2BE2E3E99EDD38A543C1D082 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		3B4C5DD4E848BC27FBF5AF3C /* Pods-MessagesUIKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesUIKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesUIKit_Tests/Pods-MessagesUIKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		4669588507DE9F76B6A225FC /* Pods-MessagesUIKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesUIKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesUIKit_Example/Pods-MessagesUIKit_Example.release.xcconfig"; sourceTree = "<group>"; };
+		3850512923FCDB28A2351C91 /* Pods-MessagesUIKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesUIKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesUIKit_Example/Pods-MessagesUIKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		510581F5CF8B834343F4E872 /* Pods-MessagesUIKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesUIKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesUIKit_Example/Pods-MessagesUIKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		5F4A12C3E61ECEBF2AF513B7 /* Pods_MessagesUIKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessagesUIKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* MessagesUIKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessagesUIKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,12 +60,12 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		607B3AE9C55927ED9F36E1DB /* Pods-MessagesUIKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesUIKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesUIKit_Tests/Pods-MessagesUIKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		83A551703102BE0F162A2833 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8BC91D03718A895030286982 /* Pods-MessagesUIKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesUIKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesUIKit_Tests/Pods-MessagesUIKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		95FA372505B40B0F20DECC41 /* Pods-MessagesUIKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesUIKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesUIKit_Example/Pods-MessagesUIKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BFA9FA214EADC9BEDB34BD1F /* MessagesUIKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MessagesUIKit.podspec; path = ../MessagesUIKit.podspec; sourceTree = "<group>"; };
 		C09D7D206F1DFF87D53A49DF /* Pods_MessagesUIKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessagesUIKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD819F7B6DFED030C6C3969E /* Pods-MessagesUIKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessagesUIKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessagesUIKit_Tests/Pods-MessagesUIKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F462C2F91D387D6D003D3E1B /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,10 +188,10 @@
 		DBEF5F8E565DE21B6735BD8D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				95FA372505B40B0F20DECC41 /* Pods-MessagesUIKit_Example.debug.xcconfig */,
-				4669588507DE9F76B6A225FC /* Pods-MessagesUIKit_Example.release.xcconfig */,
-				3B4C5DD4E848BC27FBF5AF3C /* Pods-MessagesUIKit_Tests.debug.xcconfig */,
-				8BC91D03718A895030286982 /* Pods-MessagesUIKit_Tests.release.xcconfig */,
+				3850512923FCDB28A2351C91 /* Pods-MessagesUIKit_Example.debug.xcconfig */,
+				510581F5CF8B834343F4E872 /* Pods-MessagesUIKit_Example.release.xcconfig */,
+				607B3AE9C55927ED9F36E1DB /* Pods-MessagesUIKit_Tests.debug.xcconfig */,
+				CD819F7B6DFED030C6C3969E /* Pods-MessagesUIKit_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		65C8B1665A7CE2FB740EF0DB /* [CP] Copy Pods Resources */ = {
@@ -373,7 +373,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EA2EB0266E7ABD0B4530A8AC /* [CP] Embed Pods Frameworks */ = {
@@ -474,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -507,7 +507,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -516,14 +516,13 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95FA372505B40B0F20DECC41 /* Pods-MessagesUIKit_Example.debug.xcconfig */;
+			baseConfigurationReference = 3850512923FCDB28A2351C91 /* Pods-MessagesUIKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MessagesUIKit/MessagesUIKit-Prefix.pch";
 				INFOPLIST_FILE = "MessagesUIKit/MessagesUIKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -532,14 +531,13 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4669588507DE9F76B6A225FC /* Pods-MessagesUIKit_Example.release.xcconfig */;
+			baseConfigurationReference = 510581F5CF8B834343F4E872 /* Pods-MessagesUIKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MessagesUIKit/MessagesUIKit-Prefix.pch";
 				INFOPLIST_FILE = "MessagesUIKit/MessagesUIKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -548,7 +546,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4C5DD4E848BC27FBF5AF3C /* Pods-MessagesUIKit_Tests.debug.xcconfig */;
+			baseConfigurationReference = 607B3AE9C55927ED9F36E1DB /* Pods-MessagesUIKit_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -571,7 +569,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BC91D03718A895030286982 /* Pods-MessagesUIKit_Tests.release.xcconfig */;
+			baseConfigurationReference = CD819F7B6DFED030C6C3969E /* Pods-MessagesUIKit_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
