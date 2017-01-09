@@ -1,6 +1,6 @@
 PODS:
   - MBProgressHUD (1.0.0)
-  - MessagesUIKit (0.1.7):
+  - MessagesUIKit (0.1.8):
     - MBProgressHUD
     - SDWebImage (~> 3.7)
     - TTTAttributedLabel (~> 1.13)
@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  MessagesUIKit: fd6b7dd16f5aaac57460b9a47711a4b78adffbba
+  MessagesUIKit: e978ea31d3d116eacd8e7739da616e017a00a01d
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
 
