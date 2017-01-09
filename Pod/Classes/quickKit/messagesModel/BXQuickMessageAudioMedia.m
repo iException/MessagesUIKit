@@ -47,9 +47,12 @@
 
 - (CGSize)displaySize
 {
-    CGFloat length = 30 + log(self.audioLength) * 30;
-    length = MIN(length, 200);
-    return CGSizeMake(length, 20);
+    CGFloat width = 30.0;
+    if (self.audioLength > 0) {
+        width += log(self.audioLength) * 30.0;
+        width = fmin(200.0, width);
+    }
+    return CGSizeMake(width, 20);
 }
 
 - (UIImageView *)audioView
