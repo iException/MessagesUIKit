@@ -9,14 +9,14 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "hyice" => "hy_ice719@163.com" }
   s.source           = { :git => "https://github.com/iException/MessagesUIKit.git", :tag => s.version.to_s }
-  s.platform         = :ios, '7.0'
+  s.platform         = :ios, '8.0'
   s.requires_arc     = true
   s.source_files     = 'Pod/Classes/**/*'
   s.resource_bundles = {
     'MessagesUIKit' => ['Pod/Assets/*.{jpg,png,plist}']
   }
 
-  s.dependency 'SDWebImage', '~> 3.7'
-  s.dependency 'TTTAttributedLabel', '~> 1.13'
+  s.dependency 'SDWebImage', '~> 4.0'
+  s.dependency 'TTTAttributedLabel', '~> 2.0'
   s.dependency 'MBProgressHUD'
 end

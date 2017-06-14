@@ -7,6 +7,4 @@ end
 
 target 'MessagesUIKit_Tests' do
   pod "MessagesUIKit", :path => "../"
-
-  
 end

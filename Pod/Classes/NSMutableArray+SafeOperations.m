@@ -41,7 +41,7 @@
         return;
     }
     
-    if (index > self.count || index < 0) {
+    if (index > self.count) {
         return;
     }
     if ([self isKindOfClass:[NSMutableArray class]]) {
