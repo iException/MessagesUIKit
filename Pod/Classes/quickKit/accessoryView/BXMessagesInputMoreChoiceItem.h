@@ -13,6 +13,6 @@
 @property (copy, nonatomic) NSString *cellNibName;
 @property (copy, nonatomic) NSString *cellClassName;
 @property (copy, nonatomic) void (^configureBlock)(UICollectionViewCell *cell);
-@property (copy, nonatomic) void (^selectBlock)();
+@property (copy, nonatomic) void (^selectBlock)(void);
 
 @end
