@@ -222,6 +222,36 @@ static CGFloat const toolBarHeight             = 40;
     self.sendButton.backgroundColor = sendButtonColor;
 }
 
+- (NSUInteger)getStickerPackCountAtIndex:(NSUInteger)index
+{
+    return 0;
+}
+
+- (UIImage *)getStickerPreviewImageAtIndex:(NSUInteger)index
+{
+    return nil;
+}
+
+- (NSArray *)getStickerImagesAtIndex:(NSUInteger)index
+{
+    return nil;
+}
+
+- (NSInteger)numberOfStickersOfPackAtIndex:(NSInteger)index
+{
+    return 0;
+}
+
+- (UIImage *)imageOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex
+{
+    return nil;
+}
+
+- (NSString *)nameOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex
+{
+    return nil;
+}
+
 #pragma mark - UICollectionViewDelegate & DataSource (for stickerGalleryView)
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -318,6 +348,7 @@ static CGFloat const toolBarHeight             = 40;
                     previewImageViewForPackIndex:(NSInteger)packIndex
                                     stickerIndex:(NSInteger)stickerIndex
 {
+    return nil;
 }
 
 #pragma mark - public method
