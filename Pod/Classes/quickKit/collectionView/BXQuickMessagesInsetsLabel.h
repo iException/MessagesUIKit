@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 baixing. All rights reserved.
 //
 
-#import "TTTAttributedLabel.h"
+#import <TTTAttributedLabel/TTTAttributedLabel.h>
 
 @interface BXQuickMessagesInsetsLabel : TTTAttributedLabel
 
