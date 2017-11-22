@@ -18,10 +18,35 @@
 @property (weak, nonatomic) UIView<BXMessagesInputToolbarItem> *maxHeightItem;
 
 @property (strong, nonatomic) NSLayoutConstraint *heightConstraint;
+@property (strong, nonatomic) UIView *topLine;
+@property (strong, nonatomic) UIView *bottomLine;
 
 @end
 
 @implementation BXMessagesInputToolbar
+
+@dynamic topBorderColor;
+@dynamic bottomBorderColor;
+
+- (UIColor *)topBorderColor
+{
+    return self.topLine.backgroundColor;
+}
+
+- (void)setTopBorderColor:(UIColor *)topBorderColor
+{
+    self.topLine.backgroundColor = topBorderColor;
+}
+
+- (UIColor *)bottomBorderColor
+{
+    return self.bottomLine.backgroundColor;
+}
+
+- (void)setBottomBorderColor:(UIColor *)bottomBorderColor
+{
+    self.bottomLine.backgroundColor = bottomBorderColor;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -353,6 +378,8 @@
     [self addConstraint:[NSLayoutConstraint constraintWithItem:topLine attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[topLine]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(topLine)]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:topLine attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:0.5]];
+
+    self.topLine = topLine;
     
     UIView *bottomLine = [[UIView alloc] init];
     bottomLine.backgroundColor = [UIColor colorWithRed:0xd0/255.0 green:0xd0/255.0 blue:0xd0/255.0 alpha:1.0];
@@ -363,6 +390,8 @@
     [self addConstraint:[NSLayoutConstraint constraintWithItem:bottomLine attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[bottomLine]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(bottomLine)]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:bottomLine attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:0.5]];
+
+    self.bottomLine = bottomLine;
 }
 
 #pragma mark -
