@@ -25,6 +25,8 @@ UIGestureRecognizerDelegate>
 
 @implementation BXMessagesViewController
 
+@synthesize multiInputBackgroundView = _multiInputBackgroundView;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,6 +40,7 @@ UIGestureRecognizerDelegate>
 - (void)initViews
 {
     [self.view addSubview:self.collectionView];
+    [self.view addSubview:self.multiInputBackgroundView];
     [self.view addSubview:self.multiInputView];
     
     self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -50,6 +53,13 @@ UIGestureRecognizerDelegate>
     self.multiInputViewTopConstraint = [NSLayoutConstraint constraintWithItem:self.multiInputView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
     [self.view addConstraint:self.multiInputViewBottomConstraint];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[multiInputView]-0-|" options:0 metrics:nil views:@{@"multiInputView":self.multiInputView}]];
+
+    [self.view addConstraints:@[
+        [NSLayoutConstraint constraintWithItem:self.multiInputBackgroundView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0],
+        [NSLayoutConstraint constraintWithItem:self.multiInputBackgroundView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0],
+        [NSLayoutConstraint constraintWithItem:self.multiInputBackgroundView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.multiInputView attribute:NSLayoutAttributeTop multiplier:1 constant:0],
+        [NSLayoutConstraint constraintWithItem:self.multiInputBackgroundView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0],
+    ]];
     
     [self bxAddMultiInputViewKVOObserver];
 }
@@ -152,6 +162,16 @@ UIGestureRecognizerDelegate>
     }
     
     return _multiInputView;
+}
+
+- (UIView *)multiInputBackgroundView
+{
+    if (!_multiInputBackgroundView) {
+        _multiInputBackgroundView = [[UIView alloc] init];
+        _multiInputBackgroundView.translatesAutoresizingMaskIntoConstraints = NO;
+        _multiInputBackgroundView.backgroundColor = [UIColor colorWithRed:0xf9/255.0 green:0xf9/255.0 blue:0xf9/255.0 alpha:1.0];
+    }
+    return _multiInputBackgroundView;
 }
 
 - (void)hideInputView:(BOOL)hide
