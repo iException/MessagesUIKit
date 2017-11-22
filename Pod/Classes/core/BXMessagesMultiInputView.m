@@ -25,6 +25,7 @@
     self = [super initWithFrame:frame];
     
     if (self) {
+        self.clipsToBounds = YES;
         [self initInputToolbar];
         [self initAccessoryView];
         [self addKeyboardNotificationCenterObservers];

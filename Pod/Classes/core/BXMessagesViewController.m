@@ -203,7 +203,7 @@ UIGestureRecognizerDelegate>
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIView animateWithDuration:duration delay:0 options:options animations:^{
-            self.multiInputViewBottomConstraint.constant = -keyboardEndRect.size.height;
+            self.multiInputViewBottomConstraint.constant = -keyboardEndRect.size.height + [self iPhoneXBottomInset];
             [self.view.bxMessagesKit_superSuperView layoutIfNeeded];
             if (self.collectionView.contentSize.height>self.collectionView.bounds.size.height) {
                 [self.collectionView setContentOffset:CGPointMake(0, self.collectionView.contentSize.height
@@ -232,8 +232,17 @@ UIGestureRecognizerDelegate>
         } completion:^(BOOL finished) {
             
         }];
-
     });
+}
+
+- (CGFloat)iPhoneXBottomInset
+{
+    if (@available(iOS 11.0, *)) {
+        if ([UIScreen mainScreen].nativeBounds.size.height == 2436) {
+            return self.view.safeAreaInsets.bottom;
+        }
+    }
+    return 0;
 }
 
 #pragma mark - kvo
