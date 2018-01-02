@@ -25,6 +25,9 @@
 
 @interface BXMessagesInputToolbar : UIView
 
+@property (nonatomic) UIColor *topBorderColor;
+@property (nonatomic) UIColor *bottomBorderColor;
+
 - (void)addToolbarItem:(UIView<BXMessagesInputToolbarItem> *)item;
 
 - (void)replaceToolbarItem:(UIView<BXMessagesInputToolbarItem> *)oldItem

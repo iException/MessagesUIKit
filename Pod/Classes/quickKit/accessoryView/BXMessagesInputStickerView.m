@@ -222,6 +222,36 @@ static CGFloat const toolBarHeight             = 40;
     self.sendButton.backgroundColor = sendButtonColor;
 }
 
+- (NSUInteger)getStickerPackCountAtIndex:(NSUInteger)index
+{
+    return 0;
+}
+
+- (UIImage *)getStickerPreviewImageAtIndex:(NSUInteger)index
+{
+    return nil;
+}
+
+- (NSArray *)getStickerImagesAtIndex:(NSUInteger)index
+{
+    return nil;
+}
+
+- (NSInteger)numberOfStickersOfPackAtIndex:(NSInteger)index
+{
+    return 0;
+}
+
+- (UIImage *)imageOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex
+{
+    return nil;
+}
+
+- (NSString *)nameOfStickersWithPackIndex:(NSInteger)packIndex stickerIndex:(NSInteger)stickerIndex
+{
+    return nil;
+}
+
 #pragma mark - UICollectionViewDelegate & DataSource (for stickerGalleryView)
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -318,6 +348,7 @@ static CGFloat const toolBarHeight             = 40;
                     previewImageViewForPackIndex:(NSInteger)packIndex
                                     stickerIndex:(NSInteger)stickerIndex
 {
+    return nil;
 }
 
 #pragma mark - public method
@@ -334,7 +365,7 @@ static CGFloat const toolBarHeight             = 40;
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.toolBar.hidden = YES;
-        self.progressHUD.labelText = @"加载中...";
+        self.progressHUD.label.text = @"加载中...";
     });
 }
 
@@ -352,11 +383,12 @@ static CGFloat const toolBarHeight             = 40;
     if (!_progressHUD) {
         _progressHUD = [[MBProgressHUD alloc] initWithView:self.stickerMainView];
         _progressHUD.removeFromSuperViewOnHide = YES;
-        _progressHUD.dimBackground = YES;
+        _progressHUD.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;
+        _progressHUD.backgroundView.color = [UIColor colorWithWhite:0.f alpha:.2f];
         _progressHUD.mode = MBProgressHUDModeIndeterminate;
-        _progressHUD.labelText = @"";
+        _progressHUD.label.text = @"";
         [self.stickerMainView addSubview:_progressHUD];
-        [_progressHUD show:YES];
+        [_progressHUD showAnimated:YES];
     }
     
     return _progressHUD;

@@ -21,6 +21,7 @@
  *  To see more details, you can dive into the quick kit.
  */
 @property (strong, nonatomic, readonly) BXMessagesMultiInputView *multiInputView;
+@property (strong, nonatomic, readonly) UIView *multiInputBackgroundView;
 
 @property (strong, nonatomic, readonly) BXMessagesCollectionView *collectionView;
 

@@ -25,6 +25,8 @@ UIGestureRecognizerDelegate>
 
 @implementation BXMessagesViewController
 
+@synthesize multiInputBackgroundView = _multiInputBackgroundView;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,6 +40,7 @@ UIGestureRecognizerDelegate>
 - (void)initViews
 {
     [self.view addSubview:self.collectionView];
+    [self.view addSubview:self.multiInputBackgroundView];
     [self.view addSubview:self.multiInputView];
     
     self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -46,10 +49,17 @@ UIGestureRecognizerDelegate>
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.collectionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_collectionView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_collectionView)]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.collectionView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.multiInputView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
-    self.multiInputViewBottomConstraint = [NSLayoutConstraint constraintWithItem:self.multiInputView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+    self.multiInputViewBottomConstraint = [NSLayoutConstraint constraintWithItem:self.multiInputView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.bottomLayoutGuide attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
     self.multiInputViewTopConstraint = [NSLayoutConstraint constraintWithItem:self.multiInputView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
     [self.view addConstraint:self.multiInputViewBottomConstraint];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[multiInputView]-0-|" options:0 metrics:nil views:@{@"multiInputView":self.multiInputView}]];
+
+    [self.view addConstraints:@[
+        [NSLayoutConstraint constraintWithItem:self.multiInputBackgroundView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0],
+        [NSLayoutConstraint constraintWithItem:self.multiInputBackgroundView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0],
+        [NSLayoutConstraint constraintWithItem:self.multiInputBackgroundView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.multiInputView attribute:NSLayoutAttributeTop multiplier:1 constant:0],
+        [NSLayoutConstraint constraintWithItem:self.multiInputBackgroundView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0],
+    ]];
     
     [self bxAddMultiInputViewKVOObserver];
 }
@@ -154,6 +164,16 @@ UIGestureRecognizerDelegate>
     return _multiInputView;
 }
 
+- (UIView *)multiInputBackgroundView
+{
+    if (!_multiInputBackgroundView) {
+        _multiInputBackgroundView = [[UIView alloc] init];
+        _multiInputBackgroundView.translatesAutoresizingMaskIntoConstraints = NO;
+        _multiInputBackgroundView.backgroundColor = [UIColor colorWithRed:0xf9/255.0 green:0xf9/255.0 blue:0xf9/255.0 alpha:1.0];
+    }
+    return _multiInputBackgroundView;
+}
+
 - (void)hideInputView:(BOOL)hide
 {
     if (hide) {
@@ -203,7 +223,7 @@ UIGestureRecognizerDelegate>
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIView animateWithDuration:duration delay:0 options:options animations:^{
-            self.multiInputViewBottomConstraint.constant = -keyboardEndRect.size.height;
+            self.multiInputViewBottomConstraint.constant = -keyboardEndRect.size.height + [self iPhoneXBottomInset];
             [self.view.bxMessagesKit_superSuperView layoutIfNeeded];
             if (self.collectionView.contentSize.height>self.collectionView.bounds.size.height) {
                 [self.collectionView setContentOffset:CGPointMake(0, self.collectionView.contentSize.height
@@ -232,8 +252,17 @@ UIGestureRecognizerDelegate>
         } completion:^(BOOL finished) {
             
         }];
-
     });
+}
+
+- (CGFloat)iPhoneXBottomInset
+{
+    if (@available(iOS 11.0, *)) {
+        if ([UIScreen mainScreen].nativeBounds.size.height == 2436) {
+            return self.view.safeAreaInsets.bottom;
+        }
+    }
+    return 0;
 }
 
 #pragma mark - kvo
