@@ -33,8 +33,22 @@ UIGestureRecognizerDelegate>
 
     self.view.backgroundColor = [UIColor colorWithRed:0xf2/255.0 green:0xf3/255.0 blue:0xee/255.0 alpha:1.0];
     [self initViews];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     [self addKeyboardNotificationCenterObservers];
+    [self bxAddMultiInputViewKVOObserver];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self removeKeyboardNotificationCenterObservers];
+    [self bxRemoveMultiInputViewKVOObserver];
 }
 
 - (void)initViews
@@ -60,8 +74,6 @@ UIGestureRecognizerDelegate>
         [NSLayoutConstraint constraintWithItem:self.multiInputBackgroundView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.multiInputView attribute:NSLayoutAttributeTop multiplier:1 constant:0],
         [NSLayoutConstraint constraintWithItem:self.multiInputBackgroundView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0],
     ]];
-    
-    [self bxAddMultiInputViewKVOObserver];
 }
 
 #pragma mark - public methods
@@ -300,9 +312,4 @@ UIGestureRecognizerDelegate>
     }
 }
 
-- (void)dealloc
-{
-    [self removeKeyboardNotificationCenterObservers];
-    [self bxRemoveMultiInputViewKVOObserver];
-}
 @end

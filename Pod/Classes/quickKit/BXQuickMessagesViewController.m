@@ -51,9 +51,9 @@ BXQuickMessagesChatCellDelegate>
 
 @synthesize multiInputView = _multiInputView;
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
     
     [self addCollectionViewContentOffsetKVOObserver];
 }
@@ -65,6 +65,13 @@ BXQuickMessagesChatCellDelegate>
     if (!_viewDidAppearOnce) {
         _viewDidAppearOnce = YES;
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self removeCollectionViewContentOffsetKVOObserver];
 }
 
 - (NSMutableArray *)dataSource
@@ -567,10 +574,5 @@ BXQuickMessagesChatCellDelegate>
     
     return _cellHeightCache;
 }
-#pragma mark - 
 
-- (void)dealloc
-{
-    [self removeCollectionViewContentOffsetKVOObserver];
-}
 @end
